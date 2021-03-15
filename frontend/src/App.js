@@ -1,9 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
+import LoginForm from './components/LoginComponent/loginForm';
 
 function App() {
   return (
-    <h1>Hi</h1>
+    <h1><LoginForm/></h1>
   );
 }
 

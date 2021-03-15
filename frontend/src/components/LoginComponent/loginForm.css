@@ -1,0 +1,71 @@
+body.signIn {
+  background-color: bisque;
+}
+.container.signIn {
+  margin: 10%;
+}
+
+.card.signIn-card {
+  margin: 40px 0px 20px;
+  background-color: floralwhite;
+}
+img.signIn-img {
+  margin: auto;
+  display: block;
+  padding: 2rem 2rem 2rem;
+  width: 50%;
+}
+#form.signIn-form {
+  margin: auto;
+  display: block;
+  padding: 0 2rem 2rem;
+  max-width: 350px;
+}
+#emailInput:hover {
+  border: 3px solid cornflowerblue;
+}
+#passwordInput:hover {
+  border: 3px solid cornflowerblue;
+}
+button.signIn-btn {
+  background-color: darksalmon;
+  color: white;
+  margin: auto;
+  width: 40%;
+  display: block;
+  font-size: 25px;
+  margin-bottom: 1rem;
+/*   border-radius: 1rem; */
+}
+button.signIn-btn:hover {
+  border: 2px solid cornflowerblue;
+}
+button.Register {
+  margin: auto;
+  display: block;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 1.2rem;
+  background-color: white;
+  color: black;
+  margin-top: 1rem;
+  width: 20%;
+  border-radius: 0.8rem;
+}
+button.Register:hover {
+  border: 2px solid cornflowerblue;
+}
+input.form-control {
+  margin: auto;
+  width: 50%;
+  display: block;
+  font-size: 25px;
+  margin-bottom: 1rem;
+}
+#error1 {
+  margin: auto;
+  width: 90%;
+  display: block;
+  font-size: 25px;
+  margin-bottom: 1rem;
+}
