@@ -1,102 +1,18 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { Component } from "react";
 import Joi from "joi-browser";
 import "./loginForm.css";
 import image from "./images/computer-shoppe.jpg";
-import axios from "axios";
-
-const API_URL = "http://localhost:8080/user";
-
-// class LoginForm extends Component {
-//   state = {
-//     user: { username: "", password: "" },
-//     errors: {},
-//   };
-//   //   username = React.createRef();
-
-//   /* componentDidMount() {
-//     this.username.current.focus();
-//   } */
-
-//   schema = {
-//     username: Joi.string().required().label("Username"),
-//     password: Joi.string().min(3).max(10).required().label("Password"),
-//   };
-
-//   validate = () => {
-//     const options = { abortEarly: false };
-//     const result = Joi.validate(this.state.user, this.schema, options);
-//     if (!result.error) return null;
-
-//     const errors = {};
-//     for (let item of result.error.details) errors[item.path[0]] = item.message;
-//     return errors;
-//   };
-
-//   handleSubmit = (event) => {
-//     event.preventDefault();
-//     const errors = this.validate();
-//     console.log(errors);
-//     this.setState({ errors: errors || {} });
-//     if (errors) return;
-//     console.log(this.state.user);
-//   };
-
-//   handleChange = ({ currentTarget: input }) => {
-//     const user = { ...this.state.user };
-//     user[input.name] = input.value;
-//     this.setState({ user });
-//   };
-
-//   render() {
-//     const { user, errors } = this.state;
-//     return (
-//       <div className="container">
-//       <h1>Login</h1>
-//       <form onSubmit={this.handleSubmit}>
-//         <div className="for-group">
-//           <label htmlFor="username">Username</label>
-//           <input className="hover1"
-//             autoFocus
-//             placeholder="Enter Username"
-//             id="username"
-//             type="text"
-//             className="form-control"
-//             name="username"
-//             value={user.username}
-//             onChange={this.handleChange}
-//           />
-//           {errors.username && (
-//             <div className="alert alert-danger">{errors.username}</div>
-//           )}
-//         </div>
-//         <div className="for-group">
-//           <label htmlFor="password">Password</label>
-//           <input
-//             placeholder="Enter Password"
-//             id="password"
-//             type="text"
-//             className="form-control"
-//             name="password"
-//             value={user.password}
-//             onChange={this.handleChange}
-//           />
-//           {errors.password && (
-//             <div className="alert alert-danger">{errors.password}</div>
-//           )}
-//         </div>
-//         <br />
-//         <button className="btn btn-primary" id="form.signIn-form">Login</button>
-//       </form>
-//     </div>
-//     );
-//   }
-// }
+import service from "../../services/userService";
 
 class LoginForm extends Component {
-  state = {
-    user: { userEmail: "", userPassword: "" },
-    errors: {},
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: { userEmail: "", userPassword: "" },
+      errors: {},
+    };
+  }
 
   schema = {
     userEmail: Joi.string().required().label("userEmail"),
@@ -110,7 +26,7 @@ class LoginForm extends Component {
 
     const errors = {};
     for (let item of result.error.details) errors[item.path[0]] = item.message;
-  /*   console.log("validate: ", errors); */
+    /*   console.log("validate: ", errors); */
     return errors;
   };
 
@@ -119,13 +35,12 @@ class LoginForm extends Component {
     const errors = this.validate();
     /* console.log(errors); */
     this.setState({ errors: errors || {} });
-   /*  console.log(errors); */
+    /*  console.log(errors); */
     if (errors) return;
     else {
-      console.log(this.state.user);
-      axios.post(API_URL + "/login", this.state.user).then((response) => {
-        console.log(response.data);
-      });
+      //  console.log(this.state.user);
+
+      service.userLogin(this.state.user);
     }
   };
 
@@ -142,7 +57,11 @@ class LoginForm extends Component {
           <div className="col"></div>
           <div className="col-sm-12 col-md-8">
             <div className="card signIn-card">
-              <img src={image} className="img-Fluid imgCenter signIn-img" />
+              <img
+                src={image}
+                className="img-Fluid imgCenter signIn-img"
+                alt="login-image"
+              />
               <form onSubmit={this.handleSubmit} className="signIn-form">
                 <div className="form-group">
                   <input
