@@ -4,6 +4,8 @@ import Joi from "joi-browser";
 import "./loginForm.css";
 import image from "./images/computer-shoppe.jpg";
 import service from "../../services/userService";
+import { BrowserRouter as Route } from "react-router-dom";
+import RegistrationForm from "./../RegistrationComponent/registrationForm";
 
 class LoginForm extends Component {
   constructor(props) {
@@ -49,6 +51,7 @@ class LoginForm extends Component {
     user[input.name] = input.value;
     this.setState({ user });
   };
+
   render() {
     const { user, errors } = this.state;
     return (

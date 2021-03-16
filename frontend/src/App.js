@@ -1,11 +1,10 @@
-
-import './App.css';
-import LoginForm from './components/LoginComponent/loginForm';
+import "./App.css";
+import LoginForm from "./components/LoginComponent/loginForm";
+import RegistrationForm from "./components/RegistrationComponent/registrationForm";
 
 function App() {
-  return (
-    <h1><LoginForm/></h1>
-  );
+  return <RegistrationForm />;
+  /* return <LoginForm />; */
 }
 
 export default App;
