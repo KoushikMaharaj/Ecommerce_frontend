@@ -87,7 +87,7 @@ class RegistrationForm extends Component {
               <u>Register</u>
             </h2>
             <h4 className="main">
-              Create Your Account.it's free only takes a minute
+              Create Your Account. It's free only takes a minute
             </h4>
             <div className="row">
               <div className="col center">
