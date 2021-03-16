@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
-import "./registration1form.css";
-import service from "../../services/userService";
+import "./RegistrationForm.css";
+import service from "../../services/userService.js";
 
 class RegistrationForm extends Component {
   state = {
@@ -12,9 +12,9 @@ class RegistrationForm extends Component {
       userAddr: {
         houseNo: "",
         area: "",
-        country: "",
-        state: "",
         city: "",
+        state: "",
+        country: "",
         pincode: "",
       },
       userContact: "",
@@ -24,11 +24,17 @@ class RegistrationForm extends Component {
   };
 
   schema = {
-    userName: Joi.string().required().label("userName"),
-    userEmail: Joi.string().required().label("userEmail"),
-    userPassword: Joi.string().min(3).max(10).required().label("userPassword"),
-    userContact: Joi.string().required().min(10).max(10).label("userContact"),
+    userName: Joi.string().required().label("Name"),
+    userEmail: Joi.string().required().label("Email"),
+    userPassword: Joi.string().min(3).max(10).required().label("Password"),
+    userContact: Joi.string().required().max(10).label("Contact"),
     userAddr: Joi.object(),
+    houseNo: Joi.string(),
+    area: Joi.string(),
+    city: Joi.string(),
+    state: Joi.string(),
+    country: Joi.string(),
+    pincode: Joi.string(),
     role: Joi.string(),
   };
 
@@ -46,9 +52,8 @@ class RegistrationForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.user);
     const errors = this.validate();
-
+    console.log(errors);
     this.setState({ errors: errors || {} });
     console.log(errors);
     if (errors) return;
@@ -62,7 +67,6 @@ class RegistrationForm extends Component {
     const user = { ...this.state.user };
     user[input.name] = input.value;
     this.setState({ user });
-    /* console.log(this.state.user); */
   };
 
   handleAddrChange = ({ currentTarget: input }) => {
@@ -75,20 +79,22 @@ class RegistrationForm extends Component {
   render() {
     const { user, errors } = this.state;
     return (
-      <div className="container main-container">
-        <div className="row ">
+      <form onSubmit={this.handleSubmit}>
+        <div className="row">
           <div className="col"></div>
-          <div className="col-sm-12 col-md-6 form-class">
-            <form onSubmit={this.handleSubmit}>
-              <h2 className="main-link">Register Account Form</h2>
-
-              <div className="form-group">
+          <div className="col-sm-12 col-md-8 " id="main-class">
+            <h2 className="main">
+              <u>Register</u>
+            </h2>
+            <h4 className="main">
+              Create Your Account.it's free only takes a minute
+            </h4>
+            <div className="row">
+              <div className="col center">
                 <input
                   type="text"
                   className="form-control form1"
-                  id="userName"
-                  aria-describedby="emailHelp"
-                  placeholder="userName"
+                  placeholder="Name"
                   name="userName"
                   value={user.userName}
                   onChange={this.handleChange}
@@ -98,11 +104,12 @@ class RegistrationForm extends Component {
                     {errors.userName}
                   </div>
                 )}
+              </div>
 
+              <div className="col center">
                 <input
                   type="text"
-                  className="form-control form"
-                  id="exampleInput"
+                  className="form-control form1"
                   placeholder="Email"
                   name="userEmail"
                   value={user.userEmail}
@@ -113,11 +120,11 @@ class RegistrationForm extends Component {
                     {errors.userEmail}
                   </div>
                 )}
-
+              </div>
+              <div className="col center">
                 <input
-                  type="text"
-                  className="form-control form"
-                  id="exampleInput"
+                  type="password"
+                  className="form-control form1"
                   placeholder="Password"
                   name="userPassword"
                   value={user.userPassword}
@@ -128,72 +135,107 @@ class RegistrationForm extends Component {
                     {errors.userPassword}
                   </div>
                 )}
-
+              </div>
+            </div>
+            <div className="row">
+              <div className="col center">
                 <input
                   type="text"
-                  className="form-control form"
-                  id="exampleInput"
-                  placeholder="HouseNo"
+                  className="form-control form2houseno"
+                  placeholder="House No"
                   name="houseNo"
                   value={user.userAddr.houseNo}
                   onChange={this.handleAddrChange}
                 />
-
-                <input
+                {errors.houseNo && (
+                  <div className="alert alert-danger " id="error2">
+                    {errors.houseNo}
+                  </div>
+                )}
+              </div>
+              <div className="col center">
+                <textarea
                   type="text"
-                  className="form-control form"
-                  id="exampleInput"
+                  className="form-control form3"
                   placeholder="Area"
                   name="area"
                   value={user.userAddr.area}
                   onChange={this.handleAddrChange}
                 />
-
+                {errors.area && (
+                  <div className="alert alert-danger " id="error2">
+                    {errors.area}
+                  </div>
+                )}
+              </div>
+              <div className="col center">
                 <input
                   type="text"
-                  className="form-control form"
-                  id="exampleInput"
+                  className="form-control form2"
                   placeholder="City"
                   name="city"
                   value={user.userAddr.city}
                   onChange={this.handleAddrChange}
                 />
-
+                {errors.city && (
+                  <div className="alert alert-danger " id="error2">
+                    {errors.city}
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="row">
+              <div className="col center">
                 <input
                   type="text"
-                  className="form-control form"
-                  id="exampleInput"
+                  className="form-control form2"
                   placeholder="State"
                   name="state"
                   value={user.userAddr.state}
                   onChange={this.handleAddrChange}
                 />
-
+                {errors.state && (
+                  <div className="alert alert-danger " id="error2">
+                    {errors.state}
+                  </div>
+                )}
+              </div>
+              <div className="col center">
                 <input
                   type="text"
-                  className="form-control form"
-                  id="exampleInput"
+                  className="form-control form2"
                   placeholder="Country"
                   name="country"
                   value={user.userAddr.country}
                   onChange={this.handleAddrChange}
                 />
-
+                {errors.country && (
+                  <div className="alert alert-danger " id="error2">
+                    {errors.country}
+                  </div>
+                )}
+              </div>
+              <div className="col center">
                 <input
                   type="text"
-                  className="form-control form"
-                  id="exampleInput"
-                  placeholder="PinCode"
+                  className="form-control form2"
+                  id="pin"
+                  placeholder="Pincode"
                   name="pincode"
                   value={user.userAddr.pincode}
                   onChange={this.handleAddrChange}
                 />
-
+                {errors.pincode && (
+                  <div className="alert alert-danger " id="error2">
+                    {errors.pincode}
+                  </div>
+                )}
+              </div>
+              <div className="col center">
                 <input
                   type="text"
-                  className="form-control form"
-                  id="exampleInput"
-                  placeholder="ContactNo"
+                  className="form-control form2"
+                  placeholder="Phone No"
                   name="userContact"
                   value={user.userContact}
                   onChange={this.handleChange}
@@ -204,15 +246,14 @@ class RegistrationForm extends Component {
                   </div>
                 )}
               </div>
-
-              <button type="submit" className="btn btn-primary" id="button1">
-                <i>Register</i>
-              </button>
-            </form>
+            </div>
+            <button className="btn btn-primary" id="changebtn">
+              Register
+            </button>
           </div>
           <div className="col"></div>
         </div>
-      </div>
+      </form>
     );
   }
 }

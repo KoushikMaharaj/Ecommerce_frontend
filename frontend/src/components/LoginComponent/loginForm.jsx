@@ -4,8 +4,8 @@ import Joi from "joi-browser";
 import "./loginForm.css";
 import image from "./images/computer-shoppe.jpg";
 import service from "../../services/userService";
-import { BrowserRouter as Route } from "react-router-dom";
-import RegistrationForm from "./../RegistrationComponent/registrationForm";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+/* import RegistrationForm from "./../RegistrationComponent/registrationForm"; */
 
 class LoginForm extends Component {
   constructor(props) {
@@ -105,11 +105,17 @@ class LoginForm extends Component {
                 </button>
               </form>
             </div>
-            <button className="Register">
-              <i>
-                <b>Register</b>
-              </i>
-            </button>
+            <Router>
+              <Link to="/register">
+                {" "}
+                <button className="Register">
+                  <i>
+                    <b>Register</b>
+                  </i>
+                </button>
+              </Link>
+              {/* <Route  path="/register" component={RegistrationForm}></Route> */}
+            </Router>
           </div>
           <div className="col"></div>
         </div>
