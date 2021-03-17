@@ -89,6 +89,7 @@ const NavBar = () => {
             </Link>
           </li>
         </ul>
+
         {/* <form className="form-inline my-2 my-lg-0">
           <input
             className="form-control mr-sm-2"
@@ -104,6 +105,12 @@ const NavBar = () => {
           </button>
         </form> */}
       </div>
+      <details style={{ color: "white" }}>
+        <summary>Profile</summary>
+        <Link className="nav-link" to="/logout" style={{color:"wheat"}}>
+          LogOut
+        </Link>
+      </details>
     </nav>
   );
 };
