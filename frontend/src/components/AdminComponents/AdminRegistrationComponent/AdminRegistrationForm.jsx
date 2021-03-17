@@ -4,16 +4,19 @@ import "./AdminRegistrationForm.css";
 import service from "../../../services/userService";
 
 class AdminRegistrationForm extends Component {
-  state = {
-    user: {
-      userName: "",
-      userEmail: "",
-      userPassword: "",
-      userContact: "",
-      role: "ADMIN",
-    },
-    errors: {},
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {
+        userName: "",
+        userEmail: "",
+        userPassword: "",
+        userContact: "",
+        role: "ADMIN",
+      },
+      errors: {},
+    };
+  }
 
   schema = {
     userName: Joi.string().required().label("Name"),

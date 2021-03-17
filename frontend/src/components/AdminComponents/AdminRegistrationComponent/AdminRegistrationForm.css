@@ -33,8 +33,6 @@ textarea.form-control.form3:hover {
   border: 2.5px solid black;
 }
 
-
-
 h2.main {
   margin: auto;
   display: block;
@@ -56,9 +54,7 @@ h4.main {
   background-color: cadetblue;
   margin-top: 3rem;
 }
-#changebtn {
-  
-}
+
 #changebtn:hover {
   border: 2.5px solid black;
 }

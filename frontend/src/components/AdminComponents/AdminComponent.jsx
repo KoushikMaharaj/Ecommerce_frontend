@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AddCategory from "./AddCategory";
 import AddSubCategory from "./AddSubCategory";
 import AdminRegistrationForm from "./AdminRegistrationComponent/AdminRegistrationForm";
+import AddProduct from './AddProduct';
 
 class AdminComponent extends Component {
   state = {
@@ -89,11 +90,22 @@ class AdminComponent extends Component {
             <Route exact path="/admin/subcategory" component={AddSubCategory} />
             <Link to="/admin/register">
               <button>Register Admin</button>
+              {"          "}
             </Link>
             <Route
               exact
               path="/admin/register"
               component={AdminRegistrationForm}
+            />
+
+            <Link to="/admin/product">
+              <button>Add Product</button>
+              {"          "}
+            </Link>
+            <Route
+              exact
+              path="/admin/product"
+              component={AddProduct}
             />
           </Router>
         </div>
