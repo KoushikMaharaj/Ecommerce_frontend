@@ -10,8 +10,7 @@ class UserServices {
       if (response.data.role === "ADMIN") {
         console.log("admin logged");
         window.location.assign("/admin");
-      }
-      else{
+      } else {
         window.location.assign("/");
       }
     });

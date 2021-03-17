@@ -3,6 +3,7 @@ import service from "../../services/adminService";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AddCategory from "./AddCategory";
 import AddSubCategory from "./AddSubCategory";
+import AdminRegistrationForm from "./AdminRegistrationComponent/AdminRegistrationForm";
 
 class AdminComponent extends Component {
   state = {
@@ -11,12 +12,18 @@ class AdminComponent extends Component {
 
   componentDidMount() {
     service.getAllAdmins().then((response) => {
-      console.log(response.data);
       const admins = response.data;
       this.setState({ admins });
-      console.log(`Admins : ${JSON.stringify(this.state.admins[0].userName)}`);
     });
   }
+
+  handleUpdate = (id) => {
+    console.log(`updated ${id}`);
+  };
+
+  handleDelete = (id) => {
+    console.log(`deleted ${id}`);
+  };
 
   render() {
     const { admins } = this.state;
@@ -25,11 +32,12 @@ class AdminComponent extends Component {
         <table
           className="table"
           style={{
+            textAlign: "center",
             width: "50%",
             margin: "auto",
             border: "1px solid black",
             marginTop: "2rem",
-            marginBottom:"3rem"
+            marginBottom: "3rem",
           }}
         >
           <thead>
@@ -47,8 +55,22 @@ class AdminComponent extends Component {
                 <td>{admin.userName}</td>
                 <td>{admin.userEmail}</td>
                 <td>{admin.userContact}</td>
-                <td>Delete</td>
-                <td>Update</td>
+                <td>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => this.handleUpdate(admin.id)}
+                  >
+                    Update
+                  </button>
+                </td>
+                <td>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => this.handleDelete(admin.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -62,11 +84,19 @@ class AdminComponent extends Component {
             <Route exact path="/admin/category" component={AddCategory} />
             <Link to="/admin/subcategory">
               <button>Add Subcategory</button>
+              {"          "}
             </Link>
             <Route exact path="/admin/subcategory" component={AddSubCategory} />
+            <Link to="/admin/register">
+              <button>Register Admin</button>
+            </Link>
+            <Route
+              exact
+              path="/admin/register"
+              component={AdminRegistrationForm}
+            />
           </Router>
         </div>
-        
       </React.Fragment>
     );
   }

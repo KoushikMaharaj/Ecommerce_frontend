@@ -10,7 +10,10 @@ import { Link } from "react-router-dom";
   NavLink,
 } from "reactstrap"; */
 
-const NavBar = () => {
+class NavBar extends React.Component {
+  state = {
+    user: {},
+  };
   /* return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -59,38 +62,50 @@ const NavBar = () => {
       </Navbar>
     </div>
   ); */
-  return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a className="navbar-brand" href="$">
-        Navbar
-      </a>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
+  renderUserName = () => {
+    let user = window.localStorage.getItem("user");
+    console.log(user);
+    if (user === null) {
+      return "Welcome Guest";
+    } else {
+      return `Welcome ${user.userName}`;
+    }
+  };
+  render() {
+    return (
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a className="navbar-brand" href="$">
+          Navbar
+        </a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item">
-            <Link className="nav-link" to="/">
-              Home <span className="sr-only">(current)</span>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/login">
-              Login<span className="sr-only">(current)</span>
-            </Link>
-          </li>
-        </ul>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">
+                <i className="fa fa-home fa-fw" aria-hidden="true" />
+                Home <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/login">
+                <i className="fa fa-sign-in" aria-hidden="true" /> Login
+                <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+          </ul>
 
-        {/* <form className="form-inline my-2 my-lg-0">
+          {/* <form className="form-inline my-2 my-lg-0">
           <input
             className="form-control mr-sm-2"
             type="search"
@@ -104,15 +119,22 @@ const NavBar = () => {
             Search
           </button>
         </form> */}
-      </div>
-      <details style={{ color: "white" }}>
-        <summary>Profile</summary>
-        <Link className="nav-link" to="/logout" style={{color:"wheat"}}>
-          LogOut
-        </Link>
-      </details>
-    </nav>
-  );
-};
+          <div style={{ color: "white" }}>{this.renderUserName()}</div>
+        </div>
+        <details style={{ color: "white" }}>
+          <summary style={{ display: "block" }}>
+            <i className="fa fa-user-circle fa-2x" aria-hidden="true" />
+          </summary>
+          <div>
+            <Link className="nav-link" to="/logout" style={{ color: "wheat" }}>
+              <i className="fa fa-sign-out" aria-hidden="true" />
+              LogOut
+            </Link>
+          </div>
+        </details>
+      </nav>
+    );
+  }
+}
 
 export default NavBar;
