@@ -100,7 +100,7 @@ class RegistrationForm extends Component {
                   onChange={this.handleChange}
                 />
                 {errors.userName && (
-                  <div className="alert alert-danger " id="error2">
+                  <div className="alert alert-danger" id="error2">
                     {errors.userName}
                   </div>
                 )}

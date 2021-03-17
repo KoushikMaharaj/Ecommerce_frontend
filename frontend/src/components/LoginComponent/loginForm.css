@@ -3,6 +3,7 @@ body.signIn {
 }
 .container.signIn {
   margin: 10%;
+  margin-top: 1rem;
 }
 
 .card.signIn-card {
@@ -13,7 +14,8 @@ img.signIn-img {
   margin: auto;
   display: block;
   padding: 2rem 2rem 2rem;
-  width: 50%;
+  width: 25%;
+  
 }
 #form.signIn-form {
   margin: auto;
@@ -46,8 +48,8 @@ button.Register {
   font-size: 1.2rem;
   text-align: center;
   margin-bottom: 1.2rem;
-  background-color: white;
-  color: black;
+  background-color: skyblue;
+  color: white;
   margin-top: 1rem;
   width: 20%;
   border-radius: 0.8rem;
