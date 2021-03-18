@@ -23,7 +23,6 @@ class AddProduct extends Component {
     product[input.name] = input.value;
     this.setState({ product });
     console.log(this.state.product);
-    // hey...
   };
 
   render() {
