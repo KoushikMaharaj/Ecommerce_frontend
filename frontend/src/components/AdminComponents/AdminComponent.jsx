@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AddCategory from "./AddCategory";
 import AddSubCategory from "./AddSubCategory";
 import AdminRegistrationForm from "./AdminRegistrationComponent/AdminRegistrationForm";
-import AddProduct from './AddProduct';
+import AddProduct from "./AddProduct";
 
 class AdminComponent extends Component {
   state = {
@@ -18,18 +18,18 @@ class AdminComponent extends Component {
     });
   }
 
-  handleUpdate = (id) => {
-    console.log(`updated ${id}`);
-  };
-
-  handleDelete = (id) => {
-    console.log(`deleted ${id}`);
-  };
-
-  render() {
-    const { admins } = this.state;
+  checkUser = () => {
+    const user = JSON.parse(window.localStorage.getItem("user"));
+    if (user === null || user.role !== "ADMIN") {
+      return (
+        <div className="alert alert-danger " id="error">
+          Please Login as Admin
+        </div>
+      );
+    }
     return (
-      <React.Fragment>
+      <div>
+        {" "}
         <table
           className="table"
           style={{
@@ -51,7 +51,7 @@ class AdminComponent extends Component {
             </tr>
           </thead>
           <tbody>
-            {admins.map((admin) => (
+            {this.state.admins.map((admin) => (
               <tr key={admin.id}>
                 <td>{admin.userName}</td>
                 <td>{admin.userEmail}</td>
@@ -102,15 +102,23 @@ class AdminComponent extends Component {
               <button>Add Product</button>
               {"          "}
             </Link>
-            <Route
-              exact
-              path="/admin/product"
-              component={AddProduct}
-            />
+            <Route exact path="/admin/product" component={AddProduct} />
           </Router>
         </div>
-      </React.Fragment>
+      </div>
     );
+  };
+
+  handleUpdate = (id) => {
+    console.log(`updated ${id}`);
+  };
+
+  handleDelete = (id) => {
+    console.log(`deleted ${id}`);
+  };
+
+  render() {
+    return <React.Fragment>{this.checkUser()}</React.Fragment>;
   }
 }
 

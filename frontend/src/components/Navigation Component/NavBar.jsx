@@ -63,7 +63,7 @@ class NavBar extends React.Component {
     </div>
   ); */
   renderUserName = () => {
-    let user = window.localStorage.getItem("user");
+    let user = JSON.parse(window.localStorage.getItem("user"));
     console.log(user);
     if (user === null) {
       return "Welcome Guest";

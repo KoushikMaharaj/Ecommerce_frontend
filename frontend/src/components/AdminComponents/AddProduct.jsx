@@ -17,6 +17,14 @@ class AddProduct extends Component {
       subcategories: [],
     };
   }
+
+  handleChange = ({ currentTarget: input }) => {
+    const product = { ...this.state.product };
+    product[input.name] = input.value;
+    this.setState({ product });
+    console.log(this.state.product);
+  };
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -29,40 +37,60 @@ class AddProduct extends Component {
           name="prodName"
           onChange={this.handleChange}
         />
-         <textarea style={{width:"50%", margin:"auto",marginBottom:"1rem",fontWeight:"bol",fontSize:"1.5rem"}}
+        <textarea
+          style={{
+            width: "50%",
+            margin: "auto",
+            marginBottom: "1rem",
+            fontWeight: "bol",
+            fontSize: "1.5rem",
+          }}
           type="text"
-          id="ctgNameInput"
+          id="prodDescInput"
           className="form-control"
           placeholder="Enter Product description"
           name="prodDesc"
           onChange={this.handleChange}
         />
-         <input
+        <input
           type="number"
-          id="ctgNameInput"
+          id="prodWarrentyInput"
           className="form-control"
           placeholder="Enter Product warrenty"
           name="prodWarrenty"
           onChange={this.handleChange}
         />
-         <input
+        <input
           type="text"
-          id="ctgNameInput"
+          id="prodPriceInput"
           className="form-control"
           placeholder="Enter Product price"
           name="price"
           onChange={this.handleChange}
         />
-        <label style={{fontWeight:"bold",fontSize:"1.5rem",marginLeft:"17.5rem",marginBottom:"1rem"}}>Product Image:</label>{" "}
-         <input
+        <label
+          style={{
+            fontSize: "1.5rem",
+            marginLeft: "21.5rem",
+            marginBottom: "1rem",
+          }}
+        >
+          Product Image:
+        </label>{" "}
+        <input
           type="file"
-          id="ctgNameInput"          
+          id="prodImageInput"
           name="prodImage"
           onChange={this.handleChange}
         />
         <button
           className="btn btn-primary"
-          style={{ marginLeft: "25%", width: "50%",fontWeight:"bolder",fontSize:"1.5rem" }}
+          style={{
+            marginLeft: "25%",
+            width: "50%",
+            fontWeight: "bolder",
+            fontSize: "1.5rem",
+          }}
         >
           Add Product
         </button>
