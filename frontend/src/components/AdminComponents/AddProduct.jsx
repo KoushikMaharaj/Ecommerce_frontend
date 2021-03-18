@@ -17,11 +17,20 @@ class AddProduct extends Component {
           subCtgName: "",
         },
       },
+      ctg: {
+        ctgName: "",
+      },
+      categories: [],
       subcategories: [],
     };
   }
 
   componentDidMount() {
+    service.getAllCategories().then((response) => {
+      const categories = response.data;
+      this.setState({ categories });
+      console.log(this.state.categories);
+    });
     service.getAllSubCategories().then((response) => {
       const subcategories = response.data;
       this.setState({ subcategories });
@@ -34,6 +43,14 @@ class AddProduct extends Component {
     product[input.name] = input.value;
     this.setState({ product });
     //console.log(this.state.product);
+  };
+
+  handleCategoryChange = ({ currentTarget: input }) => {
+    const ctg = { ...this.state.ctg };
+    ctg[input.name] = input.value;
+    console.log(ctg);
+    this.setState({ ctg });
+    console.log(this.state.ctg);
   };
 
   handleSubCategoryChange = ({ currentTarget: input }) => {
@@ -50,11 +67,32 @@ class AddProduct extends Component {
   };
 
   render() {
-    const { subcategories } = this.state;
+    const { categories, subcategories, ctg } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        <h1 style={{ textAlign: "center",marginTop:"1.5rem",marginBottom:"0.8rem" }}><u>Add Product</u></h1>
-        <label style={{ marginBottom:"1rem", fontSize:"1rem"}}>Choose Subcategory: </label>
+        <h1
+          style={{
+            textAlign: "center",
+            marginTop: "1.5rem",
+            marginBottom: "0.8rem",
+          }}
+        >
+          <u>Add Product</u>
+        </h1>
+        <label>Choose Category: </label>
+        <select
+          name="ctgName"
+          id="category"
+          onChange={this.handleCategoryChange}
+        >
+          <option>None</option>
+          {categories.map((category) => (
+            <option key={category.id}>{category.ctgName}</option>
+          ))}
+        </select>
+        <label style={{ marginBottom: "1rem", fontSize: "1rem" }}>
+          Choose Subcategory:{" "}
+        </label>
         <select
           name="subCtgName"
           id="subcategory"
@@ -62,7 +100,10 @@ class AddProduct extends Component {
         >
           <option>None</option>
           {subcategories.map((subcategory) => (
-            <option style={{width:"2rem"}} key={subcategory}>{subcategory}</option>
+            <option style={{ width: "2rem" }} key={subcategory.id}>
+              {ctg.ctgName === subcategory.ctg.ctgName &&
+                subcategory.subCtgName}
+            </option>
           ))}
         </select>
         <input
@@ -80,7 +121,7 @@ class AddProduct extends Component {
             marginBottom: "1rem",
             fontWeight: "bol",
             fontSize: "1.5rem",
-            height:"5rem",
+            height: "5rem",
           }}
           type="text"
           id="prodDescInput"
@@ -118,7 +159,7 @@ class AddProduct extends Component {
             fontSize: "1.5rem",
             marginLeft: "30rem",
             marginBottom: "1rem",
-            marginTop:"1.2rem"
+            marginTop: "1.2rem",
           }}
         >
           Product Image:
@@ -132,13 +173,13 @@ class AddProduct extends Component {
         <button
           className="btn btn-primary"
           style={{
-            margin:"auto",
-            display:"block",
-            
+            margin: "auto",
+            display: "block",
+
             width: "30%",
             fontWeight: "bolder",
             fontSize: "1.5rem",
-            marginTop:"1.2rem"
+            marginTop: "1.2rem",
           }}
         >
           Add Product

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const CTG_URL = "http://localhost:8080/category/";
-const SUBCTG_URL = "http://localhost:8080/subcategory";
+const SUBCTG_URL = "http://localhost:8080/subcategory/";
 const PROD_URL = "http://localhost:8080/product/";
 
 class ProductService {
@@ -30,7 +30,7 @@ class ProductService {
   addProduct(product) {
     axios.post(PROD_URL, product).then((response) => {
       console.log(response.data);
-      window.location.assign("/admin");
+      //window.location.assign("/admin");
     });
   }
 }
