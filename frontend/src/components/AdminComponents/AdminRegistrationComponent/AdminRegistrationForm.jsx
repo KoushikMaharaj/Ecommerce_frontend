@@ -71,13 +71,15 @@ class AdminRegistrationForm extends Component {
         <div className="row">
           <div className="col"></div>
           <div className="col-sm-12 col-md-8 " id="main-class">
+            
             <h2 className="main">
               <u>Register</u>
             </h2>
             <h4 className="main">
               Create Your Account. It's free only takes a minute
             </h4>
-            <div className="row">
+            {/* <div className="row"> */}
+            <div className="center">
               <div className="col center">
                 <input
                   type="text"
@@ -124,7 +126,7 @@ class AdminRegistrationForm extends Component {
                   </div>
                 )}
               </div>
-            </div>
+            {/* </div> */}
 
             <div className="col center">
               <input
@@ -140,9 +142,10 @@ class AdminRegistrationForm extends Component {
                   {errors.userContact}
                 </div>
               )}
+               <button className="btn btn-primary btn-lg"id="btn1">Register</button>
             </div>
           </div>
-          <button className="btn btn-primary">Register</button>
+          </div>
         </div>
         <div className="col"></div>
       </form>

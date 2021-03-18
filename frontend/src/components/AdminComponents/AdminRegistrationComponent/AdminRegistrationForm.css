@@ -58,3 +58,14 @@ h4.main {
 #changebtn:hover {
   border: 2.5px solid black;
 }
+#btn1{
+  margin: auto;
+  display: block;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+}
+div.center{
+  margin: auto;
+  display: block;
+  width:60%;
+}
