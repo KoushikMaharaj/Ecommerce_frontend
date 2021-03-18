@@ -35,7 +35,6 @@ class AddSubCategory extends Component {
   handleCategoryChange = ({ currentTarget: input }) => {
     const subcategory = { ...this.state.subcategory };
     subcategory.ctg[input.name] = input.value;
-
     console.log(subcategory);
     this.setState({ subcategory });
   };

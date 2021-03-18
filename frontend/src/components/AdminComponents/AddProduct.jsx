@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import service from "../../services/productSevice.js";
 
 class AddProduct extends Component {
   constructor(props) {
@@ -19,17 +20,50 @@ class AddProduct extends Component {
     };
   }
 
+  componentDidMount() {
+    service.getAllSubCategories().then((response) => {
+      const subcategories = response.data;
+      this.setState({ subcategories });
+      console.log(this.state.subcategories);
+    });
+  }
+
   handleChange = ({ currentTarget: input }) => {
     const product = { ...this.state.product };
     product[input.name] = input.value;
     this.setState({ product });
+    //console.log(this.state.product);
+  };
+
+  handleSubCategoryChange = ({ currentTarget: input }) => {
+    const product = { ...this.state.product };
+    product.subCtg[input.name] = input.value;
+    console.log(product);
+    this.setState({ product });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
     console.log(this.state.product);
+    service.addProduct(this.state.product);
   };
 
   render() {
+    const { subcategories } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <h1 style={{ textAlign: "center" }}>Add Product</h1>
+        <label>Choose Subcategory: </label>
+        <select
+          name="subCtgName"
+          id="subcategory"
+          onChange={this.handleSubCategoryChange}
+        >
+          <option>None</option>
+          {subcategories.map((subcategory) => (
+            <option key={subcategory.id}>{subcategory.subCtgName}</option>
+          ))}
+        </select>
         <input
           type="text"
           id="ctgNameInput"
@@ -61,7 +95,7 @@ class AddProduct extends Component {
           name="prodWarrenty"
           onChange={this.handleChange}
         />
-          <input
+        <input
           type="number"
           id="numberInStock"
           className="form-control"
