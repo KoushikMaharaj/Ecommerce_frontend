@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import service from "../../services/productSevice";
+import service from "../../../services/productSevice";
+import "./AddCategory.css";
 
 class AddCategory extends Component {
   state = {
@@ -36,7 +37,8 @@ class AddCategory extends Component {
         />
         <button
           className="btn btn-primary"
-          style={{ marginLeft: "25%", width: "50%" }}
+          id="btn1"
+          
         >
           Add Category
         </button>

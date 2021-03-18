@@ -85,6 +85,7 @@ class AdminRegistrationForm extends Component {
                   type="text"
                   className="form-control form1"
                   placeholder="Name"
+                  id="gap"
                   name="userName"
                   value={user.userName}
                   onChange={this.handleChange}
@@ -101,6 +102,7 @@ class AdminRegistrationForm extends Component {
                   type="text"
                   className="form-control form1"
                   placeholder="Email"
+                  id="gap"
                   name="userEmail"
                   value={user.userEmail}
                   onChange={this.handleChange}
@@ -116,6 +118,7 @@ class AdminRegistrationForm extends Component {
                   type="password"
                   className="form-control form1"
                   placeholder="Password"
+                  id="gap"
                   name="userPassword"
                   value={user.userPassword}
                   onChange={this.handleChange}
@@ -131,8 +134,9 @@ class AdminRegistrationForm extends Component {
             <div className="col center">
               <input
                 type="text"
-                className="form-control form2"
+                className="form-control form1"
                 placeholder="Phone No"
+                id="gap"
                 name="userContact"
                 value={user.userContact}
                 onChange={this.handleChange}
@@ -146,8 +150,9 @@ class AdminRegistrationForm extends Component {
             </div>
           </div>
           </div>
+          <div className="col"></div>
         </div>
-        <div className="col"></div>
+        
       </form>
     );
   }

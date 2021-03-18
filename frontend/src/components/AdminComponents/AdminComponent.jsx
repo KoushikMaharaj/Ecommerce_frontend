@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import service from "../../services/adminService";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import AddCategory from "./AddCategory";
+import AddCategory from "./AddCategoryComponent/AddCategory";
 import AddSubCategory from "./AddSubCategory";
 import AdminRegistrationForm from "./AdminRegistrationComponent/AdminRegistrationForm";
 import AddProduct from "./AddProduct";
