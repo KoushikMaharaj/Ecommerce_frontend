@@ -21,7 +21,7 @@ img.signIn-img {
   margin: auto;
   display: block;
   padding: 0 2rem 2rem;
-  max-width: 350px;
+  max-width: 250px;
 }
 #emailInput:hover {
   border: 3px solid cornflowerblue;
@@ -59,7 +59,7 @@ button.Register:hover {
 }
 input.form-control {
   margin: auto;
-  width: 50%;
+  width: 40%;
   display: block;
   font-size: 25px;
   margin-bottom: 1rem;

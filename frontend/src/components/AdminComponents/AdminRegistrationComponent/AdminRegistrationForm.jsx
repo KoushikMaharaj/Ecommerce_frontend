@@ -70,7 +70,7 @@ class AdminRegistrationForm extends Component {
       <form onSubmit={this.handleSubmit}>
         <div className="row">
           <div className="col"></div>
-          <div className="col-sm-12 col-md-8 " id="main-class">
+          <div className="col-sm-12 col-md-6 " id="main-class">
             
             <h2 className="main">
               <u>Register</u>
@@ -146,7 +146,7 @@ class AdminRegistrationForm extends Component {
                   {errors.userContact}
                 </div>
               )}
-               <button className="btn btn-primary btn-lg"id="btn1">Register</button>
+               <button className="btn btn-primary" id="button1" >Register</button>
             </div>
           </div>
           </div>

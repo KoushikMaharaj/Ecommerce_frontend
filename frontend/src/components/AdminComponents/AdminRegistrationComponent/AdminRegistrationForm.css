@@ -53,19 +53,16 @@ h4.main {
   margin: auto;
   display: block;
   background-color: cadetblue;
+ 
   margin-top: 3rem;
+  
 
 }
 
 #changebtn:hover {
   border: 2.5px solid black;
 }
-#btn1{
-  margin: auto;
-  display: block;
-  margin-bottom: 3rem;
-  margin-top: 2rem;
-}
+
 div.center{
   margin: auto;
   display: block;
@@ -73,4 +70,10 @@ div.center{
 }
 #gap{
   margin-bottom: 1rem;
+}
+#button1{
+  margin: auto;
+  display: block;
+  margin-top: 1.2rem;
+  margin-bottom: 2rem;
 }

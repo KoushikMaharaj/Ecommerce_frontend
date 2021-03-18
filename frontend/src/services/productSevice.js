@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const CTG_URL = "http://localhost:8080/category/";
-const SUBCTG_URL = "http://localhost:8080/subcategory/";
+const SUBCTG_URL = "http://localhost:8080/subcategory";
 const PROD_URL = "http://localhost:8080/product/";
 
 class ProductService {

@@ -5,6 +5,8 @@ import AddCategory from "./AddCategoryComponent/AddCategory";
 import AddSubCategory from "./AddSubCategory";
 import AdminRegistrationForm from "./AdminRegistrationComponent/AdminRegistrationForm";
 import AddProduct from "./AddProduct";
+import "./AdminComponent.css";
+
 
 class AdminComponent extends Component {
   state = {
@@ -76,7 +78,7 @@ class AdminComponent extends Component {
             ))}
           </tbody>
         </table>
-        <div>
+        <div className="design">
           <Router>
             <Link to="/admin/category">
               <button>Add Category</button>

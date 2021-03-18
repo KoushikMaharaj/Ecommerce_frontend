@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import service from "../../services/productSevice.js";
+import "./AddProduct.css";
 
 class AddProduct extends Component {
   constructor(props) {
@@ -52,8 +53,8 @@ class AddProduct extends Component {
     const { subcategories } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        <h1 style={{ textAlign: "center" }}>Add Product</h1>
-        <label>Choose Subcategory: </label>
+        <h1 style={{ textAlign: "center",marginTop:"1.5rem",marginBottom:"0.8rem" }}><u>Add Product</u></h1>
+        <label style={{ marginBottom:"1rem", fontSize:"1rem"}}>Choose Subcategory: </label>
         <select
           name="subCtgName"
           id="subcategory"
@@ -61,28 +62,29 @@ class AddProduct extends Component {
         >
           <option>None</option>
           {subcategories.map((subcategory) => (
-            <option key={subcategory.id}>{subcategory.subCtgName}</option>
+            <option style={{width:"2rem"}} key={subcategory}>{subcategory}</option>
           ))}
         </select>
         <input
           type="text"
           id="ctgNameInput"
-          className="form-control"
+          className="form-control size"
           placeholder="Enter Product name"
           name="prodName"
           onChange={this.handleChange}
         />
         <textarea
           style={{
-            width: "50%",
+            width: "40%",
             margin: "auto",
             marginBottom: "1rem",
             fontWeight: "bol",
             fontSize: "1.5rem",
+            height:"5rem",
           }}
           type="text"
           id="prodDescInput"
-          className="form-control"
+          className="form-control size"
           placeholder="Enter Product description"
           name="prodDesc"
           onChange={this.handleChange}
@@ -90,7 +92,7 @@ class AddProduct extends Component {
         <input
           type="number"
           id="prodWarrentyInput"
-          className="form-control"
+          className="form-control size"
           placeholder="Enter Product warrenty"
           name="prodWarrenty"
           onChange={this.handleChange}
@@ -98,7 +100,7 @@ class AddProduct extends Component {
         <input
           type="number"
           id="numberInStock"
-          className="form-control"
+          className="form-control size"
           placeholder="Enter Stock in Number"
           name="numberInStock"
           onChange={this.handleChange}
@@ -106,7 +108,7 @@ class AddProduct extends Component {
         <input
           type="text"
           id="prodPriceInput"
-          className="form-control"
+          className="form-control size"
           placeholder="Enter Product price"
           name="price"
           onChange={this.handleChange}
@@ -114,8 +116,9 @@ class AddProduct extends Component {
         <label
           style={{
             fontSize: "1.5rem",
-            marginLeft: "21.5rem",
+            marginLeft: "30rem",
             marginBottom: "1rem",
+            marginTop:"1.2rem"
           }}
         >
           Product Image:
@@ -129,10 +132,13 @@ class AddProduct extends Component {
         <button
           className="btn btn-primary"
           style={{
-            marginLeft: "25%",
-            width: "50%",
+            margin:"auto",
+            display:"block",
+            
+            width: "30%",
             fontWeight: "bolder",
             fontSize: "1.5rem",
+            marginTop:"1.2rem"
           }}
         >
           Add Product

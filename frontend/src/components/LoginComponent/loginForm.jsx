@@ -98,7 +98,7 @@ class LoginForm extends Component {
                     </div>
                   )}
                 </div>
-                <button className="btn signIn-btn btn-lg">
+                <button className="btn signIn-btn ">
                   <i>
                     <b>Sign In</b>
                   </i>
