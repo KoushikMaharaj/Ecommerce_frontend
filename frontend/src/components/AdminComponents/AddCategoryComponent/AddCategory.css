@@ -1,5 +1,18 @@
 #btn1 {
   margin: auto;
   display: block;
-  width: 50%;
+  width: 15%;
+  margin-top: 1rem;
+  font-size: 20px;
+  
+}
+input.form-control.btn1{
+    margin: auto;
+  display: block;
+  width: 40%;
+}
+h1.btn1{
+    margin-bottom: 1.4rem;
+    font-size: 2rem;
+    
 }

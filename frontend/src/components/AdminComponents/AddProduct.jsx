@@ -9,6 +9,7 @@ class AddProduct extends Component {
         prodDesc: "",
         prodWarrenty: "",
         price: "",
+        numberInStock: "",
         prodImage: "",
         subCtg: {
           subCtgName: "",
@@ -28,7 +29,7 @@ class AddProduct extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <h1 style={{ textAlign: "center" }}>Add Category</h1>
+        <h1 style={{ textAlign: "center" }}>Add Product</h1>
         <input
           type="text"
           id="ctgNameInput"
@@ -58,6 +59,14 @@ class AddProduct extends Component {
           className="form-control"
           placeholder="Enter Product warrenty"
           name="prodWarrenty"
+          onChange={this.handleChange}
+        />
+          <input
+          type="number"
+          id="numberInStock"
+          className="form-control"
+          placeholder="Enter Stock in Number"
+          name="numberInStock"
           onChange={this.handleChange}
         />
         <input

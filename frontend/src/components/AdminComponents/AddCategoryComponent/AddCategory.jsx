@@ -25,11 +25,13 @@ class AddCategory extends Component {
     const { category } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        <h1 style={{ textAlign: "center" }}>Add Category</h1>
+        <h1 className="btn1" style={{ textAlign: "center" }}><b>Add Category</b></h1>
         <input
           type="text"
           id="ctgNameInput"
-          className="form-control"
+          className="form-control btn1"
+          
+          
           placeholder="Enter Category"
           name="ctgName"
           value={category.ctgName}
