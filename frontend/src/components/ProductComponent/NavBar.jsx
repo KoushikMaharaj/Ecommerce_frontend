@@ -1,11 +1,21 @@
-import React, { Component } from 'react';
-import "./Product.css"
-
+import React, { Component } from "react";
+import "./NavBar.css";
+import service from "../../services/productSevice";
 
 class NavBar extends Component {
-    state = {  }
-    render() { 
-        return ( <div class="menu-bar">
+  state = {
+    categories: [],
+  };
+
+  componentDidMount() {
+    service.getAllCategories().then((response) => {
+      console.log(response.data);
+      const categories = response.data;
+      this.setState({ categories });
+    });
+  }
+  render() {
+    /*  return ( <div class="menu-bar">
         <ul class="">
             <li><a href="#"><b>Motherboard</b></a>
             <div class="sub-menu-1">
@@ -171,8 +181,17 @@ class NavBar extends Component {
 </ul>
             </div>
 
-         );
-    }
+         );*/
+    const { categories } = this.state;
+    return (<React.Fragment>
+      <div className="menu-bar">
+        <ul>{categories.map((category)=>(
+          <li key={category.id}><a href="$">{category.ctgName}</a></li>
+        ))}</ul>
+      </div>
+    
+    </React.Fragment>)
+  }
 }
- 
+
 export default NavBar;

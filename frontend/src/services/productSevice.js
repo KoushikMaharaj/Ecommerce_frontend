@@ -33,6 +33,10 @@ class ProductService {
       //window.location.assign("/admin");
     });
   }
+
+  getAllProducts(){
+    return axios(PROD_URL);
+  }
 }
 
 export default new ProductService();
