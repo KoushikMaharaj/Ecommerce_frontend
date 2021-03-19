@@ -7,7 +7,10 @@ import NavBar from "./components/Navigation Component/NavBar";
 import AdminComponent from "./components/AdminComponents/AdminComponent";
 import FooterComponent from "./components/Footer Component/FooterComponent";
 import React from "react";
-import ProfileComponent from './components/ProfileComponent/ProfileComponent';
+import ProfileComponent from "./components/ProfileComponent/ProfileComponent";
+import Product from "./components/ProductComponent/Product";
+
+
 
 function App() {
   /* return <RegistrationForm/>; */
@@ -26,7 +29,9 @@ function App() {
           <Route path="/login" component={LoginForm} />
           <Route path="/register" component={RegistrationForm} />
           <Route path="/admin" component={AdminComponent} />
-          <Route path="/user/profile" component={ProfileComponent}/>
+          <Route path="/user/profile" component={ProfileComponent} />
+          <Route path="/product" component={Product} />
+          
         </Switch>
       </Router>
       <FooterComponent />

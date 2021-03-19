@@ -152,7 +152,7 @@ class HomeComponent extends Component {
                           id="btnCenter1"
                         >
                           {" "}
-                          <b> View Details </b>
+                          <a href="/prdouct/details"><b> View Details </b></a>
                         </button>
                       </div>
                     </div>
