@@ -13,6 +13,7 @@ class LoginForm extends Component {
     this.state = {
       user: { userEmail: "", userPassword: "" },
       errors: {},
+      loginError: "",
     };
   }
 
@@ -28,21 +29,31 @@ class LoginForm extends Component {
 
     const errors = {};
     for (let item of result.error.details) errors[item.path[0]] = item.message;
-    /*   console.log("validate: ", errors); */
     return errors;
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
     const errors = this.validate();
-    /* console.log(errors); */
     this.setState({ errors: errors || {} });
-    /*  console.log(errors); */
     if (errors) return;
     else {
-      //  console.log(this.state.user);
-
-      service.userLogin(this.state.user);
+      service
+        .userLogin(this.state.user)
+        .then((response) => {
+          console.log(response.data);
+          window.localStorage.setItem("user", JSON.stringify(response.data));
+          if (response.data.role === "ADMIN") {
+            console.log("admin logged");
+            window.location.assign("/admin");
+          } else {
+            window.location.assign("/");
+          }
+        })
+        .catch((ex) => {
+          const loginError = "Please Check credentials";
+          this.setState({ loginError });
+        });
     }
   };
 
@@ -53,9 +64,10 @@ class LoginForm extends Component {
   };
 
   render() {
-    const { user, errors } = this.state;
+    const { user, errors, loginError } = this.state;
     return (
       <div className="container signIn">
+        {loginError && <div>{loginError}</div>}
         <div className="row">
           <div className="col"></div>
           <div className="col-sm-12 col-md-8">

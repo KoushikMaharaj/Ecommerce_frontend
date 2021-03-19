@@ -45,13 +45,13 @@ class AddProduct extends Component {
     //console.log(this.state.product);
   };
 
-  /*  handleCategoryChange = ({ currentTarget: input }) => {
+  handleCategoryChange = ({ currentTarget: input }) => {
     const ctg = { ...this.state.ctg };
     ctg[input.name] = input.value;
     console.log(ctg);
     this.setState({ ctg });
     console.log(this.state.ctg);
-  }; */
+  };
 
   handleSubCategoryChange = ({ currentTarget: input }) => {
     const product = { ...this.state.product };
@@ -79,7 +79,7 @@ class AddProduct extends Component {
         >
           <u>Add Product</u>
         </h1>
-        {/* <label>Choose Category: </label>
+        <label>Choose Category: </label>
         <select
           name="ctgName"
           id="category"
@@ -89,7 +89,7 @@ class AddProduct extends Component {
           {categories.map((category) => (
             <option key={category.id}>{category.ctgName}</option>
           ))}
-        </select> */}
+        </select>
         <label style={{ marginBottom: "1rem", fontSize: "1rem" }}>
           Choose Subcategory:{" "}
         </label>
@@ -101,7 +101,8 @@ class AddProduct extends Component {
           <option>None</option>
           {subcategories.map((subcategory) => (
             <option style={{ width: "2rem" }} key={subcategory.id}>
-              {subcategory.subCtgName}
+              {ctg.ctgName === subcategory.ctg.ctgName &&
+                subcategory.subCtgName}
             </option>
           ))}
         </select>

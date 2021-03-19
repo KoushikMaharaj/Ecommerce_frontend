@@ -69,7 +69,7 @@ class NavBar extends React.Component {
   }
   renderUserName = () => {
     if (this.state.user === null) {
-      return "Welcome Guest";
+      return "Hi Guest";
     } else {
       return `Hi ${this.state.user.userName}`;
     }
@@ -84,7 +84,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <h4 style={{color:"white"}}>Navbar</h4>
+        <h4 style={{ color: "white" }}>Navbar</h4>
         <button
           className="navbar-toggler"
           type="button"
@@ -92,7 +92,7 @@ class NavBar extends React.Component {
           data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
-          aria-label="Toggle navigation"          
+          aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -106,9 +106,22 @@ class NavBar extends React.Component {
               </Link>
             </li>
             <li className="nav-item">
+              <Link className="nav-link" to="/product">
+                <i className="fa fa-product-hunt" aria-hidden="true" />
+                {" "}Products
+              </Link>
+            </li>
+            <li className="nav-item">
               {!this.state.user && (
                 <Link className="nav-link" to="/login">
                   <i className="fa fa-sign-in" aria-hidden="true" /> Login
+                </Link>
+              )}
+            </li>
+            <li className="nav-item">
+              {this.state.user && this.state.user.role === "ADMIN" && (
+                <Link className="nav-link" to="/admin">
+                  <i className="fa fa-file" aria-hidden="true" /> Admin Page
                 </Link>
               )}
             </li>
@@ -133,7 +146,7 @@ class NavBar extends React.Component {
         <details style={{ color: "white" }}>
           <summary style={{ display: "block" }}>
             <div style={{ color: "white" }}>{this.renderUserName()}</div>
-            <i className="fa fa-user-circle fa-2x" aria-hidden="true" />
+            <i className="fa fa-user-circle fa-2x" aria-hidden="true" style={{marginLeft:"1rem"}}/>
           </summary>
           {this.state.user && (
             <div style={{ verticalAlign: "baseline" }}>
