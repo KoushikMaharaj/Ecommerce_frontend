@@ -18,8 +18,8 @@ class LoginForm extends Component {
   }
 
   schema = {
-    userEmail: Joi.string().required().label("userEmail"),
-    userPassword: Joi.string().min(3).max(10).required().label("userPassword"),
+    userEmail: Joi.string().required().label("Email"),
+    userPassword: Joi.string().min(3).max(10).required().label("Password"),
   };
 
   validate = () => {
@@ -67,7 +67,7 @@ class LoginForm extends Component {
     const { user, errors, loginError } = this.state;
     return (
       <div className="container signIn">
-        {loginError && <div>{loginError}</div>}
+        {loginError && <div className="alert alert-danger " id="error1" >{loginError}</div>}
         <div className="row">
           <div className="col"></div>
           <div className="col-sm-12 col-md-8">
