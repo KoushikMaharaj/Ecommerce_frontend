@@ -1,0 +1,121 @@
+.dropdown-menu{
+    background-color:dimgrey;
+    font-display: block;
+    font-style: italic;
+    color: black;
+}
+
+.jumbotron{
+    margin: auto;
+    background: none;
+    text-align: center;
+    color:crimson;
+}
+.carousel-inner img{
+    width:110%;
+    margin: auto;
+    margin-bottom: 4rem;
+}
+.sectionLight{
+    background-color:#eceeef;
+}
+
+#button{
+    display: block;
+    text-align: center;
+    background-color:red;
+    margin: auto;
+    margin-top: 1.2rem;
+    color: black;
+    border-radius: 1rem;
+    
+}
+#button:hover{
+    color:white;
+}
+
+.sectionDark{
+    background-color:#cccccc;
+    padding:2rem;
+    
+}
+#img-2{
+    margin:auto;
+    border-radius: 2rem;
+    width:500%;
+    
+}
+/*#img-1{
+    box-sizing: border-box;
+    max-height: 100%;
+    height: auto;
+    border-radius: 2rem;
+    width:110%;
+
+}*/
+h5.modal-title{
+    margin: auto;
+}
+button.close-1{
+    background-color: white;
+    text-align: center;
+    color: black;
+}
+.modelFormWrapper{
+    margin-top: 1rem;
+}
+input.hover:hover{
+    color:burlywood;
+}
+.imgCenter{
+    display: block;
+    margin: auto;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    
+}
+button.btnCenter{
+    
+display: block;
+    margin: auto;
+    background-color:burlywood;
+    color:black;
+    margin-bottom: 1.2rem;
+    width:71%;
+}
+
+.design{
+    padding:0.5rem 0.5rem 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.fa-facebook-square{
+    color: #3b5998;
+}
+.fa-google-plus-square{
+    color:#c32f10;
+}
+.fa-instagram{
+    color:#ffffff;
+}
+div.favicons{
+    display: block;
+    margin: auto;
+    word-spacing: 1rem;
+}
+#img-favicons{
+    border-radius: 0.5rem;
+}
+div.new-footer{
+    background-color:darkseagreen;
+}
+button.login{
+   background-color: white;
+    color:black;
+    
+}
+.body1{
+    background-image: url(https://png.pngtree.com/thumb_back/fh260/back_our/20190620/ourmid/pngtree-beautiful-technology-website-business-poster-background-template-image_148436.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
