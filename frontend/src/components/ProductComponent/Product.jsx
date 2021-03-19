@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NavBar from "./NavBar";
 import service from "../../services/productSevice";
 import "./Product.css";
+import { Link } from 'react-router-dom';
 
 class Product extends Component {
   state = {
@@ -39,9 +40,10 @@ class Product extends Component {
                 alt={product.prodName}
               />
               <p>
-                <button className="btn btn-primary" onClick={()=>this.viewDetails(product.id)}>
+                <Link to={`/product/details/${product.id}`}>
+                <button className="btn btn-primary">
                   View Details
-                </button>
+                </button></Link>
               </p>
             </div>
           ))}

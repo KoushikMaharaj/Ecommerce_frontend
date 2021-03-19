@@ -1,4 +1,4 @@
-import "./App.css";
+//import "./App.css";
 import LoginForm from "./components/LoginComponent/loginForm";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import RegistrationForm from "./components/RegistrationComponent/RegistrationForm";
@@ -10,8 +10,7 @@ import React from "react";
 import ProfileComponent from "./components/ProfileComponent/ProfileComponent";
 import Product from "./components/ProductComponent/Product";
 import "bootstrap/dist/css/bootstrap.css";
-
-
+import ProductDetails from "./components/ProductComponent/ProductDetails";
 
 function App() {
   /* return <RegistrationForm/>; */
@@ -32,7 +31,7 @@ function App() {
           <Route exact path="/admin" component={AdminComponent} />
           <Route exact path="/user/profile" component={ProfileComponent} />
           <Route exact path="/product" component={Product} />
-          
+          <Route exact path="/product/details/:id" component={ProductDetails} />
         </Switch>
       </Router>
       <FooterComponent />
