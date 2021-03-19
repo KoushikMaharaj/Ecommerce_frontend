@@ -73,15 +73,16 @@ input.hover:hover{
     margin-top: 1.2rem;
     margin-bottom: 1.2rem;
     
+    
 }
 button.btnCenter{
     
 display: block;
     margin: auto;
-    background-color:burlywood;
+    background-color:beige;
     color:black;
     margin-bottom: 1.2rem;
-    width:71%;
+    width:40%;
 }
 
 .design{
@@ -114,8 +115,7 @@ button.login{
     color:black;
     
 }
-.body1{
-    background-image: url(https://png.pngtree.com/thumb_back/fh260/back_our/20190620/ourmid/pngtree-beautiful-technology-website-business-poster-background-template-image_148436.jpg);
-    background-size: cover;
-    background-attachment: fixed;
+#btnCenter1:hover{
+  
+  background-color:cadetblue;
 }

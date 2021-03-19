@@ -1,149 +1,158 @@
 import React, { Component } from "react";
-import "./HomeComponent.css"
+import "./HomeComponent.css";
+import photo3 from "./images/photo3.jpg";
+import photo4 from "./images/photo4.jpg";
+import photo5 from "./images/photo5.jpg";
 class HomeComponent extends Component {
   state = {};
   render() {
     return (
       <React.Fragment>
-        <div class="body1">
-          <div class="sectionLight">
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="jumbotron jumbotron-fluid">
-                  <div class="container">
-                    <h1 class="display-3">
+        <div className="body1">
+          <div className="sectionLight">
+            <div className="row">
+              <div className="col-sm-12">
+                <div className="jumbotron jumbotron-fluid">
+                  <div className="container">
+                    <h1 className="display-3">
                       <b>Welcome To</b>
                     </h1>
-                    <h3 class="lead">
+                    <h3 className="lead">
                       <b>Computer Accessories Shoppe</b>
                     </h3>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col"></div>
-              <div class="col-sm-12 col-md-6">
+            <div className="row">
+              <div className="col"></div>
+              <div className="col-sm-12 col-md-6">
                 <div
                   id="mainCarousel"
-                  class="carousel slide"
+                  className="carousel slide"
                   data-ride="carousel"
                 >
-                  <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
+                  <div className="carousel-inner" role="listbox">
+                    <div className="carousel-item active">
                       <img
-                        class="d-block img-fluid"
-                        src="/images/photo3.jpg"
+                        className="d-block img-fluid"
+                        src={photo3}
                         alt="First slide"
                       />
                     </div>
-                    <div class="carousel-item">
+                    <div className="carousel-item">
                       <button>
                         {" "}
                         <img
-                          class="d-block img-fluid"
-                          src="/images/photo6.jpg"
+                          className="d-block img-fluid"
+                          src={photo5}
                           alt="Second slide"
                         />
                       </button>
                     </div>
-                    <div class="carousel-item">
+                    <div className="carousel-item">
                       <img
-                        class="d-block img-fluid"
-                        src="images/photo5.jpg"
+                        className="d-block img-fluid"
+                        src={photo4}
                         alt="Third slide"
                       />
                     </div>
                   </div>
                   <a
-                    class="carousel-control-prev"
+                    className="carousel-control-prev"
                     href="#mainCarousel"
                     role="button"
                     data-slide="prev"
                   >
                     <span
-                      class="carousel-control-prev-icon"
+                      className="carousel-control-prev-icon"
                       aria-hidden="true"
                     ></span>
-                    <span class="sr-only">Previous</span>
+                    <span className="sr-only">Previous</span>
                   </a>
                   <a
-                    class="carousel-control-next"
+                    className="carousel-control-next"
                     href="#mainCarousel"
                     role="button"
                     data-slide="next"
                   >
                     <span
-                      class="carousel-control-next-icon"
+                      className="carousel-control-next-icon"
                       aria-hidden="true"
                     ></span>
-                    <span class="sr-only">Next</span>
+                    <span className="sr-only">Next</span>
                   </a>
                 </div>
               </div>
-              <div class="col"></div>
+              <div className="col"></div>
             </div>
           </div>
 
-          <div class="sectionLight">
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="row">
-                  <div class="col-sm-12 col-md-4">
+          <div className="sectionLight">
+            <div className="row">
+              <div className="col-sm-12">
+                <div className="row">
+                  <div className="col-sm-12 col-md-4">
                     <a href="#">
                       <img
-                        class="img-Fluid imgCenter"
+                        className="img-Fluid imgCenter"
                         src="images/e1.jpg"
                         width="300"
                         height="300"
+                        alt=""
                       />
                     </a>
-                    <div class="row">
-                      <div class="col-sm-12">
+                    <div className="row">
+                      <div className="col-sm-12">
                         <button
                           type="button"
-                          class="btn btn-primary btn-lg btnCenter"
+                          className="btn btn-primary btn-md btnCenter"
+                          id="btnCenter1"
                         >
                           {" "}
-                          <b> Add To Cart </b>
+                          <b> View Details</b>
                         </button>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-12 col-md-4">
+                  <div className="col-sm-12 col-md-4">
                     <img
-                      class="img-Fluid imgCenter"
+                      className="img-Fluid imgCenter"
                       src="images/e2.jpg"
                       width="300"
                       height="300"
+                      alt=""
                     />
-                    <div class="row">
-                      <div class="col-sm-12">
+                    <div className="row">
+                      <div className="col-sm-12">
                         <button
                           type="button"
-                          class="btn btn-primary btn-lg btnCenter"
+                          className="btn btn-primary btn-md btnCenter"
+                          id="btnCenter1"
                         >
                           {" "}
-                          <b> Add To Cart </b>
+                          <b> View Details </b>
                         </button>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-12 col-md-4">
+                  <div className="col-sm-12 col-md-4">
                     <img
-                      class="img-Fluid imgCenter"
-                      src="images/e3.jpg"
+                      className="img-Fluid imgCenter"
+                      src=""
                       width="300"
                       height="300"
+                      alt=""
                     />
-                    <div class="row">
-                      <div class="col-sm-12">
+                    <div className="row">
+                      <div className="col-sm-12">
                         <button
                           type="button"
-                          class="btn btn-primary btn-lg btnCenter"
+                          className="btn btn-primary btn-md btnCenter"
+                          id="btnCenter1"
                         >
                           {" "}
-                          <b> Add To Cart </b>
+                          <b> View Details </b>
                         </button>
                       </div>
                     </div>
@@ -153,58 +162,61 @@ class HomeComponent extends Component {
             </div>
           </div>
 
-          <div
-            class="modal fade"
+          {/* <div
+            className="modal fade"
             id="coolStuffModal"
-            tabindex="-1"
+            tabIndex="-1"
             role="dialog"
             aria-labelledby="coolStuffLabel"
             aria-hidden="true"
           >
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">
+            <div className="modal-dialog" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalLongTitle">
                     Get Exclusive Content
                   </h5>
                   <button
                     type="button"
-                    class="close"
+                    className="close"
                     data-dismiss="modal"
                     aria-label="Close"
                   >
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body">
-                  <div class="container-fluid">
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <img class="img-fluid" src="images/cricket-logo.jpg" />
+                <div className="modal-body">
+                  <div className="container-fluid">
+                    <div className="row">
+                      <div className="col-sm-12">
+                        <img
+                          className="img-fluid"
+                          src=""
+                        />
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="modelFormWrapper">
+                    <div className="row">
+                      <div className="col-sm-12">
+                        <div className="modelFormWrapper">
                           <form>
-                            <div class="form-group">
-                              <label for="formGroupExampleInput">
+                            <div className="form-group">
+                              <label htmlFor="formGroupExampleInput">
                                 <b>What Is Your Name?</b>
                               </label>
                               <input
                                 type="text"
-                                class="form-control hover1"
+                                className="form-control hover1"
                                 id="formGroupExampleInput"
                                 placeholder="Name"
                               />
                             </div>
-                            <div class="form-group">
-                              <label for="formGroupExampleInput2">
+                            <div className="form-group">
+                              <label htmlFor="formGroupExampleInput2">
                                 <b>What Is Your Email-Id?</b>
                               </label>
                               <input
                                 type="text"
-                                class="form-control hover1"
+                                className="form-control hover1"
                                 id="formGroupExampleInput2"
                                 placeholder="Email"
                               />
@@ -215,10 +227,10 @@ class HomeComponent extends Component {
                     </div>
                   </div>
                 </div>
-                <div class="modal-footer">
+                <div className="modal-footer">
                   <button
                     type="button"
-                    class="btn btn-secondary close-1"
+                    className="btn btn-secondary close-1"
                     data-dismiss="modal"
                   >
                     Close
@@ -226,65 +238,71 @@ class HomeComponent extends Component {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
-          <div class="sectionLight">
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="row">
-                  <div class="col-sm-12 col-md-4">
+          <div className="sectionLight">
+            <div className="row">
+              <div className="col-sm-12">
+                <div className="row">
+                  <div className="col-sm-12 col-md-4">
                     <img
-                      class="img-Fluid imgCenter"
+                      className="img-Fluid imgCenter"
                       src="images/e4.jpg"
                       width="300"
                       height="300"
+                      alt=""
                     />
-                    <div class="row">
-                      <div class="col-sm-12">
+                    <div className="row">
+                      <div className="col-sm-12">
                         <button
                           type="button"
-                          class="btn btn-primary btn-lg btnCenter"
+                          className="btn btn-primary btn-md btnCenter"
+                          id="btnCenter1"
                         >
                           {" "}
-                          <b> Add To Cart </b>
+                          <b> View Details </b>
                         </button>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-12 col-md-4">
+                  <div className="col-sm-12 col-md-4">
                     <img
-                      class="img-Fluid imgCenter"
+                      className="img-Fluid imgCenter"
                       src="images/e5.jpg"
                       width="300"
                       height="300"
+                      alt=""
                     />
-                    <div class="row">
-                      <div class="col-sm-12">
+                    <div className="row">
+                      <div className="col-sm-12">
                         <button
                           type="button"
-                          class="btn btn-primary btn-lg btnCenter"
+                          className="btn btn-primary btn-md btnCenter"
+                          id="btnCenter1"
                         >
                           {" "}
-                          <b> Add To Cart </b>
+                          <b> View Details </b>
                         </button>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-12 col-md-4">
+                  <div className="col-sm-12 col-md-4">
                     <img
-                      class="img-Fluid imgCenter"
+                      className="img-Fluid imgCenter"
                       src="images/e6.jpg"
                       width="300"
                       height="300"
+                      alt=""
                     />
-                    <div class="row">
-                      <div class="col-sm-12">
+                    <div className="row">
+                      <div className="col-sm-12">
                         <button
                           type="button"
-                          class="btn btn-primary btn-lg btnCenter"
+                          className="btn btn-primary btn-md btnCenter"
+                          id="btnCenter1"
                         >
                           {" "}
-                          <b> Add To Cart </b>
+                          <b> View Details </b>
                         </button>
                       </div>
                     </div>
