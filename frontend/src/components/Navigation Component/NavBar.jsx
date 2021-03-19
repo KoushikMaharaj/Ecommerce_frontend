@@ -62,21 +62,29 @@ class NavBar extends React.Component {
       </Navbar>
     </div>
   ); */
-  renderUserName = () => {
+  componentDidMount() {
     let user = JSON.parse(window.localStorage.getItem("user"));
     console.log(user);
-    if (user === null) {
+    this.setState({ user });
+  }
+  renderUserName = () => {
+    if (this.state.user === null) {
       return "Welcome Guest";
     } else {
-      return `Welcome ${user.userName}`;
+      return `Hi ${this.state.user.userName}`;
     }
   };
+
+  handleLogOut = () => {
+    console.log("log out clicked");
+    window.localStorage.clear();
+    window.location.assign("/home");
+  };
+
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand" href="$">
-          Navbar
-        </a>
+        <h4 style={{color:"white"}}>Navbar</h4>
         <button
           className="navbar-toggler"
           type="button"
@@ -84,24 +92,25 @@ class NavBar extends React.Component {
           data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
-          aria-label="Toggle navigation"
+          aria-label="Toggle navigation"          
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse" id="#navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link className="nav-link" to="/">
                 <i className="fa fa-home fa-fw" aria-hidden="true" />
-                Home <span className="sr-only">(current)</span>
+                Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/login">
-                <i className="fa fa-sign-in" aria-hidden="true" /> Login
-                <span className="sr-only">(current)</span>
-              </Link>
+              {!this.state.user && (
+                <Link className="nav-link" to="/login">
+                  <i className="fa fa-sign-in" aria-hidden="true" /> Login
+                </Link>
+              )}
             </li>
           </ul>
 
@@ -119,18 +128,38 @@ class NavBar extends React.Component {
             Search
           </button>
         </form> */}
-          <div style={{ color: "white" }}>{this.renderUserName()}</div>
         </div>
+
         <details style={{ color: "white" }}>
           <summary style={{ display: "block" }}>
+            <div style={{ color: "white" }}>{this.renderUserName()}</div>
             <i className="fa fa-user-circle fa-2x" aria-hidden="true" />
           </summary>
-          <div>
-            <Link className="nav-link" to="/logout" style={{ color: "wheat" }}>
-              <i className="fa fa-sign-out" aria-hidden="true" />
-              LogOut
-            </Link>
-          </div>
+          {this.state.user && (
+            <div style={{ verticalAlign: "baseline" }}>
+              <Link
+                className="nav-link"
+                to="/user/profile"
+                style={{ color: "wheat" }}
+              >
+                <i className="fa fa-user" aria-hidden="true" />{" "}
+                <b>
+                  <i>Profile</i>
+                </b>
+              </Link>
+              <Link
+                className="nav-link"
+                to="/logout"
+                onClick={this.handleLogOut}
+                style={{ color: "wheat" }}
+              >
+                <i className="fa fa-sign-out" aria-hidden="true" />{" "}
+                <b>
+                  <i>Log Out</i>
+                </b>
+              </Link>
+            </div>
+          )}
         </details>
       </nav>
     );

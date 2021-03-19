@@ -7,6 +7,7 @@ import NavBar from "./components/Navigation Component/NavBar";
 import AdminComponent from "./components/AdminComponents/AdminComponent";
 import FooterComponent from "./components/Footer Component/FooterComponent";
 import React from "react";
+import ProfileComponent from './components/ProfileComponent/ProfileComponent';
 
 function App() {
   /* return <RegistrationForm/>; */
@@ -25,6 +26,7 @@ function App() {
           <Route path="/login" component={LoginForm} />
           <Route path="/register" component={RegistrationForm} />
           <Route path="/admin" component={AdminComponent} />
+          <Route path="/user/profile" component={ProfileComponent}/>
         </Switch>
       </Router>
       <FooterComponent />
