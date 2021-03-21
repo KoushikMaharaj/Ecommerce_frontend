@@ -60,6 +60,12 @@ class ProductService {
     })
   }
 
+  showCart(){
+    const user = JSON.parse(window.localStorage.getItem("user"));
+    console.log(user.id);
+   return axios.get(`${CART_URL}${user.id}`);
+  }
+
 }
 
 export default new ProductService();

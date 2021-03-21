@@ -11,6 +11,7 @@ import ProfileComponent from "./components/ProfileComponent/ProfileComponent";
 import Product from "./components/ProductComponent/Product";
 import "bootstrap/dist/css/bootstrap.css";
 import ProductDetails from "./components/ProductComponent/ProductDetails";
+import ShowCart from "./components/ProductComponent/ShowCart";
 
 function App() {
   /* return <RegistrationForm/>; */
@@ -32,6 +33,7 @@ function App() {
           <Route exact path="/user/profile" component={ProfileComponent} />
           <Route exact path="/product" component={Product} />
           <Route exact path="/product/details/:id" component={ProductDetails} />
+          <Route exact path="/showcart" component={ShowCart} />
         </Switch>
       </Router>
       <FooterComponent />
