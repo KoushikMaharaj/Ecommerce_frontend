@@ -12,11 +12,11 @@ class AddProduct extends Component {
         prodWarrenty: "",
         price: "",
         numberInStock: "",
-        prodImage: "",
         subCtg: {
           subCtgName: "",
         },
       },
+      prodImage: "",
       ctg: {
         ctgName: "",
       },
@@ -44,26 +44,39 @@ class AddProduct extends Component {
     this.setState({ product });
     //console.log(this.state.product);
   };
+  /* handleCategoryChange = (e) => {
+   
+    let cat1={catName:e.target.value}
+    this.setState({ ctg:cat1 });
+    console.log(cat1);
+    console.log(this.state.ctg);
+  }; */
 
   handleCategoryChange = ({ currentTarget: input }) => {
     const ctg = { ...this.state.ctg };
-    ctg[input.name] = input.value;
+    ctg.ctgName = input.value;
     console.log(ctg);
-    this.setState({ ctg });
+    //let cat1={catName:ctg}
+    this.setState({ ctg:ctg });
     console.log(this.state.ctg);
+  };
+
+  handleImageChange = (event) => {
+    const prodImage = event.target.files[0];
+    this.setState({ prodImage });
   };
 
   handleSubCategoryChange = ({ currentTarget: input }) => {
     const product = { ...this.state.product };
     product.subCtg[input.name] = input.value;
-    console.log(product);
     this.setState({ product });
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
     console.log(this.state.product);
-    service.addProduct(this.state.product);
+    console.log(this.state.prodImage);
+    service.addProduct(this.state.product, this.state.prodImage);
   };
 
   render() {
@@ -168,7 +181,7 @@ class AddProduct extends Component {
           type="file"
           id="prodImageInput"
           name="prodImage"
-          onChange={this.handleChange}
+          onChange={this.handleImageChange}
         />
         <button
           className="btn btn-primary"

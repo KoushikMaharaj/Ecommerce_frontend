@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import NavBar from "./NavBar";
 import service from "../../services/productSevice";
 import "./Product.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class Product extends Component {
   state = {
     products: [],
+    images:[]
   };
 
   componentDidMount() {
@@ -14,12 +15,15 @@ class Product extends Component {
       console.log(response.data);
       const products = response.data;
       this.setState({ products });
+      service.getAllProductImages().then((response)=>{
+        this.setState({images:response.data})
+      })
     });
   }
 
-  viewDetails = (id) => {
-    console.log(id);
-  };
+  renderImage=(id)=>{
+    return `http://localhost:8080/product/images/${id}`
+  }
 
   render() {
     const { products } = this.state;
@@ -36,14 +40,14 @@ class Product extends Component {
                 </i>
               </h4>
               <img
-                src="https://m.media-amazon.com/images/I/71gS+AnkfAL._AC_UY218_.jpg"
+              
+                src={this.renderImage(product.id)}
                 alt={product.prodName}
               />
               <p>
                 <Link to={`/product/details/${product.id}`}>
-                <button className="btn btn-primary">
-                  View Details
-                </button></Link>
+                  <button className="btn btn-primary">View Details</button>
+                </Link>
               </p>
             </div>
           ))}

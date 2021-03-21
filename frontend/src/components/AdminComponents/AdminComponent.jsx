@@ -116,7 +116,7 @@ class AdminComponent extends Component {
   };
 
   handleDelete = (id) => {
-    console.log(`deleted ${id}`);
+    service.deleteAdmin(id);
   };
 
   render() {

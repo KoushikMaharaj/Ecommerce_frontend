@@ -23,7 +23,7 @@ class NavBar extends React.Component {
   handleLogOut = () => {
     console.log("log out clicked");
     window.localStorage.clear();
-    window.location.assign("/home");
+    window.location.assign("/");
   };
 
   toogle = () => {

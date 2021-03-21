@@ -6,6 +6,12 @@ class AdminService {
     getAllAdmins(){
         return axios.get(API_URL)
     }
+
+    deleteAdmin(id){
+        axios.delete(`${API_URL}${id}`).then(response=>{
+            window.location.reload("/admin");
+        })
+    }
 }
 
 export default new AdminService();

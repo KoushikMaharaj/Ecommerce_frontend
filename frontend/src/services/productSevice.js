@@ -3,6 +3,7 @@ import axios from "axios";
 const CTG_URL = "http://localhost:8080/category/";
 const SUBCTG_URL = "http://localhost:8080/subcategory/";
 const PROD_URL = "http://localhost:8080/product/";
+const CART_URL = "http://localhost:8080/cart/"
 
 class ProductService {
   addCategory(category) {
@@ -27,16 +28,36 @@ class ProductService {
     return axios.get(SUBCTG_URL);
   }
 
-  addProduct(product) {
-    axios.post(PROD_URL, product).then((response) => {
+  addProduct(product, image) {
+    const uploadData = new FormData();
+    console.log(image);
+    uploadData.append("prodImage", image);
+    console.log(`sending ${JSON.stringify(product)}`);
+    uploadData.append("product", JSON.stringify(product));
+    axios.post(PROD_URL, uploadData).then((response) => {
       console.log(response.data);
-      //window.location.assign("/admin");
+      window.location.assign("/admin");
     });
   }
 
-  getAllProducts(){
-    return axios(PROD_URL);
+  getAllProductImages(){
+    return axios.get(`${PROD_URL}images`);
   }
+
+  getAllProducts() {
+    return axios.get(PROD_URL);
+  }
+
+  getProductDetail(id) {
+    return axios.get(`${PROD_URL}${id}`);
+  }
+
+  /* addToCart(product){    
+    axios.post(`${CART_URL}addtocart`,uploadData).then(response=>{
+      console.log(response.data);
+    }) */
+  //}
+
 }
 
 export default new ProductService();
