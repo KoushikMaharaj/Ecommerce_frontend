@@ -52,11 +52,13 @@ class ProductService {
     return axios.get(`${PROD_URL}${id}`);
   }
 
-  /* addToCart(product){    
-    axios.post(`${CART_URL}addtocart`,uploadData).then(response=>{
+  addToCart(pid){
+    const user = JSON.parse(window.localStorage.getItem("user"));
+    console.log(user.id);
+    axios.post(`${CART_URL}addtocart/${user.id}/${pid}`,).then(response=>{
       console.log(response.data);
-    }) */
-  //}
+    })
+  }
 
 }
 
