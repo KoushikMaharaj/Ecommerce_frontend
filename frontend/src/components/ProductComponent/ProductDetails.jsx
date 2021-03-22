@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import service from "../../services/productSevice";
+import OrderService from "../../services/orderServices"
+
 
 class ProductDetails extends Component {
   state = {
     product: [],
     id: this.props.match.params.id,
-    images:[]
+    images: [],
   };
 
   componentDidMount() {
@@ -13,7 +15,6 @@ class ProductDetails extends Component {
     service.getProductDetail(this.state.id).then((response) => {
       const product = response.data;
       this.setState({ product });
-      
     });
   }
 
@@ -35,12 +36,12 @@ class ProductDetails extends Component {
   };
 
   order = () => {
-    console.log(`order ${this.state.product}`);
+    OrderService.placeOrder(this.state.product.id);
   };
 
-  renderImage=(id)=>{
-    return `http://localhost:8080/product/images/${id}`
-  }
+  renderImage = (id) => {
+    return `http://localhost:8080/product/images/${id}`;
+  };
 
   render() {
     return (
