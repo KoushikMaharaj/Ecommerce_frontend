@@ -82,7 +82,7 @@ class NavBar extends React.Component {
               <li className="nav-item">
                 {this.state.user && this.state.user.role === "ADMIN" && (
                   <Link className="nav-link" to="/admin">
-                    <i className="fa fa-file" aria-hidden="true" /> Admin Page
+                    <i className="fa fa-file" aria-hidden="true" /> AdminPage
                   </Link>
                 )}
               </li>
@@ -91,7 +91,7 @@ class NavBar extends React.Component {
                   <Link
                     className="nav-link"
                     to="/showcart"
-                    style={{ marginLeft: "57.5rem" }}
+                    style={{ marginLeft: "50rem",marginRight:"1rem" }}
                   >
                     <i /* class="fa fa-shopping-cart" aria-hidden="true" */>
                       <img
@@ -116,6 +116,7 @@ class NavBar extends React.Component {
               />
             </summary>
             {this.state.user && (
+              
               <div style={{ verticalAlign: "baseline" }}>
                 <Link
                   className="nav-link"
@@ -135,10 +136,11 @@ class NavBar extends React.Component {
                 >
                   <i className="fa fa-sign-out" aria-hidden="true" />{" "}
                   <b>
-                    <i>Log Out</i>
+                    <i>LogOut</i>
                   </b>
                 </Link>
               </div>
+              
             )}
           </details>
         </nav>

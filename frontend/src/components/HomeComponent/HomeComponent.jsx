@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./HomeComponent.css";
-import photo3 from "./images/photo3.jpg";
-import photo4 from "./images/photo4.jpg";
-import photo5 from "./images/photo5.jpg";
+// import photo3 from "./images/photo3.jpg";
+// import photo4 from "./images/photo4.jpg";
+// import photo5 from "./images/photo5.jpg";
 class HomeComponent extends Component {
   state = {};
   render() {
@@ -36,7 +36,7 @@ class HomeComponent extends Component {
                     <div className="carousel-item active">
                       <img
                         className="d-block img-fluid"
-                        src={photo3}
+                       
                         alt="First slide"
                       />
                     </div>
@@ -45,7 +45,7 @@ class HomeComponent extends Component {
                         {" "}
                         <img
                           className="d-block img-fluid"
-                          src={photo5}
+                         
                           alt="Second slide"
                         />
                       </button>
@@ -53,7 +53,7 @@ class HomeComponent extends Component {
                     <div className="carousel-item">
                       <img
                         className="d-block img-fluid"
-                        src={photo4}
+                        
                         alt="Third slide"
                       />
                     </div>
@@ -118,7 +118,7 @@ class HomeComponent extends Component {
                   <div className="col-sm-12 col-md-4">
                     <img
                       className="img-Fluid imgCenter"
-                      src="images/e2.jpg"
+                      src=""
                       width="300"
                       height="300"
                       alt=""
