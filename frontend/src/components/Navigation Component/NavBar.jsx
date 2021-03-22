@@ -16,7 +16,7 @@ class NavBar extends React.Component {
     if (this.state.user === null) {
       return "Hi Guest";
     } else {
-      return `Hi ${this.state.user.userName}`;
+      return <span>Hi {this.state.user.userName}</span>;
     }
   };
 
@@ -34,8 +34,17 @@ class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor:"MediumAquaMarine"}}>
-          <i /* class="fa fa-desktop fa-3x" aria-hidden="true" */><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/desktop-computer-2081419-1751440.png" alt="pc" width="50px"/></i>
+        <nav
+          className="navbar navbar-expand-lg navbar-light"
+          style={{ backgroundColor: "MediumAquaMarine" }}
+        >
+          <i /* class="fa fa-desktop fa-3x" aria-hidden="true" */>
+            <img
+              src="https://cdn.iconscout.com/icon/premium/png-256-thumb/desktop-computer-2081419-1751440.png"
+              alt="pc"
+              width="50px"
+            />
+          </i>
           <button
             className="navbar-toggler"
             type="button"
@@ -50,7 +59,7 @@ class NavBar extends React.Component {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto" style={{marginLeft:"1.5rem"}}>
+            <ul className="navbar-nav mr-auto" style={{ marginLeft: "1.5rem" }}>
               <li className="nav-item">
                 <Link className="nav-link" to="/">
                   <i className="fa fa-home fa-fw" aria-hidden="true" />
@@ -66,7 +75,7 @@ class NavBar extends React.Component {
               <li className="nav-item">
                 {!this.state.user && (
                   <Link className="nav-link" to="/login">
-                    <i className="fa fa-sign-in fa-2x" aria-hidden="true" /> Login
+                    <i className="fa fa-sign-in" aria-hidden="true" /> Login
                   </Link>
                 )}
               </li>
@@ -77,12 +86,23 @@ class NavBar extends React.Component {
                   </Link>
                 )}
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/showcart" style={{marginLeft:"55rem"}}>
-                <i /* class="fa fa-shopping-cart" aria-hidden="true" */><img src="https://img.icons8.com/pastel-glyph/2x/shopping-cart--v2.png" alt="cart" width="30px"/></i>
-                
-                </Link>
-              </li>
+              {this.state.user && (
+                <li className="nav-item">
+                  <Link
+                    className="nav-link"
+                    to="/showcart"
+                    style={{ marginLeft: "57.5rem" }}
+                  >
+                    <i /* class="fa fa-shopping-cart" aria-hidden="true" */>
+                      <img
+                        src="https://img.icons8.com/pastel-glyph/2x/shopping-cart--v2.png"
+                        alt="cart"
+                        width="30px"
+                      />
+                    </i>
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
 

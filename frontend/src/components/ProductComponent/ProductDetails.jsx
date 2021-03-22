@@ -23,7 +23,7 @@ class ProductDetails extends Component {
       <span style={{ color: "green" }}>In Stock</span>
     ) : this.state.product.numberInStock > 0 ? (
       <span style={{ color: "red" }}>
-        only {this.state.product.numberInStock} stock
+        only {this.state.product.numberInStock} stock left
       </span>
     ) : (
       <span style={{ color: "red" }}>Out of Stock</span>
@@ -65,6 +65,7 @@ class ProductDetails extends Component {
                 </i>
               </h4>
               <p>{this.checkStock()}</p>
+              <p>Warrenty: {this.state.product.prodWarrenty} years</p>
             </div>
             <div style={{ margin: "auto" }}>
               <button className="btn btn-primary" onClick={this.addToCart}>
