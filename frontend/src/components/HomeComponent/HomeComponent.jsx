@@ -34,28 +34,16 @@ class HomeComponent extends Component {
                 >
                   <div className="carousel-inner" role="listbox">
                     <div className="carousel-item active">
-                      <img
-                        className="d-block img-fluid"
-                       
-                        alt="First slide"
-                      />
+                      <img className="d-block img-fluid" alt="First slide" />
                     </div>
                     <div className="carousel-item">
                       <button>
                         {" "}
-                        <img
-                          className="d-block img-fluid"
-                         
-                          alt="Second slide"
-                        />
+                        <img className="d-block img-fluid" alt="Second slide" />
                       </button>
                     </div>
                     <div className="carousel-item">
-                      <img
-                        className="d-block img-fluid"
-                        
-                        alt="Third slide"
-                      />
+                      <img className="d-block img-fluid" alt="Third slide" />
                     </div>
                   </div>
                   <a
@@ -93,7 +81,7 @@ class HomeComponent extends Component {
               <div className="col-sm-12">
                 <div className="row">
                   <div className="col-sm-12 col-md-4">
-                    <a href="#">
+                    <a href="$">
                       <img
                         className="img-Fluid imgCenter"
                         src="images/e1.jpg"
@@ -152,7 +140,9 @@ class HomeComponent extends Component {
                           id="btnCenter1"
                         >
                           {" "}
-                          <a href="/prdouct/details"><b> View Details </b></a>
+                          <a href="/prdouct/details">
+                            <b> View Details </b>
+                          </a>
                         </button>
                       </div>
                     </div>

@@ -91,7 +91,7 @@ class NavBar extends React.Component {
                   <Link
                     className="nav-link"
                     to="/showcart"
-                    style={{ marginLeft: "50rem",marginRight:"1rem" }}
+                    style={{ marginLeft: "55rem" }}
                   >
                     <i /* class="fa fa-shopping-cart" aria-hidden="true" */>
                       <img
