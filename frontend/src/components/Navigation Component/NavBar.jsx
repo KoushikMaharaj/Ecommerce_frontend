@@ -93,7 +93,13 @@ class NavBar extends React.Component {
                   </Link>
                 )}
               </li>
-
+              <li className="nav-item">
+                { (
+                  <Link className="nav-link" to="/contactus">
+                    <i className="fa fa-sign-in" aria-hidden="true" /> ContactUs
+                  </Link>
+                )}
+              </li>
               {this.state.user && (
                 <li className="nav-item">
                   <Link

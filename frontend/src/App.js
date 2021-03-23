@@ -7,13 +7,13 @@ import RegistrationForm from "./components/RegistrationComponent/RegistrationFor
 import HomeComponent from "./components/HomeComponent/HomeComponent";
 import NavBar from "./components/Navigation Component/NavBar";
 import AdminComponent from "./components/AdminComponents/AdminComponent";
-import FooterComponent from "./components/Footer Component/FooterComponent";
 import ProfileComponent from "./components/ProfileComponent/ProfileComponent";
 import Product from "./components/ProductComponent/Product";
 import ProductDetails from "./components/ProductComponent/ProductDetails";
 import ShowCart from "./components/ProductComponent/ShowCart";
 import ProductsByCategory from "./components/ProductComponent/ProductsByCategory";
 import AboutUs from "./components/AboutUsComponent/AboutUs";
+import ContactUs from './components/ContactUsComponent/ContactUs';
 
 function App() {
   /* return <RegistrationForm/>; */
@@ -37,6 +37,7 @@ function App() {
           <Route exact path="/product/details/:id" component={ProductDetails} />
           <Route exact path="/showcart" component={ShowCart} />
           <Route exact path="/aboutus" component={AboutUs} />
+          <Route exact path="/contactus" component={ContactUs} />
           <Route
             exact
             path="/product/category"
@@ -44,7 +45,7 @@ function App() {
           />
         </Switch>
       </Router>
-      <FooterComponent />
+      
     </React.Fragment>
   );
 }
