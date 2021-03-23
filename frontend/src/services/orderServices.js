@@ -7,6 +7,7 @@ class OrderService {
     const user = JSON.parse(window.localStorage.getItem("user"));
     axios.post(`${ORDER_URL}${user.id}/${pid}`).then((response) => {
       console.log(response.data);
+      window.location.reload("/product/details/:id")
     });
   }
 }

@@ -1,17 +1,18 @@
 //import "./App.css";
-import LoginForm from "./components/LoginComponent/loginForm";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from "react";
+
+import LoginForm from "./components/LoginComponent/loginForm";
 import RegistrationForm from "./components/RegistrationComponent/RegistrationForm";
 import HomeComponent from "./components/HomeComponent/HomeComponent";
 import NavBar from "./components/Navigation Component/NavBar";
 import AdminComponent from "./components/AdminComponents/AdminComponent";
 import FooterComponent from "./components/Footer Component/FooterComponent";
-import React from "react";
 import ProfileComponent from "./components/ProfileComponent/ProfileComponent";
 import Product from "./components/ProductComponent/Product";
-import "bootstrap/dist/css/bootstrap.css";
 import ProductDetails from "./components/ProductComponent/ProductDetails";
 import ShowCart from "./components/ProductComponent/ShowCart";
+import ProductsByCategory from "./components/ProductComponent/ProductsByCategory";
 
 function App() {
   /* return <RegistrationForm/>; */
@@ -34,6 +35,11 @@ function App() {
           <Route exact path="/product" component={Product} />
           <Route exact path="/product/details/:id" component={ProductDetails} />
           <Route exact path="/showcart" component={ShowCart} />
+          <Route
+            exact
+            path="/product/category"
+            component={ProductsByCategory}
+          />
         </Switch>
       </Router>
       <FooterComponent />

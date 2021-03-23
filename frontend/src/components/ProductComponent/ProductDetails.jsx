@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import service from "../../services/productSevice";
-import OrderService from "../../services/orderServices"
-
+import OrderService from "../../services/orderServices";
 
 class ProductDetails extends Component {
   state = {
@@ -43,6 +42,28 @@ class ProductDetails extends Component {
     return `http://localhost:8080/product/images/${id}`;
   };
 
+  renderButtons = () => {
+    return this.state.product.numberInStock > 0 ? (
+      <div style={{ margin: "auto" }}>
+        <button className="btn btn-primary" onClick={this.addToCart}>
+          Add to Cart
+        </button>{" "}
+        <button className="btn btn-primary" onClick={this.order}>
+          Order
+        </button>
+      </div>
+    ) : (
+      <div style={{ margin: "auto" }}>
+        <button className="btn btn-primary" disabled>
+          Add to Cart
+        </button>{" "}
+        <button className="btn btn-primary" disabled>
+          Order
+        </button>
+      </div>
+    );
+  };
+
   render() {
     return (
       <div
@@ -67,15 +88,11 @@ class ProductDetails extends Component {
               </h4>
               <p>{this.checkStock()}</p>
               <p>Warrenty: {this.state.product.prodWarrenty} years</p>
+              {/* <p>
+                <input type="number">qty</input>
+              </p> */}
             </div>
-            <div style={{ margin: "auto" }}>
-              <button className="btn btn-primary" onClick={this.addToCart}>
-                Add to Cart
-              </button>{" "}
-              <button className="btn btn-primary" onClick={this.order}>
-                Order
-              </button>
-            </div>
+            {this.renderButtons()}
           </div>
         </div>
       </div>

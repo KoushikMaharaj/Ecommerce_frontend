@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-import "./NavBar.css";
+import "./SideBar.css";
 import service from "../../services/productSevice";
+//import Product from "./Product";
 
-class NavBar extends Component {
+class SideBar extends Component {
   state = {
     categories: [],
+    subcategories: [],
+    products: [this.props.products],
   };
 
   componentDidMount() {
@@ -13,7 +16,13 @@ class NavBar extends Component {
       const categories = response.data;
       this.setState({ categories });
     });
+    service.getAllSubCategories().then((response) => {
+      console.log(response.data);
+      const subcategories = response.data;
+      this.setState({ subcategories });
+    });
   }
+
   render() {
     /*  return ( <div class="menu-bar">
         <ul class="">
@@ -182,16 +191,40 @@ class NavBar extends Component {
             </div>
 
          );*/
-    const { categories } = this.state;
-    return (<React.Fragment>
-      <div className="menu-bar">
-        <ul>{categories.map((category)=>(
-          <li key={category.id}><a href="$">{category.ctgName}</a></li>
-        ))}</ul>
-      </div>
-    
-    </React.Fragment>)
+    const { categories, subcategories } = this.state;
+    return (
+      <React.Fragment>
+        <div className="menu-bar">
+          <ul>
+            {categories.map((category) => (
+              <li key={category.id}>
+                <a
+                  href={`/product/category?ctgName=${category.ctgName}`}
+                  onClick={this.props.onChange}
+                >
+                  {category.ctgName}
+                </a>
+                <div className="sub-menu-1">
+                  <ul>
+                    {subcategories.map((subcategory) => (
+                      <li key={subcategory.id}>
+                        <a
+                          href={`/product/subcategory?subCtgName=${subcategory.subCtgName}`}
+                        >
+                          {category.ctgName === subcategory.ctg.ctgName &&
+                            subcategory.subCtgName}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </React.Fragment>
+    );
   }
 }
 
-export default NavBar;
+export default SideBar;
