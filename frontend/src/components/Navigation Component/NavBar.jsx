@@ -86,6 +86,14 @@ class NavBar extends React.Component {
                   </Link>
                 )}
               </li>
+              <li className="nav-item">
+                { (
+                  <Link className="nav-link" to="/aboutus">
+                    <i className="fa fa-sign-in" aria-hidden="true" /> AboutUs
+                  </Link>
+                )}
+              </li>
+
               {this.state.user && (
                 <li className="nav-item">
                   <Link
@@ -132,7 +140,7 @@ class NavBar extends React.Component {
                   className="nav-link"
                   to="/logout"
                   onClick={this.handleLogOut}
-                  style={{ color: "wheat" }}
+                  style={{ color: "white" }}
                 >
                   <i className="fa fa-sign-out" aria-hidden="true" />{" "}
                   <b>
@@ -140,7 +148,6 @@ class NavBar extends React.Component {
                   </b>
                 </Link>
               </div>
-              
             )}
           </details>
         </nav>

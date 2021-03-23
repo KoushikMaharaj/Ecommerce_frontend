@@ -13,6 +13,7 @@ import Product from "./components/ProductComponent/Product";
 import ProductDetails from "./components/ProductComponent/ProductDetails";
 import ShowCart from "./components/ProductComponent/ShowCart";
 import ProductsByCategory from "./components/ProductComponent/ProductsByCategory";
+import AboutUs from "./components/AboutUsComponent/AboutUs";
 
 function App() {
   /* return <RegistrationForm/>; */
@@ -35,6 +36,7 @@ function App() {
           <Route exact path="/product" component={Product} />
           <Route exact path="/product/details/:id" component={ProductDetails} />
           <Route exact path="/showcart" component={ShowCart} />
+          <Route exact path="/aboutus" component={AboutUs} />
           <Route
             exact
             path="/product/category"

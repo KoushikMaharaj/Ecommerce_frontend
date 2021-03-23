@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding:0;
+    font-family: "Open Sans";
+    box-sizing: border-box;
+}
+
+
+body{
+    
+    min-height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+.about-section{
+    background: url(https://www.teahub.io/photos/full/1-13344_2560x1600-hd-laptop-wallpapers-hd-desktop-wallpapers-laptop.jpg) no-repeat left;
+    background-size: 60%;
+    background-color: #fdfdfd;
+    overflow: hidden;
+    padding:100px 0;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+.inner-container{
+    width:55%;
+    float:right;
+    background-color:darkgray;
+    padding:50px;
+}
+.inner-container h1{
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 900;
+}
+.text{
+    font-size: 18px;
+    color:#545454;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+    
+}
+
+@media screen and (max-width:1200px){
+    .inner-container{
+        padding:80px;
+    }
+}
+@media screen and (max-width:1000px){
+    .about-section{
+       
+        padding:0;
+    }
+    .inner-container{
+        padding:60px;
+    }
+}
