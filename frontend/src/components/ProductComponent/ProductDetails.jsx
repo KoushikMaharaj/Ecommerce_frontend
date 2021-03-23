@@ -76,6 +76,8 @@ class ProductDetails extends Component {
               <img
                 src={this.renderImage(this.state.id)}
                 alt={this.state.product.prodName}
+                width="350px"
+                height="300px"
               />
             </div>
             <div className="col-sm-8" style={{ textAlign: "left" }}>
@@ -86,8 +88,8 @@ class ProductDetails extends Component {
                   <b> {this.state.product.price}</b>
                 </i>
               </h4>
-              <p>{this.checkStock()}</p>
               <p>Warrenty: {this.state.product.prodWarrenty} years</p>
+              <p>{this.checkStock()}</p>
               {/* <p>
                 <input type="number">qty</input>
               </p> */}

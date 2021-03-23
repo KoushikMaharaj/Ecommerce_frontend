@@ -3,13 +3,13 @@ import service from "../../services/productSevice";
 import { Link } from "react-router-dom";
 import SideBar from "./SideBar";
 
-class ProductsByCategory extends Component {
+class ProductsBySubCategory extends Component {
   state = {
-    ctgName: this.props.match.params.ctgName,
+    subCtgName: this.props.match.params.subCtgName,
     products: [],
   };
   componentDidMount() {
-    service.getProductByCategory(this.state.ctgName).then((response) => {
+    service.getProductBySubCategory(this.state.subCtgName).then((response) => {
       console.log(response.data);
       this.setState({ products: response.data });
     });
@@ -52,4 +52,4 @@ class ProductsByCategory extends Component {
   }
 }
 
-export default ProductsByCategory;
+export default ProductsBySubCategory;

@@ -39,7 +39,12 @@ class Product extends Component {
                   <b> {product.price}</b>
                 </i>
               </h4>
-              <img src={this.renderImage(product.id)} alt={product.prodName} />
+              <img
+                src={this.renderImage(product.id)}
+                alt={product.prodName}
+                width="300px"
+                height="300px"
+              />
               <p>
                 <Link to={`/product/details/${product.id}`}>
                   <button className="btn btn-primary">View Details</button>

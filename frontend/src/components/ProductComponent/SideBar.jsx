@@ -199,7 +199,7 @@ class SideBar extends Component {
             {categories.map((category) => (
               <li key={category.id}>
                 <a
-                  href={`/product/category?ctgName=${category.ctgName}`}
+                  href={`/product/category/${category.ctgName}`}
                   onClick={this.props.onChange}
                 >
                   {category.ctgName}
@@ -209,7 +209,7 @@ class SideBar extends Component {
                     {subcategories.map((subcategory) => (
                       <li key={subcategory.id}>
                         <a
-                          href={`/product/subcategory?subCtgName=${subcategory.subCtgName}`}
+                          href={`/product/subcategory/${subcategory.subCtgName}`}
                         >
                           {category.ctgName === subcategory.ctg.ctgName &&
                             subcategory.subCtgName}

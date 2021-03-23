@@ -10,6 +10,13 @@ class OrderService {
       window.location.reload("/product/details/:id")
     });
   }
+
+  placeCartOrder(id){
+    axios.post(`${ORDER_URL}cartorder/${id}`).then(response=>{
+      console.log(response.data);
+      window.location.reload("/showcart")
+    })
+  }
 }
 
 export default new OrderService();

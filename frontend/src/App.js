@@ -14,6 +14,7 @@ import ShowCart from "./components/ProductComponent/ShowCart";
 import ProductsByCategory from "./components/ProductComponent/ProductsByCategory";
 import AboutUs from "./components/AboutUsComponent/AboutUs";
 import ContactUs from './components/ContactUsComponent/ContactUs';
+import ProductsBySubCategory from './components/ProductComponent/ProductsBySubCategory';
 
 function App() {
   /* return <RegistrationForm/>; */
@@ -40,8 +41,13 @@ function App() {
           <Route exact path="/contactus" component={ContactUs} />
           <Route
             exact
-            path="/product/category"
+            path="/product/category/:ctgName"
             component={ProductsByCategory}
+          />
+          <Route
+            exact
+            path="/product/subcategory/:subCtgName"
+            component={ProductsBySubCategory}
           />
         </Switch>
       </Router>

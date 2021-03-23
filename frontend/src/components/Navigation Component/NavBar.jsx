@@ -86,26 +86,28 @@ class NavBar extends React.Component {
                   </Link>
                 )}
               </li>
+
               <li className="nav-item">
-                { (
+                {
                   <Link className="nav-link" to="/aboutus">
                     <i className="fa fa-sign-in" aria-hidden="true" /> AboutUs
                   </Link>
-                )}
+                }
               </li>
               <li className="nav-item">
-                { (
+                {
                   <Link className="nav-link" to="/contactus">
                     <i className="fa fa-sign-in" aria-hidden="true" /> ContactUs
                   </Link>
-                )}
+                }
               </li>
-              {this.state.user && (
+
+              {this.state.user && this.state.user.role === "CUSTOMER" && (
                 <li className="nav-item">
                   <Link
                     className="nav-link"
                     to="/showcart"
-                    style={{ marginLeft: "55rem" }}
+                    style={{ marginLeft: "36rem" }}
                   >
                     <i /* class="fa fa-shopping-cart" aria-hidden="true" */>
                       <img
@@ -120,7 +122,7 @@ class NavBar extends React.Component {
             </ul>
           </div>
 
-          <details style={{ color: "white" }}>
+          <details style={{ color: "white", marginRight: "2rem" }}>
             <summary style={{ display: "block" }}>
               <div style={{ color: "white" }}>{this.renderUserName()}</div>
               <i
@@ -130,7 +132,6 @@ class NavBar extends React.Component {
               />
             </summary>
             {this.state.user && (
-              
               <div style={{ verticalAlign: "baseline" }}>
                 <Link
                   className="nav-link"
@@ -146,7 +147,7 @@ class NavBar extends React.Component {
                   className="nav-link"
                   to="/logout"
                   onClick={this.handleLogOut}
-                  style={{ color: "white" }}
+                  style={{ color: "wheat" }}
                 >
                   <i className="fa fa-sign-out" aria-hidden="true" />{" "}
                   <b>

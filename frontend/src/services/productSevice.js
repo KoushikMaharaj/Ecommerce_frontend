@@ -60,6 +60,7 @@ class ProductService {
     console.log(user.id);
     axios.post(`${CART_URL}addtocart/${user.id}/${pid}`).then((response) => {
       console.log(response.data);
+      window.location.assign("/product");
     });
   }
 
@@ -67,6 +68,15 @@ class ProductService {
     const user = JSON.parse(window.localStorage.getItem("user"));
     console.log(user.id);
     return axios.get(`${CART_URL}${user.id}`);
+  }
+
+  getProductByCategory(ctgName) {
+    console.log(ctgName);
+    return axios.get(`${PROD_URL}category/${ctgName}`);
+  }
+
+  getProductBySubCategory(subCtgName) {
+    return axios.get(`${PROD_URL}subcategory/${subCtgName}`);
   }
 }
 
