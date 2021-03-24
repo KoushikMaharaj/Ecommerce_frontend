@@ -13,8 +13,11 @@ import ProductDetails from "./components/ProductComponent/ProductDetails";
 import ShowCart from "./components/ProductComponent/ShowCart";
 import ProductsByCategory from "./components/ProductComponent/ProductsByCategory";
 import AboutUs from "./components/AboutUsComponent/AboutUs";
-import ContactUs from './components/ContactUsComponent/ContactUs';
-import ProductsBySubCategory from './components/ProductComponent/ProductsBySubCategory';
+import ContactUs from "./components/ContactUsComponent/ContactUs";
+import ProductsBySubCategory from "./components/ProductComponent/ProductsBySubCategory";
+import UpdateProduct from "./components/AdminComponents/UpdateProductComponent";
+import UpdateProfile from "./components/ProfileComponent/UpdateProfileComponent";
+import ShowOrders from './components/OrderComponent/ShowOrderComponent';
 
 function App() {
   /* return <RegistrationForm/>; */
@@ -49,9 +52,11 @@ function App() {
             path="/product/subcategory/:subCtgName"
             component={ProductsBySubCategory}
           />
+          <Route exact path="/update/product/:id" component={UpdateProduct} />
+          <Route exact path="/update/customer" component={UpdateProfile} />
+          <Route exact path="/showorders" component={ShowOrders} />
         </Switch>
       </Router>
-      
     </React.Fragment>
   );
 }

@@ -21,6 +21,7 @@ class RegistrationForm extends Component {
       role: "CUSTOMER",
     },
     errors: {},
+    regiError: "",
   };
 
   schema = {
@@ -59,7 +60,20 @@ class RegistrationForm extends Component {
     if (errors) return;
     else {
       console.log(this.state.user);
-      service.userRegister(this.state.user);
+      service
+        .userRegister(this.state.user)
+        .then((response) => {
+          console.log(response.data);
+          if (response.data.role === "ADMIN") {
+            window.location.assign("/admin");
+          } else {
+            window.location.assign("/login");
+          }
+        })
+        .catch((ex) => {
+          const error = "Email is already taken";
+          this.setState({ regiError: error });
+        });
     }
   };
 
@@ -77,183 +91,190 @@ class RegistrationForm extends Component {
   };
 
   render() {
-    const { user, errors } = this.state;
+    const { user, errors, regiError } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="row">
-          <div className="col"></div>
-          <div className="col-sm-12 col-md-8 " id="main-class">
-            <h2 className="main">
-              <u>Register</u>
-            </h2>
-            <h4 className="main">
-              Create Your Account. It's free only takes a minute
-            </h4>
-            <div className="row">
-              <div className="col center">
-                <input
-                  type="text"
-                  className="form-control form1"
-                  placeholder="Name"
-                  name="userName"
-                  value={user.userName}
-                  onChange={this.handleChange}
-                />
-                {errors.userName && (
-                  <div className="alert alert-danger" id="error2">
-                    {errors.userName}
-                  </div>
-                )}
-              </div>
-
-              <div className="col center">
-                <input
-                  type="text"
-                  className="form-control form1"
-                  placeholder="Email"
-                  name="userEmail"
-                  value={user.userEmail}
-                  onChange={this.handleChange}
-                />
-                {errors.userEmail && (
-                  <div className="alert alert-danger " id="error2">
-                    {errors.userEmail}
-                  </div>
-                )}
-              </div>
-              <div className="col center">
-                <input
-                  type="password"
-                  className="form-control form1"
-                  placeholder="Password"
-                  name="userPassword"
-                  value={user.userPassword}
-                  onChange={this.handleChange}
-                />
-                {errors.userPassword && (
-                  <div className="alert alert-danger " id="error2">
-                    {errors.userPassword}
-                  </div>
-                )}
-              </div>
-            </div>
-            <div className="row">
-              <div className="col center">
-                <input
-                  type="text"
-                  className="form-control form2houseno"
-                  placeholder="House No"
-                  name="houseNo"
-                  value={user.userAddr.houseNo}
-                  onChange={this.handleAddrChange}
-                />
-                {errors.houseNo && (
-                  <div className="alert alert-danger " id="error2">
-                    {errors.houseNo}
-                  </div>
-                )}
-              </div>
-              <div className="col center">
-                <textarea
-                  type="text"
-                  className="form-control form3"
-                  placeholder="Area"
-                  name="area"
-                  value={user.userAddr.area}
-                  onChange={this.handleAddrChange}
-                />
-                {errors.area && (
-                  <div className="alert alert-danger " id="error2">
-                    {errors.area}
-                  </div>
-                )}
-              </div>
-              <div className="col center">
-                <input
-                  type="text"
-                  className="form-control form2"
-                  placeholder="City"
-                  name="city"
-                  value={user.userAddr.city}
-                  onChange={this.handleAddrChange}
-                />
-                {errors.city && (
-                  <div className="alert alert-danger " id="error2">
-                    {errors.city}
-                  </div>
-                )}
-              </div>
-            </div>
-            <div className="row">
-              <div className="col center">
-                <input
-                  type="text"
-                  className="form-control form2"
-                  placeholder="State"
-                  name="state"
-                  value={user.userAddr.state}
-                  onChange={this.handleAddrChange}
-                />
-                {errors.state && (
-                  <div className="alert alert-danger " id="error2">
-                    {errors.state}
-                  </div>
-                )}
-              </div>
-              <div className="col center">
-                <input
-                  type="text"
-                  className="form-control form2"
-                  placeholder="Country"
-                  name="country"
-                  value={user.userAddr.country}
-                  onChange={this.handleAddrChange}
-                />
-                {errors.country && (
-                  <div className="alert alert-danger " id="error2">
-                    {errors.country}
-                  </div>
-                )}
-              </div>
-              <div className="col center">
-                <input
-                  type="text"
-                  className="form-control form2"
-                  id="pin"
-                  placeholder="Pincode"
-                  name="pincode"
-                  value={user.userAddr.pincode}
-                  onChange={this.handleAddrChange}
-                />
-                {errors.pincode && (
-                  <div className="alert alert-danger " id="error2">
-                    {errors.pincode}
-                  </div>
-                )}
-              </div>
-              <div className="col center">
-                <input
-                  type="text"
-                  className="form-control form2"
-                  placeholder="Phone No"
-                  name="userContact"
-                  value={user.userContact}
-                  onChange={this.handleChange}
-                />
-                {errors.userContact && (
-                  <div className="alert alert-danger " id="error2">
-                    {errors.userContact}
-                  </div>
-                )}
-              </div>
-            </div>
-            <button className="btn btn-primary" id="changebtn">
-              Register
-            </button>
+      <React.Fragment>
+        {regiError && (
+          <div className="alert alert-danger" id="error2">
+            {regiError}
           </div>
-          <div className="col"></div>
-        </div>
-      </form>
+        )}
+        <form onSubmit={this.handleSubmit}>
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-sm-12 col-md-8 " id="main-class">
+              <h2 className="main">
+                <u>Register</u>
+              </h2>
+              <h4 className="main">
+                Create Your Account. It's free only takes a minute
+              </h4>
+              <div className="row">
+                <div className="col center">
+                  <input
+                    type="text"
+                    className="form-control form1"
+                    placeholder="Name"
+                    name="userName"
+                    value={user.userName}
+                    onChange={this.handleChange}
+                  />
+                  {errors.userName && (
+                    <div className="alert alert-danger" id="error2">
+                      {errors.userName}
+                    </div>
+                  )}
+                </div>
+
+                <div className="col center">
+                  <input
+                    type="text"
+                    className="form-control form1"
+                    placeholder="Email"
+                    name="userEmail"
+                    value={user.userEmail}
+                    onChange={this.handleChange}
+                  />
+                  {errors.userEmail && (
+                    <div className="alert alert-danger " id="error2">
+                      {errors.userEmail}
+                    </div>
+                  )}
+                </div>
+                <div className="col center">
+                  <input
+                    type="password"
+                    className="form-control form1"
+                    placeholder="Password"
+                    name="userPassword"
+                    value={user.userPassword}
+                    onChange={this.handleChange}
+                  />
+                  {errors.userPassword && (
+                    <div className="alert alert-danger " id="error2">
+                      {errors.userPassword}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="row">
+                <div className="col center">
+                  <input
+                    type="text"
+                    className="form-control form2houseno"
+                    placeholder="House No"
+                    name="houseNo"
+                    value={user.userAddr.houseNo}
+                    onChange={this.handleAddrChange}
+                  />
+                  {errors.houseNo && (
+                    <div className="alert alert-danger " id="error2">
+                      {errors.houseNo}
+                    </div>
+                  )}
+                </div>
+                <div className="col center">
+                  <textarea
+                    type="text"
+                    className="form-control form3"
+                    placeholder="Area"
+                    name="area"
+                    value={user.userAddr.area}
+                    onChange={this.handleAddrChange}
+                  />
+                  {errors.area && (
+                    <div className="alert alert-danger " id="error2">
+                      {errors.area}
+                    </div>
+                  )}
+                </div>
+                <div className="col center">
+                  <input
+                    type="text"
+                    className="form-control form2"
+                    placeholder="City"
+                    name="city"
+                    value={user.userAddr.city}
+                    onChange={this.handleAddrChange}
+                  />
+                  {errors.city && (
+                    <div className="alert alert-danger " id="error2">
+                      {errors.city}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="row">
+                <div className="col center">
+                  <input
+                    type="text"
+                    className="form-control form2"
+                    placeholder="State"
+                    name="state"
+                    value={user.userAddr.state}
+                    onChange={this.handleAddrChange}
+                  />
+                  {errors.state && (
+                    <div className="alert alert-danger " id="error2">
+                      {errors.state}
+                    </div>
+                  )}
+                </div>
+                <div className="col center">
+                  <input
+                    type="text"
+                    className="form-control form2"
+                    placeholder="Country"
+                    name="country"
+                    value={user.userAddr.country}
+                    onChange={this.handleAddrChange}
+                  />
+                  {errors.country && (
+                    <div className="alert alert-danger " id="error2">
+                      {errors.country}
+                    </div>
+                  )}
+                </div>
+                <div className="col center">
+                  <input
+                    type="text"
+                    className="form-control form2"
+                    id="pin"
+                    placeholder="Pincode"
+                    name="pincode"
+                    value={user.userAddr.pincode}
+                    onChange={this.handleAddrChange}
+                  />
+                  {errors.pincode && (
+                    <div className="alert alert-danger " id="error2">
+                      {errors.pincode}
+                    </div>
+                  )}
+                </div>
+                <div className="col center">
+                  <input
+                    type="text"
+                    className="form-control form2"
+                    placeholder="Phone No"
+                    name="userContact"
+                    value={user.userContact}
+                    onChange={this.handleChange}
+                  />
+                  {errors.userContact && (
+                    <div className="alert alert-danger " id="error2">
+                      {errors.userContact}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <button className="btn btn-primary" id="changebtn">
+                Register
+              </button>
+            </div>
+            <div className="col"></div>
+          </div>
+        </form>
+      </React.Fragment>
     );
   }
 }

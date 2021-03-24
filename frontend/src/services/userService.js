@@ -8,14 +8,11 @@ class UserServices {
   }
 
   userRegister(user) {
-    axios.post(`${API_URL}register`, user).then((response) => {
-      console.log(response.data);
-      if (response.data.role === "ADMIN") {
-        window.location.assign("/admin");
-      } else {
-        window.location.assign("/login");
-      }
-    });
+    return axios.post(`${API_URL}register`, user)
+  }
+
+  updateUser(user){
+    return axios.put(`${API_URL}update`,user)
   }
 }
 

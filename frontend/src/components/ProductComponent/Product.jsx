@@ -15,9 +15,9 @@ class Product extends Component {
       console.log(response.data);
       const products = response.data;
       this.setState({ products });
-      service.getAllProductImages().then((response) => {
+     /*  service.getAllProductImages().then((response) => {
         this.setState({ images: response.data });
-      });
+      }); */
     });
   }
 

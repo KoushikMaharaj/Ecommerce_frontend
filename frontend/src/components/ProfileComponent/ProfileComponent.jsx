@@ -1,18 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class ProfileComponent extends Component {
-    state = { 
-        user:{}
-     }
-     componentDidMount(){
-        let user = JSON.parse(window.localStorage.getItem("user"));
-        console.log(user);
-        this.setState({ user });
-        console.log(this.state.user);
-     }
-    render() { 
-        return ( <div>{this.state.user.userName}</div> );
-    }
-}
+  state = {
+    user: {},
+  };
+
  
+
+  render() {
+    //const { user } = this.state.user;
+    return (
+      <div>
+        <a href="/update/customer">
+          <button className="btn btn-primary">Update Profile</button>
+        </a>
+        <a href={`/showorders`}>
+          <button className="btn btn-primary">Orders</button>
+        </a>
+      </div>
+    );
+  }
+}
+
 export default ProfileComponent;

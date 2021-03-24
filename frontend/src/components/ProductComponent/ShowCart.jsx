@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import service from "../../services/productSevice";
-import orderService from "../../services/orderServices"
+import orderService from "../../services/orderServices";
 
 class ShowCart extends Component {
   state = {
@@ -41,11 +41,20 @@ class ShowCart extends Component {
     orderService.placeCartOrder(id);
   };
 
+  checkProducts = () => {
+    if (this.state.products === null) {
+      return <div className="alert alert-danger">Cart is Empty</div>;
+    }
+  };
+
   render() {
     const { products } = this.state;
 
     return (
       <div style={{ marginTop: "4rem" }}>
+        {this.state.products.length === 0 && (
+          <div className="alert alert-danger">Cart is Empty</div>
+        )}
         {this.error()}
         {products.map((product) => (
           <div className="container" key={product.id}>
@@ -66,6 +75,8 @@ class ShowCart extends Component {
                   <img
                     src={this.renderImage(product.id)}
                     alt={product.prodName}
+                    width="275px"
+                    height="300px"
                   />
                 </div>
                 <div className="col-sm-6" style={{ textAlign: "left" }}>
@@ -103,19 +114,21 @@ class ShowCart extends Component {
             <hr />
           </div>
         ))}
-        <button
-          className="btn btn-primary btn-lg"
-          onClick={() => this.order(this.state.cartId)}
-          style={{
-            margin: "auto",
-            display: "block",
-            textAlign: "center",
-            width: "30%",
-            marginBottom: "2rem",
-          }}
-        >
-          Order
-        </button>
+        {this.state.error ? null : this.state.products.length === 0 ? null : (
+          <button
+            className="btn btn-primary btn-lg"
+            onClick={() => this.order(this.state.cartId)}
+            style={{
+              margin: "auto",
+              display: "block",
+              textAlign: "center",
+              width: "30%",
+              marginBottom: "2rem",
+            }}
+          >
+            Order
+          </button>
+        )}
       </div>
     );
   }

@@ -17,6 +17,10 @@ class OrderService {
       window.location.reload("/showcart")
     })
   }
+
+  getOrdersByCustomer(id){
+    return axios.get(`${ORDER_URL}${id}`)
+  }
 }
 
 export default new OrderService();

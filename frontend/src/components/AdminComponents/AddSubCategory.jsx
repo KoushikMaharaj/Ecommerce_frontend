@@ -68,7 +68,7 @@ class AddSubCategory extends Component {
           />
           <button
             className="btn btn-primary"
-            style={{ marginLeft: "25%", width: "50%" }}
+            style={{ marginLeft: "40%", width: "20%" }}
           >
             Add Subcategory
           </button>

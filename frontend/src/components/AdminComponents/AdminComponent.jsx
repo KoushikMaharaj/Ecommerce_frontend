@@ -6,7 +6,7 @@ import AddSubCategory from "./AddSubCategory";
 import AdminRegistrationForm from "./AdminRegistrationComponent/AdminRegistrationForm";
 import AddProduct from "./AddProduct";
 import "./AdminComponent.css";
-
+import ShowProducts from './ShowProducts';
 
 class AdminComponent extends Component {
   state = {
@@ -80,18 +80,8 @@ class AdminComponent extends Component {
         </table>
         <div className="design">
           <Router>
-            <Link to="/admin/category">
-              <button>Add Category</button>
-              {"          "}
-            </Link>
-            <Route exact path="/admin/category" component={AddCategory} />
-            <Link to="/admin/subcategory">
-              <button>Add Subcategory</button>
-              {"          "}
-            </Link>
-            <Route exact path="/admin/subcategory" component={AddSubCategory} />
             <Link to="/admin/register">
-              <button>Register Admin</button>
+              <button className="btn btn-primary">Register Admin</button>
               {"          "}
             </Link>
             <Route
@@ -99,12 +89,27 @@ class AdminComponent extends Component {
               path="/admin/register"
               component={AdminRegistrationForm}
             />
+            <Link to="/admin/category">
+              <button className="btn btn-primary">Add Category</button>
+              {"          "}
+            </Link>
+            <Route exact path="/admin/category" component={AddCategory} />
+            <Link to="/admin/subcategory">
+              <button className="btn btn-primary">Add Subcategory</button>
+              {"          "}
+            </Link>
+            <Route exact path="/admin/subcategory" component={AddSubCategory} />
 
             <Link to="/admin/product">
-              <button>Add Product</button>
+              <button className="btn btn-primary">Add Product</button>
               {"          "}
             </Link>
             <Route exact path="/admin/product" component={AddProduct} />
+            <Link to="/showproducts">
+              <button className="btn btn-primary">Show Products</button>
+              {"          "}
+            </Link>
+            <Route exact path="/showproducts" component={ShowProducts} />
           </Router>
         </div>
       </div>

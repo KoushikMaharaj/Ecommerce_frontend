@@ -90,14 +90,15 @@ class NavBar extends React.Component {
               <li className="nav-item">
                 {
                   <Link className="nav-link" to="/aboutus">
-                    <i className="fa fa-sign-in" aria-hidden="true" /> AboutUs
+                    <i className="fa fa-info-circle" aria-hidden="true" />{" "}
+                    AboutUs
                   </Link>
                 }
               </li>
               <li className="nav-item">
                 {
                   <Link className="nav-link" to="/contactus">
-                    <i className="fa fa-sign-in" aria-hidden="true" /> ContactUs
+                    <i className="fa fa-phone" aria-hidden="true" /> ContactUs
                   </Link>
                 }
               </li>
@@ -107,7 +108,7 @@ class NavBar extends React.Component {
                   <Link
                     className="nav-link"
                     to="/showcart"
-                    style={{ marginLeft: "36rem" }}
+                    style={{ marginLeft: "40rem" }}
                   >
                     <i /* class="fa fa-shopping-cart" aria-hidden="true" */>
                       <img

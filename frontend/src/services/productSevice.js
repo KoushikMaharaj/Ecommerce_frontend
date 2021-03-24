@@ -40,9 +40,9 @@ class ProductService {
     });
   }
 
-  getAllProductImages() {
+ /*  getAllProductImages() {
     return axios.get(`${PROD_URL}images`);
-  }
+  } */
 
   getAllProducts() {
     return axios.get(PROD_URL);
@@ -77,6 +77,10 @@ class ProductService {
 
   getProductBySubCategory(subCtgName) {
     return axios.get(`${PROD_URL}subcategory/${subCtgName}`);
+  }
+
+  updateProduct(product) {
+    axios.put(`${PROD_URL}update`, product).then((response) => {});
   }
 }
 
