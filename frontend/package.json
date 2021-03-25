@@ -9,6 +9,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "font-awesome": "^4.7.0",
+    "infinite-react-carousel": "^1.2.11",
     "joi-browser": "^13.4.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.2",

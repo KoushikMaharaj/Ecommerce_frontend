@@ -6,7 +6,7 @@ class ProductDetails extends Component {
   state = {
     product: [],
     id: this.props.match.params.id,
-    images: [],
+    qty: 1,
   };
 
   componentDidMount() {
@@ -35,7 +35,7 @@ class ProductDetails extends Component {
   };
 
   order = () => {
-    OrderService.placeOrder(this.state.product.id);
+    OrderService.placeOrder(this.state.product.id,this.state.qty);
   };
 
   renderImage = (id) => {
@@ -64,6 +64,18 @@ class ProductDetails extends Component {
     );
   };
 
+  handleDecrement = () => {
+    let qty = this.state.qty;
+    qty = qty - 1;
+    this.setState({ qty });
+  };
+
+  handleIncrement = () => {
+    let qty = this.state.qty;
+    qty = qty + 1;
+    this.setState({ qty });
+  };
+
   render() {
     return (
       <div
@@ -90,9 +102,41 @@ class ProductDetails extends Component {
               </h4>
               <p>Warrenty: {this.state.product.prodWarrenty} years</p>
               <p>{this.checkStock()}</p>
-              {/* <p>
-                <input type="number">qty</input>
-              </p> */}
+              <div>
+                {this.state.qty === 1 ? (
+                  <button
+                    className="btn btn-primary disabled"
+                    style={{ marginRight: "1rem" }}
+                  >
+                    -
+                  </button>
+                ) : (
+                  <button
+                    className="btn btn-primary"
+                    style={{ marginRight: "1rem" }}
+                    onClick={this.handleDecrement}
+                  >
+                    -
+                  </button>
+                )}
+                {this.state.qty}
+                {this.state.qty === this.state.product.numberInStock ? (
+                  <button
+                    className="btn btn-primary disabled"
+                    style={{ marginLeft: "1rem" }}
+                  >
+                    +
+                  </button>
+                ) : (
+                  <button
+                    className="btn btn-primary"
+                    style={{ marginLeft: "1rem" }}
+                    onClick={this.handleIncrement}
+                  >
+                    +
+                  </button>
+                )}
+              </div>
             </div>
             {this.renderButtons()}
           </div>

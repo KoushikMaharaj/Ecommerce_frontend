@@ -79,8 +79,10 @@ class ProductService {
     return axios.get(`${PROD_URL}subcategory/${subCtgName}`);
   }
 
-  updateProduct(product) {
-    axios.put(`${PROD_URL}update`, product).then((response) => {});
+  updateProduct(prodDTO) {
+    axios.put(`${PROD_URL}update`, prodDTO).then((response) => {
+      window.location.assign("/admin")
+    });
   }
 }
 

@@ -3,18 +3,18 @@ import axios from "axios";
 const ORDER_URL = "http://localhost:8080/order/";
 
 class OrderService {
-  placeOrder(pid) {
+  placeOrder(pid,qty) {
     const user = JSON.parse(window.localStorage.getItem("user"));
-    axios.post(`${ORDER_URL}${user.id}/${pid}`).then((response) => {
+    axios.post(`${ORDER_URL}${user.id}/${pid}/${qty}`).then((response) => {
       console.log(response.data);
-      window.location.reload("/product/details/:id")
+      window.location.assign("/product")
     });
   }
 
   placeCartOrder(id){
     axios.post(`${ORDER_URL}cartorder/${id}`).then(response=>{
       console.log(response.data);
-      window.location.reload("/showcart")
+      window.location.assign("/product")
     })
   }
 

@@ -2,29 +2,41 @@ import React, { Component } from "react";
 import service from "../../services/productSevice";
 
 class UpdateProduct extends Component {
-  state = { id: this.props.match.params.id, product: [] };
+  state = {
+    id: this.props.match.params.id,
+    product: [],
+    prodDTO: {
+      id: this.props.match.params.id,
+      price: "",
+      numberInStock: "",
+    },
+  };
 
   componentDidMount() {
     service.getProductDetail(this.state.id).then((response) => {
       console.log(response.data);
       this.setState({ product: response.data });
+      const prodDTO = { ...this.state.prodDTO };
+      prodDTO.price = response.data.price;
+      prodDTO.numberInStock = response.data.numberInStock;
+      this.setState({ prodDTO });
     });
   }
 
   handleChange = ({ currentTarget: input }) => {
-    const product = { ...this.state.product };
-    product[input.name] = input.value;
-    this.setState({ product });
+    const prodDTO = { ...this.state.prodDTO };
+    prodDTO[input.name] = input.value;
+    this.setState({ prodDTO });
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.product);
-    service.updateProduct(this.state.product);
+    console.log(this.state.prodDTO);
+    service.updateProduct(this.state.prodDTO);
   };
 
   render() {
-    const { product } = this.state;
+    const { product, prodDTO } = this.state;
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="signIn-form">
@@ -48,7 +60,7 @@ class UpdateProduct extends Component {
               type="text"
               name="price"
               className="form-control"
-              value={product.price}
+              value={prodDTO.price}
               onChange={this.handleChange}
             />
           </div>
@@ -60,7 +72,7 @@ class UpdateProduct extends Component {
               type="number"
               name="numberInStock"
               className="form-control"
-              value={product.numberInStock}
+              value={prodDTO.numberInStock}
               onChange={this.handleChange}
             />
           </div>

@@ -28,7 +28,7 @@ class RegistrationForm extends Component {
     userName: Joi.string().required().label("Name"),
     userEmail: Joi.string().required().label("Email"),
     userPassword: Joi.string().min(3).max(10).required().label("Password"),
-    userContact: Joi.string().required().max(10).label("Contact"),
+    userContact: Joi.string().required().min(10).max(10).label("Contact"),
     userAddr: Joi.object(),
     houseNo: Joi.string(),
     area: Joi.string(),
