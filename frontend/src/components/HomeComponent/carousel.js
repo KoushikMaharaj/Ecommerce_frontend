@@ -1,31 +1,71 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
-
-//import './home.css'
-import Slider from "infinite-react-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+import img from "./images/Home 1.jpg";
 
 class Scrolling extends React.Component {
   render() {
-    const settings = {
-      duration: 10,
-      centerMode: true,
-    };
     return (
-      <div>
-        <Slider {...settings}>
-          <img
-            src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/170285408/original/e58c95c45d060041f5c99f3f13e4e0893c56c5f1/pc-gamer-pc-builds.jpg"
-            id="image"
-          />
-
-          <img
-            src="https://images.idgesg.net/images/article/2019/08/xe-graphics-card-100807101-large.jpg"
-            id="image"
-          />
-
-          <img src="https://5.imimg.com/data5/NR/YA/MY-9423735/intel-inside-processor-500x500.png" id="image" />
-        </Slider>
-      </div>
+      <React.Fragment>
+        <Carousel
+          showThumbs={false}
+          infiniteLoop={true}
+          autoPlay={true}
+          interval={5000}
+          showStatus={false}
+        >
+          <div>
+            <img
+              src="https://cdn.vox-cdn.com/thumbor/O0zcrcICWlIa0o7j56RjYpvdyok=/0x0:3470x2193/1200x800/filters:focal(1458x820:2012x1374)/cdn.vox-cdn.com/uploads/chorus_image/image/63658010/Intel_9th_Gen_Core_8.0.jpg"
+              height="600px"
+            />
+          </div>
+          <div>
+            <img
+              src="https://www.cgdirector.com/wp-content/uploads/media/2018/09/GraphicsCardsPerformance-Twitter_1200x675-1200x675.jpg"
+              height="600px"
+            />
+          </div>
+          <div>
+            <img
+              src="https://gamesncomps.com/wp-content/uploads/2020/10/high-gaming-pc.jpg"
+              height="600px"
+            />
+          </div>
+        </Carousel>
+        <div style={{ marginTop: "8rem" }}>
+          <div>Our Parners</div>
+          <div>
+            <Carousel
+              showThumbs={false}
+              infiniteLoop={true}
+              autoPlay={true}
+              interval={5000}
+              showStatus={false}
+            >
+              <div>
+                <img
+                  src="https://cdn.vox-cdn.com/thumbor/O0zcrcICWlIa0o7j56RjYpvdyok=/0x0:3470x2193/1200x800/filters:focal(1458x820:2012x1374)/cdn.vox-cdn.com/uploads/chorus_image/image/63658010/Intel_9th_Gen_Core_8.0.jpg"
+                  height="600px"
+                />
+              </div>
+              <div>
+                <img
+                  src="https://www.cgdirector.com/wp-content/uploads/media/2018/09/GraphicsCardsPerformance-Twitter_1200x675-1200x675.jpg"
+                  height="600px"
+                />
+              </div>
+              <div>
+                <img
+                  src="https://gamesncomps.com/wp-content/uploads/2020/10/high-gaming-pc.jpg"
+                  height="600px"
+                />
+              </div>
+            </Carousel>
+          </div>
+        </div>
+      </React.Fragment>
     );
   }
 }

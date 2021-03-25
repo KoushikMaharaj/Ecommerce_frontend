@@ -3,18 +3,24 @@
 //import './home.css'
 import React from "react";
 import Scrolling from "./carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 
 class Home extends React.Component {
   render() {
-    return (
+    return (<React.Fragment>
       <div className="container">
         <div className="jumbotron text-center" id="box">
-          <h1 id="header">Welcome to Custom PCs</h1>
+          <h1 id="header">Welcome to Computer Shopee</h1>
           <p>Build your own dream PC with us</p>
-          <marquee direction="right">10% discount on First Order</marquee>
+         
         </div>
+        <div style={{marginBottom:"2rem"}}>
         <Scrolling />
+        </div>
       </div>
+     
+     </React.Fragment>
     );
   }
 }
