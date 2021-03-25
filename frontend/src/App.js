@@ -2,22 +2,21 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React from "react";
 
+import NavBar from "./components/Navigation Component/NavBar";
+import Home from "./components/HomeComponent/home";
 import LoginForm from "./components/LoginComponent/loginForm";
 import RegistrationForm from "./components/RegistrationComponent/RegistrationForm";
-import NavBar from "./components/Navigation Component/NavBar";
 import AdminComponent from "./components/AdminComponents/AdminComponent";
 import ProfileComponent from "./components/ProfileComponent/ProfileComponent";
 import Product from "./components/ProductComponent/Product";
 import ProductDetails from "./components/ProductComponent/ProductDetails";
 import ShowCart from "./components/ProductComponent/ShowCart";
-import ProductsByCategory from "./components/ProductComponent/ProductsByCategory";
 import AboutUs from "./components/AboutUsComponent/AboutUs";
 import ContactUs from "./components/ContactUsComponent/ContactUs";
+import ProductsByCategory from "./components/ProductComponent/ProductsByCategory";
 import ProductsBySubCategory from "./components/ProductComponent/ProductsBySubCategory";
 import UpdateProduct from "./components/AdminComponents/UpdateProductComponent";
-import ShowOrders from "./components/OrderComponent/ShowOrderComponent";
-import Home from "./components/HomeComponent/home";
-import OrderDetail from './components/AdminComponents/OrderDetailComponent';
+import OrderDetail from "./components/AdminComponents/OrderDetailComponent";
 
 function App() {
   /* return <RegistrationForm/>; */
@@ -53,7 +52,6 @@ function App() {
             component={ProductsBySubCategory}
           />
           <Route exact path="/update/product/:id" component={UpdateProduct} />
-          <Route exact path="/showorders" component={ShowOrders} />
           <Route exact path="/orderDetails/:orderId" component={OrderDetail} />
         </Switch>
       </Router>
