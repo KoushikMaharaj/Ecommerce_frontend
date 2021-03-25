@@ -29,11 +29,15 @@ class ShowCart extends Component {
 
   error = () => {
     if (this.state.error)
-      return <div className="alert alert-danger">{this.state.error}</div>;
+      return (
+        <div className="alert alert-danger" style={{ textAlign: "center" }}>
+          {this.state.error}
+        </div>
+      );
   };
 
-  removeProduct = (id) => {
-    console.log(id);
+  removeProduct = (pid,cartId) => {
+    service.removeProductFromCart(cartId,pid);
   };
 
   order = (id) => {
@@ -41,21 +45,17 @@ class ShowCart extends Component {
     orderService.placeCartOrder(id);
   };
 
-  checkProducts = () => {
-    if (this.state.products === null) {
-      return <div className="alert alert-danger">Cart is Empty</div>;
-    }
-  };
-
   render() {
     const { products } = this.state;
 
     return (
       <div style={{ marginTop: "4rem" }}>
-        {this.state.products.length === 0 && (
-          <div className="alert alert-danger">Cart is Empty</div>
-        )}
-        {this.error()}
+        {this.error() ||
+          (this.state.products.length === 0 && (
+            <div className="alert alert-danger" style={{ textAlign: "center" }}>
+              Cart is Empty
+            </div>
+          ))}
         {products.map((product) => (
           <div className="container" key={product.id}>
             <div
@@ -63,13 +63,13 @@ class ShowCart extends Component {
               style={{
                 backgroundColor: "white",
                 color: "black",
-                borderRadius: "4rem",
+                
               }}
             >
               <div
                 className="row"
                 key={product.id}
-                style={{ marginBottom: "5rem" }}
+                style={{ marginBottom: "5rem"}}
               >
                 <div className="col-sm-4">
                   <img
@@ -79,7 +79,7 @@ class ShowCart extends Component {
                     height="300px"
                   />
                 </div>
-                <div className="col-sm-6" style={{ textAlign: "left" }}>
+                <div className="col-sm-6" style={{ textAlign: "center" }}>
                   <h4>{product.prodDesc}</h4>
                   <h4>
                     price:
@@ -104,7 +104,7 @@ class ShowCart extends Component {
                 <div className="col-sm-2">
                   <button
                     className="btn btn-primary btn-lg"
-                    onClick={() => this.removeProduct(product.id)}
+                    onClick={() => this.removeProduct(product.id,this.state.cartId)}
                   >
                     Remove
                   </button>

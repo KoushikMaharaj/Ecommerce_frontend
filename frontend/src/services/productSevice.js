@@ -40,16 +40,27 @@ class ProductService {
     });
   }
 
- /*  getAllProductImages() {
-    return axios.get(`${PROD_URL}images`);
-  } */
-
   getAllProducts() {
     return axios.get(PROD_URL);
   }
 
   getProductDetail(id) {
     return axios.get(`${PROD_URL}${id}`);
+  }
+
+  getProductByCategory(ctgName) {
+    console.log(ctgName);
+    return axios.get(`${PROD_URL}category/${ctgName}`);
+  }
+
+  getProductBySubCategory(subCtgName) {
+    return axios.get(`${PROD_URL}subcategory/${subCtgName}`);
+  }
+
+  updateProduct(prodDTO) {
+    axios.put(`${PROD_URL}update`, prodDTO).then((response) => {
+      window.location.assign("/admin");
+    });
   }
 
   addToCart(pid) {
@@ -70,18 +81,11 @@ class ProductService {
     return axios.get(`${CART_URL}${user.id}`);
   }
 
-  getProductByCategory(ctgName) {
-    console.log(ctgName);
-    return axios.get(`${PROD_URL}category/${ctgName}`);
-  }
-
-  getProductBySubCategory(subCtgName) {
-    return axios.get(`${PROD_URL}subcategory/${subCtgName}`);
-  }
-
-  updateProduct(prodDTO) {
-    axios.put(`${PROD_URL}update`, prodDTO).then((response) => {
-      window.location.assign("/admin")
+  removeProductFromCart(cartId, pid) {
+    console.log(cartId, pid);
+    axios.get(`${CART_URL}removeproduct/${cartId}/${pid}`).then((response) => {
+      console.log(response.data);
+      window.location.reload("/showcart");
     });
   }
 }
