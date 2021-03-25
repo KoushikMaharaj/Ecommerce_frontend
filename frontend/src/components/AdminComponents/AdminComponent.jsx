@@ -6,7 +6,8 @@ import AddSubCategory from "./AddSubCategory";
 import AdminRegistrationForm from "./AdminRegistrationComponent/AdminRegistrationForm";
 import AddProduct from "./AddProduct";
 import "./AdminComponent.css";
-import ShowProducts from './ShowProducts';
+import ShowProducts from "./ShowProducts";
+import Orders from "./ShowAllOrders";
 
 class AdminComponent extends Component {
   state = {
@@ -49,7 +50,6 @@ class AdminComponent extends Component {
               <th scope="col">Email</th>
               <th scope="col">Phone</th>
               <th scope="col">#</th>
-              <th scope="col">#</th>
             </tr>
           </thead>
           <tbody>
@@ -58,14 +58,7 @@ class AdminComponent extends Component {
                 <td>{admin.userName}</td>
                 <td>{admin.userEmail}</td>
                 <td>{admin.userContact}</td>
-                <td>
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => this.handleUpdate(admin.id)}
-                  >
-                    Update
-                  </button>
-                </td>
+
                 <td>
                   <button
                     className="btn btn-primary"
@@ -110,6 +103,11 @@ class AdminComponent extends Component {
               {"          "}
             </Link>
             <Route exact path="/showproducts" component={ShowProducts} />
+            <Link to="/showorders">
+              <button className="btn btn-primary">Show Orders</button>
+              {"          "}
+            </Link>
+            <Route exact path="/showorders" component={Orders} />
           </Router>
         </div>
       </div>

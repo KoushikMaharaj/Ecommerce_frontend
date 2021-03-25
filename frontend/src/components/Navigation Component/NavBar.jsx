@@ -38,13 +38,15 @@ class NavBar extends React.Component {
           className="navbar navbar-expand-lg navbar-light"
           style={{ backgroundColor: "MediumAquaMarine" }}
         >
-          <i /* class="fa fa-desktop fa-3x" aria-hidden="true" */>
-            <img
-              src="https://cdn.iconscout.com/icon/premium/png-256-thumb/desktop-computer-2081419-1751440.png"
-              alt="pc"
-              width="50px"
-            />
-          </i>
+          <Link className="nav-link" to="/">
+            <i /* class="fa fa-desktop fa-3x" aria-hidden="true" */>
+              <img
+                src="https://cdn.iconscout.com/icon/premium/png-256-thumb/desktop-computer-2081419-1751440.png"
+                alt="pc"
+                width="50px"
+              />
+            </i>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"

@@ -30,7 +30,7 @@ class ShowCart extends Component {
   error = () => {
     if (this.state.error)
       return (
-        <div className="alert alert-danger" style={{ textAlign: "center" }}>
+        <div className="alert alert-danger" style={{ textAlign: "center",width:"50%",margin:"auto" }}>
           {this.state.error}
         </div>
       );
@@ -52,7 +52,7 @@ class ShowCart extends Component {
       <div style={{ marginTop: "4rem" }}>
         {this.error() ||
           (this.state.products.length === 0 && (
-            <div className="alert alert-danger" style={{ textAlign: "center" }}>
+            <div className="alert alert-danger" style={{ textAlign: "center",width:"50%",margin:"auto" }}>
               Cart is Empty
             </div>
           ))}
