@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
 import service from "../../services/userService";
+import "./UpdateProfile.css";
 
 class UpdateProfile extends Component {
   state = {
@@ -70,7 +71,7 @@ class UpdateProfile extends Component {
       <React.Fragment>
         <form onSubmit={this.handleSubmit} style={{ marginTop: "2rem" }}>
           <div className="col center">
-            <label style={{ marginRight: "34rem" }}>User Name:</label>
+            
             <input
               type="text"
               className="form-control form1"
@@ -81,12 +82,12 @@ class UpdateProfile extends Component {
             />
           </div>
           {errors.userName && (
-            <div className="alert alert-danger" id="error2">
+            <div className="alert alert-danger" id="error">
               {errors.userName}
             </div>
           )}
           <div className="col center">
-            <label style={{ marginRight: "34rem" }}>User Email:</label>
+            
             <input
               type="email"
               className="form-control form1"
@@ -97,12 +98,12 @@ class UpdateProfile extends Component {
             />
           </div>
           {errors.userEmail && (
-            <div className="alert alert-danger" id="error2">
+            <div className="alert alert-danger" id="error">
               {errors.userEmail}
             </div>
           )}
           <div className="col center">
-            <label style={{ marginRight: "33rem" }}>User Contact:</label>
+            
             <input
               type="text"
               className="form-control form1"
@@ -113,7 +114,7 @@ class UpdateProfile extends Component {
             />
           </div>
           {errors.userContact && (
-            <div className="alert alert-danger" id="error2">
+            <div className="alert alert-danger" id="error">
               {errors.userContact}
             </div>
           )}

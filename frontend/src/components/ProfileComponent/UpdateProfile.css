@@ -1,0 +1,11 @@
+input.form-control.form1{
+     margin-bottom: 1rem;
+}
+#error{
+    margin: auto;
+    display: block;
+    width: 45%;
+    text-align: center;
+    margin-bottom: 2rem;
+    /* margin-top: 0; */
+}

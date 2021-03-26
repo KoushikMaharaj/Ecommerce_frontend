@@ -102,11 +102,11 @@ class RegistrationForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="row">
             <div className="col"></div>
-            <div className="col-sm-12 col-md-8 " id="main-class">
-              <h2 className="main">
+            <div className="col-sm-12 col-md-8 " id="main-class1">
+              <h2 >
                 <u>Register</u>
               </h2>
-              <h4 className="main">
+              <h4 >
                 Create Your Account. It's free only takes a minute
               </h4>
               <div className="row">
