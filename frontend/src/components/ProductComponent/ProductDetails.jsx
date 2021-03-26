@@ -35,6 +35,10 @@ class ProductDetails extends Component {
   };
 
   order = () => {
+    let user = JSON.parse(window.sessionStorage.getItem("user"));
+    if (user === null) {
+      window.location.assign("/login");
+    }
     OrderService.placeOrder(this.state.product.id,this.state.qty);
   };
 
@@ -92,12 +96,12 @@ class ProductDetails extends Component {
                 height="300px"
               />
             </div>
-            <div className="col-sm-8" style={{ textAlign: "left" }}>
-              <h4>{this.state.product.prodDesc}</h4>
-              <h4>
+            <div className="col-sm-8">
+              <h4 style={{ textAlign: "left" }}>{this.state.product.prodDesc}</h4>
+              <h4 style={{ textAlign: "left" }}>
                 price:
-                <i className="fa fa-inr" aria-hidden="true">
-                  <b> {this.state.product.price}</b>
+                <i className="fa fa-inr" aria-hidden="true" >
+                  <b > {this.state.product.price}</b>
                 </i>
               </h4>
               <p>Warrenty: {this.state.product.prodWarrenty} years</p>

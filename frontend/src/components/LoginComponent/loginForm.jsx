@@ -119,11 +119,10 @@ class LoginForm extends Component {
                     <b>Sign In</b>
                   </i>
                 </button>
+                <div style={{marginLeft:"19rem"}}>
+                  <a href="/setpassword">Forget Password?</a>
+                </div>
               </form>
-            </div>
-
-            <div>
-              <a href="/setpassword">Forget Password?</a>
             </div>
 
             <a href="/register">

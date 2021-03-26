@@ -27,16 +27,16 @@ class ContactUs extends Component {
               <i class="fa fa-map-marker" aria-hidden="true" id="fav"></i>
               Address
             </h2>
-            <p class="center3">- BL Road Balagi Nagar,Kolhapur</p>
+            <p class="center3">- Rajarampuri 5th Lane, in front of Naturals ice-cream</p>
             <h2 class="center2">
               <i class="fa fa-envelope-o" aria-hidden="true" id="fav"></i>Email
             </h2>
-            <p class="center3">- abc12@gmail.com</p>
+            <p class="center3">- computershopee@gmail.com</p>
             <h2 class="center2">
               <i class="fa fa-phone-square" aria-hidden="true" id="fav"></i>
               Phone
             </h2>
-            <p class="center3">- 1234567890</p>
+            <p class="center3">- 7030261818</p>
           </div>
           <div class="col"></div>
         </div>

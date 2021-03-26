@@ -2,19 +2,19 @@
     background: url(https://i0.wp.com/www.csscodelab.com/wp-content/uploads/2019/11/css3-floating-background-animation-website-designer.png?fit=970%2C588&ssl=1)
         
 } */
-    .center{
-    margin: auto;
-    display: block;
-    text-align: center;
-    margin-top: 2rem;
+.center {
+  margin: auto;
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
 }
-.center1{
-     margin: auto;
-    display: block;
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 1rem;
-    margin-bottom: 2rem;
+.center1 {
+  margin: auto;
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+  margin-bottom: 2rem;
 }
 /*
 .center2{
@@ -31,33 +31,33 @@
     
 }
 */
-#column{
-    margin:auto;
-    display: block;
-    text-align: center;
-    background-color:darkgray;
-/*    background-color:white;*/
-    margin-top: 3rem;
+#column {
+  margin: auto;
+  display: block;
+  text-align: center;
+  background-color: white;
+  border-radius: 12px;
+  /*  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  box-shadow: 10px 5px 10px 5px darkgray,10px 5px 10px 5px darkgray;
+
+  margin-top: 3rem;
 }
-.center4{
-   
-    margin-top: 2rem;
-    
+.center4 {
+  margin-top: 2rem;
 }
-.center3{
-     margin-bottom: 2rem;
+.center3 {
+  margin-bottom: 2rem;
 }
-#fav{
-    margin-right: 0.8rem;
+#fav {
+  margin-right: 0.8rem;
 }
-.main{
-    background-color: burlywood;
-}
-#column1{
-    margin:auto;
-    display: block;
-    text-align: center;
-/*    background-color:burlywood;*/
-    background-color:darkgrey;
-    margin-top: 3rem;
+
+#column1 {
+  margin: auto;
+  display: block;
+  text-align: center;
+  background-color: burlywood;
+  margin-top: 3rem;
+  border-radius: 12px;
+  box-shadow: 10px 5px 10px 5px darkgray,10px 5px 10px 5px darkgray;
 }

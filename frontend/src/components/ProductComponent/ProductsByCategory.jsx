@@ -28,7 +28,7 @@ class ProductsByCategory extends Component {
           {products.map((product) => (
             <div className="product" key={product.id}>
               <h3>{product.prodName}</h3>
-              <h4>
+              <h4 style={{margin:"auto",marginRight:"26rem"}}>
                 <i className="fa fa-inr" aria-hidden="true">
                   <b> {product.price}</b>
                 </i>

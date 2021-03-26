@@ -1,12 +1,22 @@
-.products{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
+.products {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.product img{
-    width: auto;
+.product img {
+  width: auto;
+  margin-bottom: 1rem;
+  
 }
 
-.product{
-    padding: 80px;
+.product {
+  padding: 80px;
+}
+
+.product h4 {
+  margin-right: 28rem;
+}
+
+.product button{
+    margin-left: 6rem;
 }

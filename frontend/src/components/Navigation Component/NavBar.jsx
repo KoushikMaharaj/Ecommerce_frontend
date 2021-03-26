@@ -26,10 +26,7 @@ class NavBar extends React.Component {
     window.location.assign("/");
   };
 
-  toogle = () => {
-    const toogle = true;
-    this.setState({ toogle });
-  };
+  
 
   render() {
     return (
@@ -136,16 +133,18 @@ class NavBar extends React.Component {
             </summary>
             {this.state.user && (
               <div style={{ verticalAlign: "baseline" }}>
-                <Link
-                  className="nav-link"
-                  to="/user/profile"
-                  style={{ color: "wheat" }}
-                >
-                  <i className="fa fa-user" aria-hidden="true" />{" "}
-                  <b>
-                    <i>Profile</i>
-                  </b>
-                </Link>
+                {this.state.user.role !== "ADMIN" && (
+                  <Link
+                    className="nav-link"
+                    to="/user/profile"
+                    style={{ color: "wheat" }}
+                  >
+                    <i className="fa fa-user" aria-hidden="true" />{" "}
+                    <b>
+                      <i>Profile</i>
+                    </b>
+                  </Link>
+                )}
                 <Link
                   className="nav-link"
                   to="/logout"

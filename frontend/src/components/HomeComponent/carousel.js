@@ -15,8 +15,9 @@ class Scrolling extends React.Component {
           interval={5000}
           showStatus={false}
         >
-          <div>
+          <div >
             <img
+            
               src="https://cdn.vox-cdn.com/thumbor/O0zcrcICWlIa0o7j56RjYpvdyok=/0x0:3470x2193/1200x800/filters:focal(1458x820:2012x1374)/cdn.vox-cdn.com/uploads/chorus_image/image/63658010/Intel_9th_Gen_Core_8.0.jpg"
               height="600px"
             />

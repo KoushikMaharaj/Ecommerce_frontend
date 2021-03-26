@@ -14,7 +14,7 @@ class Product extends Component {
     service.getAllProducts().then((response) => {
       console.log(response.data);
       const products = response.data;
-      this.setState({ products });   
+      this.setState({ products });
     });
   }
 
@@ -33,15 +33,17 @@ class Product extends Component {
               <h3>{product.prodName}</h3>
               <h4>
                 <i className="fa fa-inr" aria-hidden="true">
-                  <b> {product.price}</b>
+                  <b>{product.price}</b>
                 </i>
               </h4>
-              <img
-                src={this.renderImage(product.id)}
-                alt={product.prodName}
-                width="300px"
-                height="300px"
-              />
+              <Link to={`/product/details/${product.id}`}>
+                <img
+                  src={this.renderImage(product.id)}
+                  alt={product.prodName}
+                  width="300px"
+                  height="300px"
+                />
+              </Link>
               <p>
                 <Link to={`/product/details/${product.id}`}>
                   <button className="btn btn-primary">View Details</button>
