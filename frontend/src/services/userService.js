@@ -8,11 +8,15 @@ class UserServices {
   }
 
   userRegister(user) {
-    return axios.post(`${API_URL}register`, user)
+    return axios.post(`${API_URL}register`, user);
   }
 
-  userUpdate(user){
-    return axios.put(`${API_URL}update`,user)
+  userUpdate(user) {
+    return axios.put(`${API_URL}update`, user);
+  }
+
+  updateUserAddress(userDTO) {
+    return axios.put(`${API_URL}update/address`, userDTO);
   }
 }
 

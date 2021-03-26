@@ -27,7 +27,12 @@ class RegistrationForm extends Component {
   schema = {
     userName: Joi.string().required().label("Name"),
     userEmail: Joi.string().required().label("Email"),
-    userPassword: Joi.string().min(3).max(10).required().label("Password"),
+    userPassword: Joi.string()
+      .min(3)
+      .max(10)
+      .alphanum()
+      .required()
+      .label("Password"),
     userContact: Joi.string().required().min(10).max(10).label("Contact"),
     userAddr: Joi.object(),
     houseNo: Joi.string(),
@@ -103,12 +108,10 @@ class RegistrationForm extends Component {
           <div className="row">
             <div className="col"></div>
             <div className="col-sm-12 col-md-8 " id="main-class1">
-              <h2 >
+              <h2>
                 <u>Register</u>
               </h2>
-              <h4 >
-                Create Your Account. It's free only takes a minute
-              </h4>
+              <h4>Create Your Account. It's free only takes a minute</h4>
               <div className="row">
                 <div className="col center">
                   <input

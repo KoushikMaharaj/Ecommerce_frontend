@@ -26,40 +26,49 @@ class ProfileComponent extends Component {
     const { orders } = this.state;
     return (
       <React.Fragment>
-        <a href="/updateprofile"><button className="btn btn-primary">Update Profile</button></a>
-        <table
-          className="table"
-          style={{
-            width: "80%",
-            margin: "auto",
-            marginTop: "5rem",
-            border: "1px solid black",
-            textAlign: "center",
-          }}
-        >
-          <thead>
-            <tr>
-              <th>Order Number</th>
-              <th>Product Name</th>
-              <th>Quantity</th>
-              <th>Total Price</th>
-              <th>Order Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((order) =>
-              order.details.map((detail) => (
-                <tr key={detail.product.id}>
-                  <td>{order.id}</td>
-                  <td>{detail.product.prodName}</td>
-                  <td>{detail.qty}</td>
-                  <td>{detail.totalPrice}</td>
-                  <td>{order.orderDate}</td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+        <div>
+          <a href="/updateprofile">
+            <button className="btn btn-primary">Update Profile</button>
+          </a>
+          <a href="/update/address">
+            <button className="btn btn-primary">Change address</button>
+          </a>
+        </div>
+        <div>
+          <table
+            className="table"
+            style={{
+              width: "80%",
+              margin: "auto",
+              marginTop: "5rem",
+              border: "1px solid black",
+              textAlign: "center",
+            }}
+          >
+            <thead>
+              <tr>
+                <th>Order Number</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>Order Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.map((order) =>
+                order.details.map((detail) => (
+                  <tr key={detail.product.id}>
+                    <td>{order.id}</td>
+                    <td>{detail.product.prodName}</td>
+                    <td>{detail.qty}</td>
+                    <td>{detail.totalPrice}</td>
+                    <td>{order.orderDate}</td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       </React.Fragment>
     );
   }
