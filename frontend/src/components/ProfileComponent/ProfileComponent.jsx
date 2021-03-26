@@ -8,7 +8,7 @@ class ProfileComponent extends Component {
   };
 
   componentDidMount() {
-    const user = JSON.parse(window.localStorage.getItem("user"));
+    const user = JSON.parse(window.sessionStorage.getItem("user"));
     console.log(user);
     this.setState({ user });
     service.getOrdersByCustomer(user.id).then((response) => {

@@ -10,7 +10,7 @@ class UpdateProfile extends Component {
   };
 
   componentDidMount() {
-    const user = JSON.parse(window.localStorage.getItem("user"));
+    const user = JSON.parse(window.sessionStorage.getItem("user"));
     console.log(user);
     const userDTO = { ...this.state.userDTO };
     userDTO.id = user.id;
@@ -59,7 +59,7 @@ class UpdateProfile extends Component {
       console.log(this.state.userDTO);
       service.userUpdate(this.state.userDTO).then((response) => {
         console.log(response.data);
-        window.localStorage.setItem("user", JSON.stringify(response.data));
+        window.sessionStorage.setItem("user", JSON.stringify(response.data));
         window.location.assign("/user/profile");
       });
     }

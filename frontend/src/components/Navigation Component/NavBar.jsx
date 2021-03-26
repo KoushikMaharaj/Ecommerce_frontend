@@ -8,7 +8,7 @@ class NavBar extends React.Component {
   };
 
   componentDidMount() {
-    let user = JSON.parse(window.localStorage.getItem("user"));
+    let user = JSON.parse(window.sessionStorage.getItem("user"));
     console.log(user);
     this.setState({ user });
   }
@@ -22,7 +22,7 @@ class NavBar extends React.Component {
 
   handleLogOut = () => {
     console.log("log out clicked");
-    window.localStorage.clear();
+    window.sessionStorage.clear();
     window.location.assign("/");
   };
 

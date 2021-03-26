@@ -42,7 +42,7 @@ class LoginForm extends Component {
         .userLogin(this.state.user)
         .then((response) => {
           console.log(response.data);
-          window.localStorage.setItem("user", JSON.stringify(response.data));
+          window.sessionStorage.setItem("user", JSON.stringify(response.data));
           if (response.data.role === "ADMIN") {
             console.log("admin logged");
             window.location.assign("/admin");

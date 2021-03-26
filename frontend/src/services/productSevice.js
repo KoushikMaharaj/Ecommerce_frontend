@@ -64,7 +64,7 @@ class ProductService {
   }
 
   addToCart(pid) {
-    const user = JSON.parse(window.localStorage.getItem("user"));
+    const user = JSON.parse(window.sessionStorage.getItem("user"));
     if (user === null) {
       window.location.assign("/login");
     }
@@ -76,7 +76,7 @@ class ProductService {
   }
 
   showCart() {
-    const user = JSON.parse(window.localStorage.getItem("user"));
+    const user = JSON.parse(window.sessionStorage.getItem("user"));
     console.log(user.id);
     return axios.get(`${CART_URL}${user.id}`);
   }

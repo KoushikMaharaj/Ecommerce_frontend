@@ -22,7 +22,7 @@ class AdminComponent extends Component {
   }
 
   checkUser = () => {
-    const user = JSON.parse(window.localStorage.getItem("user"));
+    const user = JSON.parse(window.sessionStorage.getItem("user"));
     if (user === null || user.role !== "ADMIN") {
       return (
         <div className="alert alert-danger " id="error">
