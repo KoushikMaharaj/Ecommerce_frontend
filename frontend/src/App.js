@@ -19,6 +19,7 @@ import UpdateProduct from "./components/AdminComponents/UpdateProductComponent";
 import OrderDetail from "./components/AdminComponents/OrderDetailComponent";
 import UpdateProfile from './components/ProfileComponent/UpdateProfileComponent';
 import UpdateAddress from './components/ProfileComponent/UpdateAddressComponent';
+import UpdatePassword from './components/ProfileComponent/UpdatePasswordComponent';
 
 function App() {
   /* return <RegistrationForm/>; */
@@ -57,6 +58,7 @@ function App() {
           <Route exact path="/orderDetails/:orderId" component={OrderDetail} />
           <Route exact path="/updateprofile" component={UpdateProfile} />
           <Route exact path="/update/address" component={UpdateAddress} />
+          <Route exact path="/update/password" component={UpdatePassword} />
         </Switch>
       </Router>
     </React.Fragment>

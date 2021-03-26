@@ -26,12 +26,15 @@ class ProfileComponent extends Component {
     const { orders } = this.state;
     return (
       <React.Fragment>
-        <div>
+        <div style={{marginTop:"2rem",marginLeft:"28rem",width:"auto"}}>
           <a href="/updateprofile">
-            <button className="btn btn-primary">Update Profile</button>
+            <button className="btn btn-primary" style={{marginRight:"2rem"}}>Update Profile</button>
           </a>
           <a href="/update/address">
-            <button className="btn btn-primary">Change address</button>
+            <button className="btn btn-primary" style={{marginRight:"2rem"}}>Change address</button>
+          </a>
+          <a href="/update/password">
+            <button className="btn btn-primary" style={{marginRight:"2rem"}}>Change password</button>
           </a>
         </div>
         <div>

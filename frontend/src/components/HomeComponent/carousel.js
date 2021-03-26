@@ -2,7 +2,7 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import img from "./images/Home 1.jpg";
+
 
 class Scrolling extends React.Component {
   render() {

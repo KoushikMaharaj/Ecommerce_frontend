@@ -18,6 +18,10 @@ class UserServices {
   updateUserAddress(userDTO) {
     return axios.put(`${API_URL}update/address`, userDTO);
   }
+
+  updateUserPassword(userDTO) {
+    return axios.put(`${API_URL}update/password`, userDTO);
+  }
 }
 
 export default new UserServices();

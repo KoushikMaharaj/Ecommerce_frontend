@@ -60,12 +60,18 @@ class AdminComponent extends Component {
                 <td>{admin.userContact}</td>
 
                 <td>
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => this.handleDelete(admin.id)}
-                  >
-                    Delete
-                  </button>
+                  {user.id !== admin.id ? (
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => this.handleDelete(admin.id)}
+                    >
+                      Delete
+                    </button>
+                  ) : (
+                    <button className="btn btn-primary" disabled>
+                      Delete
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}
