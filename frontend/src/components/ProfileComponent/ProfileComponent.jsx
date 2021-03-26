@@ -26,6 +26,7 @@ class ProfileComponent extends Component {
     const { orders } = this.state;
     return (
       <React.Fragment>
+        <a href="/updateprofile"><button className="btn btn-primary">Update Profile</button></a>
         <table
           className="table"
           style={{

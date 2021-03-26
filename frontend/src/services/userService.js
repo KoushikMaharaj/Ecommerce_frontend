@@ -11,7 +11,7 @@ class UserServices {
     return axios.post(`${API_URL}register`, user)
   }
 
-  updateUser(user){
+  userUpdate(user){
     return axios.put(`${API_URL}update`,user)
   }
 }

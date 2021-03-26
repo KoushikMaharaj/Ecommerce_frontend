@@ -17,6 +17,7 @@ import ProductsByCategory from "./components/ProductComponent/ProductsByCategory
 import ProductsBySubCategory from "./components/ProductComponent/ProductsBySubCategory";
 import UpdateProduct from "./components/AdminComponents/UpdateProductComponent";
 import OrderDetail from "./components/AdminComponents/OrderDetailComponent";
+import UpdateProfile from './components/ProfileComponent/UpdateProfileComponent';
 
 function App() {
   /* return <RegistrationForm/>; */
@@ -53,6 +54,7 @@ function App() {
           />
           <Route exact path="/update/product/:id" component={UpdateProduct} />
           <Route exact path="/orderDetails/:orderId" component={OrderDetail} />
+          <Route exact path="/updateprofile" component={UpdateProfile} />
         </Switch>
       </Router>
     </React.Fragment>

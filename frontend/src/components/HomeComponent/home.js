@@ -3,8 +3,8 @@
 //import './home.css'
 import React from "react";
 import Scrolling from "./carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
+ // requires a loader
+
 
 class Home extends React.Component {
   render() {
