@@ -20,6 +20,7 @@ import OrderDetail from "./components/AdminComponents/OrderDetailComponent";
 import UpdateProfile from './components/ProfileComponent/UpdateProfileComponent';
 import UpdateAddress from './components/ProfileComponent/UpdateAddressComponent';
 import UpdatePassword from './components/ProfileComponent/UpdatePasswordComponent';
+import SetPassword from './components/LoginComponent/SetPassword';
 
 function App() {
   /* return <RegistrationForm/>; */
@@ -59,6 +60,7 @@ function App() {
           <Route exact path="/updateprofile" component={UpdateProfile} />
           <Route exact path="/update/address" component={UpdateAddress} />
           <Route exact path="/update/password" component={UpdatePassword} />
+          <Route exact path="/setpassword" component={SetPassword} />
         </Switch>
       </Router>
     </React.Fragment>

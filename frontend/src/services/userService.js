@@ -22,6 +22,10 @@ class UserServices {
   updateUserPassword(userDTO) {
     return axios.put(`${API_URL}update/password`, userDTO);
   }
+
+  getUserByEmail(email) {
+    return axios.post(`${API_URL}${email}`);
+  }
 }
 
 export default new UserServices();

@@ -67,7 +67,11 @@ class LoginForm extends Component {
     const { user, errors, loginError } = this.state;
     return (
       <div className="container signIn">
-        {loginError && <div className="alert alert-danger " id="error1" >{loginError}</div>}
+        {loginError && (
+          <div className="alert alert-danger " id="error1">
+            {loginError}
+          </div>
+        )}
         <div className="row">
           <div className="col"></div>
           <div className="col-sm-12 col-md-8">
@@ -116,6 +120,10 @@ class LoginForm extends Component {
                   </i>
                 </button>
               </form>
+            </div>
+
+            <div>
+              <a href="/setpassword">Forget Password?</a>
             </div>
 
             <a href="/register">
