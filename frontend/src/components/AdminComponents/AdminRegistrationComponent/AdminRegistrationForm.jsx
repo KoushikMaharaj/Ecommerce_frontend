@@ -15,6 +15,7 @@ class AdminRegistrationForm extends Component {
         role: "ADMIN",
       },
       errors: {},
+      regiError: "",
     };
   }
 
@@ -47,7 +48,14 @@ class AdminRegistrationForm extends Component {
     if (errors) return;
     else {
       console.log(this.state.user);
-      service.userRegister(this.state.user);
+      service
+        .userRegister(this.state.user)
+        .then((responsr) => {
+          window.location.assign("/admin");
+        })
+        .catch((ex) => {
+          this.setState({ regiError: "Email is alredy taken" });
+        });
     }
   };
 
@@ -65,20 +73,21 @@ class AdminRegistrationForm extends Component {
   };
 
   render() {
-    const { user, errors } = this.state;
+    const { user, errors, regiError } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="row">
           <div className="col"></div>
           <div className="col-sm-12 col-md-6 " id="main-class">
-            
             <h2 className="main">
-              <u>Register</u>
+              <u>Register Admin</u>
             </h2>
-            <h4 className="main">
-              Create Your Account. It's free only takes a minute
-            </h4>
-            {/* <div className="row"> */}
+            {regiError && (
+              <div className="alert alert-danger" id="error2">
+                {regiError}
+              </div>
+            )}
+
             <div className="center">
               <div className="col center">
                 <input
@@ -129,30 +138,31 @@ class AdminRegistrationForm extends Component {
                   </div>
                 )}
               </div>
-            {/* </div> */}
+              {/* </div> */}
 
-            <div className="col center">
-              <input
-                type="text"
-                className="form-control form1"
-                placeholder="Phone No"
-                id="gap"
-                name="userContact"
-                value={user.userContact}
-                onChange={this.handleChange}
-              />
-              {errors.userContact && (
-                <div className="alert alert-danger " id="error2">
-                  {errors.userContact}
-                </div>
-              )}
-               <button className="btn btn-primary" id="button1" >Register</button>
+              <div className="col center">
+                <input
+                  type="text"
+                  className="form-control form1"
+                  placeholder="Phone No"
+                  id="gap"
+                  name="userContact"
+                  value={user.userContact}
+                  onChange={this.handleChange}
+                />
+                {errors.userContact && (
+                  <div className="alert alert-danger " id="error2">
+                    {errors.userContact}
+                  </div>
+                )}
+                <button className="btn btn-primary" id="button1">
+                  Register
+                </button>
+              </div>
             </div>
-          </div>
           </div>
           <div className="col"></div>
         </div>
-        
       </form>
     );
   }

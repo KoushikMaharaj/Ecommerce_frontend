@@ -7,6 +7,7 @@ class AddCategory extends Component {
     category: {
       ctgName: "",
     },
+    error: "",
   };
 
   handleChange = ({ currentTarget: input }) => {
@@ -18,30 +19,39 @@ class AddCategory extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     console.log(this.state.category);
-    service.addCategory(this.state.category);
+    service
+      .addCategory(this.state.category)
+      .then((response) => {
+        console.log(response.data);
+        window.location.assign("/admin");
+      })
+      .catch((ex) => {       
+        this.setState({ error: "Category exists" });
+      });
   };
 
   render() {
-    const { category } = this.state;
+    const { category, error } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        <h1 className="btn1" style={{ textAlign: "center" }}><b>Add Category</b></h1>
+        <h1 className="btn1" style={{ textAlign: "center" }}>
+          <b>Add Category</b>
+        </h1>
+        {error && (
+          <div className="alert alert-danger" id="error2">
+            {error}
+          </div>
+        )}
         <input
           type="text"
           id="ctgNameInput"
           className="form-control btn1"
-          
-          
           placeholder="Enter Category"
           name="ctgName"
           value={category.ctgName}
           onChange={this.handleChange}
         />
-        <button
-          className="btn btn-primary"
-          id="btn1"
-          
-        >
+        <button className="btn btn-primary" id="btn1">
           Add Category
         </button>
       </form>

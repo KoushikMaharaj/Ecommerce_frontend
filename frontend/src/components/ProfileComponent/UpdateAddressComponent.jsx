@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import service from "../../services/userService"
+import service from "../../services/userService";
+
+import Joi from "joi-browser";
 
 class UpdateAddress extends Component {
   state = {
@@ -7,6 +9,7 @@ class UpdateAddress extends Component {
       id: "",
       userAddr: {},
     },
+    errors: "",
   };
 
   componentDidMount() {
@@ -18,6 +21,31 @@ class UpdateAddress extends Component {
     this.setState({ userDTO });
   }
 
+  schema = Joi.object({
+    houseNo: Joi.string().required(),
+    area: Joi.string().required(),
+    city: Joi.string().required(),
+    state: Joi.string().required(),
+    country: Joi.string().required(),
+    pincode: Joi.string().required(),
+  });
+
+  validate = () => {
+    const options = { abortEarly: false };
+    const result = Joi.validate(
+      this.state.userDTO.userAddr,
+      this.schema,
+      options
+    );
+    if (!result.error) return null;
+
+    const errors = {};
+    for (let item of result.error.details) errors[item.path[0]] = item.message;
+    console.log("validate: ", errors);
+
+    return errors;
+  };
+
   handleAddrChange = ({ currentTarget: input }) => {
     const userDTO = { ...this.state.userDTO };
     userDTO.userAddr[input.name] = input.value;
@@ -26,18 +54,23 @@ class UpdateAddress extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const errors = this.validate();
+    console.log(errors);
+    this.setState({ errors: errors || {} });
+    console.log(errors);
+    if (errors) return;
     console.log(this.state.userDTO);
-    service.updateUserAddress(this.state.userDTO).then(response=>{
-        console.log(response.data);
-        window.sessionStorage.setItem("user",JSON.stringify(response.data))
-        window.location.assign("/user/profile")
-    })
+    service.updateUserAddress(this.state.userDTO).then((response) => {
+      console.log(response.data);
+      window.sessionStorage.setItem("user", JSON.stringify(response.data));
+      window.location.assign("/user/profile");
+    });
   };
 
   render() {
-    const { userDTO } = this.state;
+    const { userDTO, errors } = this.state;
     return (
-      <div>
+      <div style={{alignItems:"center"}}>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -47,11 +80,11 @@ class UpdateAddress extends Component {
             value={userDTO.userAddr.houseNo}
             onChange={this.handleAddrChange}
           />
-          {/* {errors.houseNo && (
-                    <div className="alert alert-danger " id="error2">
-                      {errors.houseNo}
-                    </div>
-                  )} */}
+          {errors.houseNo && (
+            <div className="alert alert-danger " id="error">
+              {errors.houseNo}
+            </div>
+          )}
 
           <textarea
             type="text"
@@ -60,12 +93,13 @@ class UpdateAddress extends Component {
             name="area"
             value={userDTO.userAddr.area}
             onChange={this.handleAddrChange}
+            cols="50"
           />
-          {/* {errors.area && (
-                    <div className="alert alert-danger " id="error2">
-                      {errors.area}
-                    </div>
-                  )} */}
+          {errors.area && (
+            <div className="alert alert-danger " id="error">
+              {errors.area}
+            </div>
+          )}
 
           <input
             type="text"
@@ -75,11 +109,11 @@ class UpdateAddress extends Component {
             value={userDTO.userAddr.city}
             onChange={this.handleAddrChange}
           />
-          {/* {errors.city && (
-                    <div className="alert alert-danger " id="error2">
-                      {errors.city}
-                    </div>
-                  )} */}
+          {errors.city && (
+            <div className="alert alert-danger " id="error">
+              {errors.city}
+            </div>
+          )}
 
           <input
             type="text"
@@ -89,11 +123,11 @@ class UpdateAddress extends Component {
             value={userDTO.userAddr.state}
             onChange={this.handleAddrChange}
           />
-          {/*  {errors.state && (
-                    <div className="alert alert-danger " id="error2">
-                      {errors.state}
-                    </div>
-                  )} */}
+          {errors.state && (
+            <div className="alert alert-danger " id="error">
+              {errors.state}
+            </div>
+          )}
 
           <input
             type="text"
@@ -103,11 +137,11 @@ class UpdateAddress extends Component {
             value={userDTO.userAddr.country}
             onChange={this.handleAddrChange}
           />
-          {/* {errors.country && (
-                    <div className="alert alert-danger " id="error2">
-                      {errors.country}
-                    </div>
-                  )} */}
+          {errors.country && (
+            <div className="alert alert-danger " id="error">
+              {errors.country}
+            </div>
+          )}
 
           <input
             type="text"
@@ -118,11 +152,11 @@ class UpdateAddress extends Component {
             value={userDTO.userAddr.pincode}
             onChange={this.handleAddrChange}
           />
-          {/*  {errors.pincode && (
-                    <div className="alert alert-danger " id="error2">
-                      {errors.pincode}
-                    </div>
-                  )} */}
+          {errors.pincode && (
+            <div className="alert alert-danger " id="error">
+              {errors.pincode}
+            </div>
+          )}
           <button className="btn btn-primary">Update Address</button>
         </form>
       </div>

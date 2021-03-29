@@ -7,10 +7,7 @@ const CART_URL = "http://localhost:8080/cart/";
 
 class ProductService {
   addCategory(category) {
-    axios.post(CTG_URL, category).then((response) => {
-      console.log(response.data);
-      window.location.assign("/admin");
-    });
+    return axios.post(CTG_URL, category);
   }
 
   getAllCategories() {
@@ -34,10 +31,7 @@ class ProductService {
     uploadData.append("prodImage", image);
     console.log(`sending ${JSON.stringify(product)}`);
     uploadData.append("product", JSON.stringify(product));
-    axios.post(PROD_URL, uploadData).then((response) => {
-      console.log(response.data);
-      window.location.assign("/admin");
-    });
+    return axios.post(PROD_URL, uploadData);
   }
 
   getAllProducts() {

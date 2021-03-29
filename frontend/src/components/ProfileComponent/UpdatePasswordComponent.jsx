@@ -19,8 +19,8 @@ class UpdatePassword extends Component {
   }
 
   schema = {
-    id: Joi.number(),
-    userPassword: Joi.string().alphanum().required().label("Password"),
+    id:Joi.number(),
+    userPassword: Joi.string().alphanum().min(3).max(10).label("Password"),
   };
 
   validate = () => {
@@ -62,7 +62,7 @@ class UpdatePassword extends Component {
     const { userDTO, errors } = this.state;
     return (
       <React.Fragment>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} style={{marginTop:"2rem"}}>
           <div className="col center">
             <input
               type="password"
@@ -73,7 +73,7 @@ class UpdatePassword extends Component {
               onChange={this.handleChange}
             />
             {errors.userPassword && (
-              <div className="alert alert-danger " id="error2">
+              <div className="alert alert-danger ">
                 {errors.userPassword}
               </div>
             )}

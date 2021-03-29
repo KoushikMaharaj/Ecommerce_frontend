@@ -84,7 +84,7 @@ class AdminComponent extends Component {
               {"          "}
             </Link>
             <Route
-              exact
+              
               path="/admin/register"
               component={AdminRegistrationForm}
             />

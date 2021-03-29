@@ -22,6 +22,7 @@ class AddProduct extends Component {
       },
       categories: [],
       subcategories: [],
+      error: "",
     };
   }
 
@@ -57,7 +58,7 @@ class AddProduct extends Component {
     ctg.ctgName = input.value;
     console.log(ctg);
     //let cat1={catName:ctg}
-    this.setState({ ctg:ctg });
+    this.setState({ ctg: ctg });
     console.log(this.state.ctg);
   };
 
@@ -76,11 +77,19 @@ class AddProduct extends Component {
     event.preventDefault();
     console.log(this.state.product);
     console.log(this.state.prodImage);
-    service.addProduct(this.state.product, this.state.prodImage);
+    service
+      .addProduct(this.state.product, this.state.prodImage)
+      .then((response) => {
+        console.log(response.data);
+        window.location.assign("/admin");
+      })
+      .catch((ex) => {
+        this.setState({ error: "Product exists" });
+      });
   };
 
   render() {
-    const { categories, subcategories, ctg } = this.state;
+    const { categories, subcategories, ctg, error } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <h1
@@ -92,6 +101,11 @@ class AddProduct extends Component {
         >
           <u>Add Product</u>
         </h1>
+        {error && (
+          <div className="alert alert-danger" id="error2">
+            {error}
+          </div>
+        )}
         <label>Choose Category: </label>
         <select
           name="ctgName"
