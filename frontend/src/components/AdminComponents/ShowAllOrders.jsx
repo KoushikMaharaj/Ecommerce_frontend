@@ -3,13 +3,14 @@ import service from "../../services/orderServices";
 
 class Orders extends Component {
   state = { orders: [] };
+  
   componentDidMount() {
     service.getAllOrders().then((response) => {
-      console.log(response.data);
       const orders = response.data;
       this.setState({ orders });
     });
   }
+  
   render() {
     const { orders } = this.state;
     return (

@@ -41,10 +41,8 @@ class LoginForm extends Component {
       service
         .userLogin(this.state.user)
         .then((response) => {
-          console.log(response.data);
           window.sessionStorage.setItem("user", JSON.stringify(response.data));
           if (response.data.role === "ADMIN") {
-            console.log("admin logged");
             window.location.assign("/admin");
           } else {
             window.location.assign("/");
@@ -119,7 +117,7 @@ class LoginForm extends Component {
                     <b>Sign In</b>
                   </i>
                 </button>
-                <div style={{marginLeft:"19rem"}}>
+                <div style={{ marginLeft: "19rem" }}>
                   <a href="/setpassword">Forget Password?</a>
                 </div>
               </form>

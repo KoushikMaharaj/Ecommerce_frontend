@@ -15,11 +15,11 @@ class SetPassword extends Component {
 
   handleProceed = (event) => {
     event.preventDefault();
-    console.log(this.state.email);
+
     service
       .getUserByEmail(this.state.email)
       .then((response) => {
-        console.log(response.data);
+        
         window.sessionStorage.setItem("user", JSON.stringify(response.data));
         window.location.assign("/update/password");
       })

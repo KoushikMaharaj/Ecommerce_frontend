@@ -10,7 +10,6 @@ class ProductsBySubCategory extends Component {
   };
   componentDidMount() {
     service.getProductBySubCategory(this.state.subCtgName).then((response) => {
-      console.log(response.data);
       this.setState({ products: response.data });
     });
   }
@@ -28,7 +27,7 @@ class ProductsBySubCategory extends Component {
           {products.map((product) => (
             <div className="product" key={product.id}>
               <h3>{product.prodName}</h3>
-              <h4 style={{margin:"auto",marginRight:"26rem"}}>
+              <h4 style={{ margin: "auto", marginRight: "26rem" }}>
                 <i className="fa fa-inr" aria-hidden="true">
                   <b> {product.price}</b>
                 </i>

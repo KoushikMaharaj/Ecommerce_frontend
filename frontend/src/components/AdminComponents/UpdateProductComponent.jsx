@@ -14,7 +14,6 @@ class UpdateProduct extends Component {
 
   componentDidMount() {
     service.getProductDetail(this.state.id).then((response) => {
-      console.log(response.data);
       this.setState({ product: response.data });
       const prodDTO = { ...this.state.prodDTO };
       prodDTO.price = response.data.price;
@@ -31,7 +30,6 @@ class UpdateProduct extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.prodDTO);
     service.updateProduct(this.state.prodDTO);
   };
 

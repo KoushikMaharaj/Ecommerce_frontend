@@ -14,7 +14,7 @@ class UpdateAddress extends Component {
 
   componentDidMount() {
     const user = JSON.parse(window.sessionStorage.getItem("user"));
-    console.log(user);
+
     const userDTO = { ...this.state.userDTO };
     userDTO.id = user.id;
     userDTO.userAddr = user.userAddr;
@@ -55,26 +55,33 @@ class UpdateAddress extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const errors = this.validate();
-    console.log(errors);
     this.setState({ errors: errors || {} });
-    console.log(errors);
     if (errors) return;
-    console.log(this.state.userDTO);
-    service.updateUserAddress(this.state.userDTO).then((response) => {
-      console.log(response.data);
-      window.sessionStorage.setItem("user", JSON.stringify(response.data));
-      window.location.assign("/user/profile");
-    });
+    else {
+      service.updateUserAddress(this.state.userDTO).then((response) => {
+        window.sessionStorage.setItem("user", JSON.stringify(response.data));
+        window.location.assign("/user/profile");
+      });
+    }
   };
 
   render() {
     const { userDTO, errors } = this.state;
     return (
-      <div style={{alignItems:"center"}}>
+      <div
+        style={{
+          alignItems: "center",
+          margin: "auto",
+          display: "block",
+          textAlign: "center",
+          width: "50%",
+          marginTop: "2rem",
+        }}
+      >
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            className="form-control form2houseno"
+            className="form-control"
             placeholder="House No"
             name="houseNo"
             value={userDTO.userAddr.houseNo}
@@ -87,13 +94,19 @@ class UpdateAddress extends Component {
           )}
 
           <textarea
+            style={{
+              width: "40%",
+              margin: "auto",
+              display: "block",
+              marginBottom: "0.8rem",
+              fontSize: "1.5rem",
+            }}
             type="text"
-            className="form-control form3"
+            className="form-control"
             placeholder="Area"
             name="area"
             value={userDTO.userAddr.area}
             onChange={this.handleAddrChange}
-            cols="50"
           />
           {errors.area && (
             <div className="alert alert-danger " id="error">
@@ -103,7 +116,7 @@ class UpdateAddress extends Component {
 
           <input
             type="text"
-            className="form-control form2"
+            className="form-control "
             placeholder="City"
             name="city"
             value={userDTO.userAddr.city}
@@ -117,7 +130,7 @@ class UpdateAddress extends Component {
 
           <input
             type="text"
-            className="form-control form2"
+            className="form-control "
             placeholder="State"
             name="state"
             value={userDTO.userAddr.state}
@@ -131,7 +144,7 @@ class UpdateAddress extends Component {
 
           <input
             type="text"
-            className="form-control form2"
+            className="form-control "
             placeholder="Country"
             name="country"
             value={userDTO.userAddr.country}
@@ -145,8 +158,7 @@ class UpdateAddress extends Component {
 
           <input
             type="text"
-            className="form-control form2"
-            id="pin"
+            className="form-control"
             placeholder="Pincode"
             name="pincode"
             value={userDTO.userAddr.pincode}

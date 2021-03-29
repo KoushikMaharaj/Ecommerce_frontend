@@ -11,7 +11,6 @@ class UpdateProfile extends Component {
 
   componentDidMount() {
     const user = JSON.parse(window.sessionStorage.getItem("user"));
-    console.log(user);
     const userDTO = { ...this.state.userDTO };
     userDTO.id = user.id;
     userDTO.userName = user.userName;
@@ -51,14 +50,10 @@ class UpdateProfile extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const errors = this.validate();
-    console.log(errors);
     this.setState({ errors: errors || {} });
-    console.log(errors);
     if (errors) return;
     else {
-      console.log(this.state.userDTO);
       service.userUpdate(this.state.userDTO).then((response) => {
-        console.log(response.data);
         window.sessionStorage.setItem("user", JSON.stringify(response.data));
         window.location.assign("/user/profile");
       });
@@ -71,7 +66,6 @@ class UpdateProfile extends Component {
       <React.Fragment>
         <form onSubmit={this.handleSubmit} style={{ marginTop: "2rem" }}>
           <div className="col center">
-            
             <input
               type="text"
               className="form-control form1"
@@ -87,7 +81,6 @@ class UpdateProfile extends Component {
             </div>
           )}
           <div className="col center">
-            
             <input
               type="email"
               className="form-control form1"
@@ -103,7 +96,6 @@ class UpdateProfile extends Component {
             </div>
           )}
           <div className="col center">
-            
             <input
               type="text"
               className="form-control form1"

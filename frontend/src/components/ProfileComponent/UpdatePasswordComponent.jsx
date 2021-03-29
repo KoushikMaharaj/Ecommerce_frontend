@@ -19,7 +19,7 @@ class UpdatePassword extends Component {
   }
 
   schema = {
-    id:Joi.number(),
+    id: Joi.number(),
     userPassword: Joi.string().alphanum().min(3).max(10).label("Password"),
   };
 
@@ -44,14 +44,10 @@ class UpdatePassword extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const errors = this.validate();
-    console.log(errors);
     this.setState({ errors: errors || {} });
-    console.log(errors);
     if (errors) return;
     else {
-      console.log(this.state.userDTO);
       service.updateUserPassword(this.state.userDTO).then((response) => {
-        console.log(response.data);
         window.sessionStorage.clear();
         window.location.assign("/login");
       });
@@ -62,7 +58,7 @@ class UpdatePassword extends Component {
     const { userDTO, errors } = this.state;
     return (
       <React.Fragment>
-        <form onSubmit={this.handleSubmit} style={{marginTop:"2rem"}}>
+        <form onSubmit={this.handleSubmit} style={{ marginTop: "2rem" }}>
           <div className="col center">
             <input
               type="password"
@@ -73,9 +69,7 @@ class UpdatePassword extends Component {
               onChange={this.handleChange}
             />
             {errors.userPassword && (
-              <div className="alert alert-danger ">
-                {errors.userPassword}
-              </div>
+              <div className="alert alert-danger ">{errors.userPassword}</div>
             )}
             <button className="btn btn-primary">Change Password</button>
           </div>

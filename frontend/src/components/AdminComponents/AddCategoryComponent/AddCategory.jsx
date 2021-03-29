@@ -18,14 +18,12 @@ class AddCategory extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.category);
     service
       .addCategory(this.state.category)
       .then((response) => {
-        console.log(response.data);
         window.location.assign("/admin");
       })
-      .catch((ex) => {       
+      .catch((ex) => {
         this.setState({ error: "Category exists" });
       });
   };

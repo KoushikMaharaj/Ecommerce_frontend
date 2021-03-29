@@ -12,7 +12,6 @@ class Product extends Component {
 
   componentDidMount() {
     service.getAllProducts().then((response) => {
-      console.log(response.data);
       const products = response.data;
       this.setState({ products });
     });

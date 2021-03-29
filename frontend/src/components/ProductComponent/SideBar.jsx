@@ -12,12 +12,11 @@ class SideBar extends Component {
 
   componentDidMount() {
     service.getAllCategories().then((response) => {
-      console.log(response.data);
       const categories = response.data;
       this.setState({ categories });
     });
+
     service.getAllSubCategories().then((response) => {
-      console.log(response.data);
       const subcategories = response.data;
       this.setState({ subcategories });
     });

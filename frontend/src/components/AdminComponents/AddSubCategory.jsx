@@ -15,7 +15,6 @@ class AddSubCategory extends Component {
 
   componentDidMount() {
     service.getAllCategories().then((response) => {
-      console.log(response.data);
       const categories = response.data;
       this.setState({ categories });
     });
@@ -24,7 +23,6 @@ class AddSubCategory extends Component {
     e.preventDefault();
     const subcategory = { ...this.state.subcategory };
     this.setState({ subcategory });
-    console.log(this.state.subcategory);
     service.addSubCategory(this.state.subcategory);
   };
   handleChange = ({ currentTarget: input }) => {
@@ -35,13 +33,12 @@ class AddSubCategory extends Component {
   handleCategoryChange = ({ currentTarget: input }) => {
     const subcategory = { ...this.state.subcategory };
     subcategory.ctg[input.name] = input.value;
-    console.log(subcategory);
     this.setState({ subcategory });
   };
 
   render() {
     const { subcategory, categories } = this.state;
-    //console.log(subcategory);
+
     return (
       <React.Fragment>
         <h1 style={{ textAlign: "center" }}>Add Subcategory</h1>

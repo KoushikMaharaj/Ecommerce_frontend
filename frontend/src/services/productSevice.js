@@ -27,9 +27,7 @@ class ProductService {
 
   addProduct(product, image) {
     const uploadData = new FormData();
-    console.log(image);
     uploadData.append("prodImage", image);
-    console.log(`sending ${JSON.stringify(product)}`);
     uploadData.append("product", JSON.stringify(product));
     return axios.post(PROD_URL, uploadData);
   }
@@ -43,7 +41,6 @@ class ProductService {
   }
 
   getProductByCategory(ctgName) {
-    console.log(ctgName);
     return axios.get(`${PROD_URL}category/${ctgName}`);
   }
 
@@ -62,23 +59,18 @@ class ProductService {
     if (user === null) {
       window.location.assign("/login");
     }
-    console.log(user.id);
     axios.post(`${CART_URL}addtocart/${user.id}/${pid}`).then((response) => {
-      console.log(response.data);
       window.location.assign("/product");
     });
   }
 
   showCart() {
     const user = JSON.parse(window.sessionStorage.getItem("user"));
-    console.log(user.id);
     return axios.get(`${CART_URL}${user.id}`);
   }
 
   removeProductFromCart(cartId, pid) {
-    console.log(cartId, pid);
     axios.get(`${CART_URL}removeproduct/${cartId}/${pid}`).then((response) => {
-      console.log(response.data);
       window.location.reload("/showcart");
     });
   }

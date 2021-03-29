@@ -9,7 +9,6 @@ class NavBar extends React.Component {
 
   componentDidMount() {
     let user = JSON.parse(window.sessionStorage.getItem("user"));
-    console.log(user);
     this.setState({ user });
   }
   renderUserName = () => {
@@ -21,12 +20,9 @@ class NavBar extends React.Component {
   };
 
   handleLogOut = () => {
-    console.log("log out clicked");
     window.sessionStorage.clear();
     window.location.assign("/");
   };
-
-  
 
   render() {
     return (
@@ -36,7 +32,7 @@ class NavBar extends React.Component {
           style={{ backgroundColor: "MediumAquaMarine" }}
         >
           <Link className="nav-link" to="/">
-            <i /* class="fa fa-desktop fa-3x" aria-hidden="true" */>
+            <i>
               <img
                 src="https://cdn.iconscout.com/icon/premium/png-256-thumb/desktop-computer-2081419-1751440.png"
                 alt="pc"
@@ -109,7 +105,7 @@ class NavBar extends React.Component {
                     to="/showcart"
                     style={{ marginLeft: "40rem" }}
                   >
-                    <i /* class="fa fa-shopping-cart" aria-hidden="true" */>
+                    <i>
                       <img
                         src="https://img.icons8.com/pastel-glyph/2x/shopping-cart--v2.png"
                         alt="cart"

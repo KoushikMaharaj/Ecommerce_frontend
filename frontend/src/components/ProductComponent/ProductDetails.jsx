@@ -10,7 +10,6 @@ class ProductDetails extends Component {
   };
 
   componentDidMount() {
-    console.log(this.state.id);
     service.getProductDetail(this.state.id).then((response) => {
       const product = response.data;
       this.setState({ product });
@@ -39,7 +38,7 @@ class ProductDetails extends Component {
     if (user === null) {
       window.location.assign("/login");
     }
-    OrderService.placeOrder(this.state.product.id,this.state.qty);
+    OrderService.placeOrder(this.state.product.id, this.state.qty);
   };
 
   renderImage = (id) => {
@@ -97,11 +96,13 @@ class ProductDetails extends Component {
               />
             </div>
             <div className="col-sm-8">
-              <h4 style={{ textAlign: "left" }}>{this.state.product.prodDesc}</h4>
+              <h4 style={{ textAlign: "left" }}>
+                {this.state.product.prodDesc}
+              </h4>
               <h4 style={{ textAlign: "left" }}>
                 price:
-                <i className="fa fa-inr" aria-hidden="true" >
-                  <b > {this.state.product.price}</b>
+                <i className="fa fa-inr" aria-hidden="true">
+                  <b> {this.state.product.price}</b>
                 </i>
               </h4>
               <p>Warrenty: {this.state.product.prodWarrenty} years</p>

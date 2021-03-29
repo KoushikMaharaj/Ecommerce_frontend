@@ -59,16 +59,12 @@ class RegistrationForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const errors = this.validate();
-    console.log(errors);
     this.setState({ errors: errors || {} });
-    console.log(errors);
     if (errors) return;
     else {
-      console.log(this.state.user);
       service
         .userRegister(this.state.user)
         .then((response) => {
-          console.log(response.data);
           if (response.data.role === "ADMIN") {
             window.location.assign("/admin");
           } else {
@@ -92,7 +88,6 @@ class RegistrationForm extends Component {
     const user = { ...this.state.user };
     user.userAddr[input.name] = input.value;
     this.setState({ user });
-    /* console.log(this.state.user); */
   };
 
   render() {

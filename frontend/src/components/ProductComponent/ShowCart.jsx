@@ -13,7 +13,6 @@ class ShowCart extends Component {
     service
       .showCart()
       .then((response) => {
-        console.log(response.data);
         this.setState({ cartId: response.data.id });
         this.setState({ products: response.data.products });
       })
@@ -30,14 +29,17 @@ class ShowCart extends Component {
   error = () => {
     if (this.state.error)
       return (
-        <div className="alert alert-danger" style={{ textAlign: "center",width:"50%",margin:"auto" }}>
+        <div
+          className="alert alert-danger"
+          style={{ textAlign: "center", width: "50%", margin: "auto" }}
+        >
           {this.state.error}
         </div>
       );
   };
 
-  removeProduct = (pid,cartId) => {
-    service.removeProductFromCart(cartId,pid);
+  removeProduct = (pid, cartId) => {
+    service.removeProductFromCart(cartId, pid);
   };
 
   order = (id) => {
@@ -52,7 +54,10 @@ class ShowCart extends Component {
       <div style={{ marginTop: "4rem" }}>
         {this.error() ||
           (this.state.products.length === 0 && (
-            <div className="alert alert-danger" style={{ textAlign: "center",width:"50%",margin:"auto" }}>
+            <div
+              className="alert alert-danger"
+              style={{ textAlign: "center", width: "50%", margin: "auto" }}
+            >
               Cart is Empty
             </div>
           ))}
@@ -63,13 +68,12 @@ class ShowCart extends Component {
               style={{
                 backgroundColor: "white",
                 color: "black",
-                
               }}
             >
               <div
                 className="row"
                 key={product.id}
-                style={{ marginBottom: "5rem"}}
+                style={{ marginBottom: "5rem" }}
               >
                 <div className="col-sm-4">
                   <img
@@ -104,7 +108,9 @@ class ShowCart extends Component {
                 <div className="col-sm-2">
                   <button
                     className="btn btn-primary btn-lg"
-                    onClick={() => this.removeProduct(product.id,this.state.cartId)}
+                    onClick={() =>
+                      this.removeProduct(product.id, this.state.cartId)
+                    }
                   >
                     Remove
                   </button>

@@ -12,15 +12,6 @@ class OrderDetail extends Component {
 
   componentDidMount() {
     service.getOrderById(this.state.orderId).then((response) => {
-      console.log(response.data);
-      //const order = response.data;
-      console.log(response.data.customer);
-      //const customer = response.data.customer;
-      console.log(response.data.orderAddress);
-      //const address = response.data.orderAddress;
-      console.log(response.data.details);
-      //const details = response.data.details;
-      //this.setState({ order });
       this.setState({ customer: response.data.customer });
       this.setState({ address: response.data.orderAddress });
       this.setState({ details: response.data.details });
@@ -31,7 +22,16 @@ class OrderDetail extends Component {
     const { customer, address, details } = this.state;
     return (
       <React.Fragment>
-        <table className="table" style={{margin:"auto",marginTop:"2rem",textAlign:"center",border:"1px solid black",width:"auto"}}>
+        <table
+          className="table"
+          style={{
+            margin: "auto",
+            marginTop: "2rem",
+            textAlign: "center",
+            border: "1px solid black",
+            width: "auto",
+          }}
+        >
           <thead>
             <tr>
               <th scope="col">Customer Name</th>
@@ -69,7 +69,6 @@ class OrderDetail extends Component {
             ))}
           </tbody>
         </table>
-        
       </React.Fragment>
     );
   }

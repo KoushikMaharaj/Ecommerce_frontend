@@ -30,12 +30,11 @@ class AddProduct extends Component {
     service.getAllCategories().then((response) => {
       const categories = response.data;
       this.setState({ categories });
-      console.log(this.state.categories);
     });
+
     service.getAllSubCategories().then((response) => {
       const subcategories = response.data;
       this.setState({ subcategories });
-      console.log(this.state.subcategories);
     });
   }
 
@@ -43,23 +42,12 @@ class AddProduct extends Component {
     const product = { ...this.state.product };
     product[input.name] = input.value;
     this.setState({ product });
-    //console.log(this.state.product);
   };
-  /* handleCategoryChange = (e) => {
-   
-    let cat1={catName:e.target.value}
-    this.setState({ ctg:cat1 });
-    console.log(cat1);
-    console.log(this.state.ctg);
-  }; */
 
   handleCategoryChange = ({ currentTarget: input }) => {
     const ctg = { ...this.state.ctg };
     ctg.ctgName = input.value;
-    console.log(ctg);
-    //let cat1={catName:ctg}
     this.setState({ ctg: ctg });
-    console.log(this.state.ctg);
   };
 
   handleImageChange = (event) => {
@@ -75,12 +63,9 @@ class AddProduct extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.product);
-    console.log(this.state.prodImage);
     service
       .addProduct(this.state.product, this.state.prodImage)
       .then((response) => {
-        console.log(response.data);
         window.location.assign("/admin");
       })
       .catch((ex) => {

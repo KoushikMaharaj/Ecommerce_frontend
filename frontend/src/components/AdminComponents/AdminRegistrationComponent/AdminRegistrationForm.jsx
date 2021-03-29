@@ -42,15 +42,15 @@ class AdminRegistrationForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const errors = this.validate();
-    console.log(errors);
+    
     this.setState({ errors: errors || {} });
-    console.log(errors);
+    
     if (errors) return;
     else {
-      console.log(this.state.user);
+      
       service
         .userRegister(this.state.user)
-        .then((responsr) => {
+        .then((response) => {
           window.location.assign("/admin");
         })
         .catch((ex) => {
@@ -69,7 +69,7 @@ class AdminRegistrationForm extends Component {
     const user = { ...this.state.user };
     user.userAddr[input.name] = input.value;
     this.setState({ user });
-    /* console.log(this.state.user); */
+    
   };
 
   render() {

@@ -9,32 +9,37 @@ class ProfileComponent extends Component {
 
   componentDidMount() {
     const user = JSON.parse(window.sessionStorage.getItem("user"));
-    console.log(user);
+
     this.setState({ user });
     service.getOrdersByCustomer(user.id).then((response) => {
-      console.log(response.data);
       const orders = response.data;
       this.setState({ orders });
     });
   }
 
-  renderOrder = () => {
+/*   renderOrder = () => {
     return;
-  };
+  }; */
 
   render() {
     const { orders } = this.state;
     return (
       <React.Fragment>
-        <div style={{marginTop:"2rem",marginLeft:"28rem",width:"auto"}}>
+        <div style={{ marginTop: "2rem", marginLeft: "28rem", width: "auto" }}>
           <a href="/updateprofile">
-            <button className="btn btn-primary" style={{marginRight:"2rem"}}>Update Profile</button>
+            <button className="btn btn-primary" style={{ marginRight: "2rem" }}>
+              Update Profile
+            </button>
           </a>
           <a href="/update/address">
-            <button className="btn btn-primary" style={{marginRight:"2rem"}}>Change address</button>
+            <button className="btn btn-primary" style={{ marginRight: "2rem" }}>
+              Change address
+            </button>
           </a>
           <a href="/update/password">
-            <button className="btn btn-primary" style={{marginRight:"2rem"}}>Change password</button>
+            <button className="btn btn-primary" style={{ marginRight: "2rem" }}>
+              Change password
+            </button>
           </a>
         </div>
         <div>
