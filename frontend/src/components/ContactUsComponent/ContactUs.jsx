@@ -31,7 +31,7 @@ class ContactUs extends Component {
             <h2 className="center2">
               <i className="fa fa-envelope-o" aria-hidden="true" id="fav"></i>Email
             </h2>
-            <p className="center3">- computershopee@gmail.com</p>
+            <p className="center3">- computershopee52@gmail.com</p>
             <h2 className="center2">
               <i className="fa fa-phone-square" aria-hidden="true" id="fav"></i>
               Phone

@@ -18,7 +18,7 @@ class Home extends React.Component {
                   "1px 1px 2px black, 0 0 25px white, 0 0 5px darkgray",
               }}
             >
-              Welcome to Computer Shopee
+              Welcome to Computer Accessories Shopee
             </h1>
             <p>Build your own dream PC with us</p>
           </div>
